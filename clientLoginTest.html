@@ -1,0 +1,55 @@
+<html>
+<script>
+
+function HandleLoginResponse(response)
+{
+	var text = JSON.parse(response);
+//	document.getElementById("textResponse").innerHTML = response+"<p>";	
+	document.getElementById("textResponse").innerHTML = "Your reponse has arrived: "+text+"<p>";
+}
+
+function SendLoginRequest(username,password)
+{
+	var request = new XMLHttpRequest();
+	request.open("POST","login.php",true);
+	request.setRequestHeader("Content-Type","application/x-www-form-urlencoded");
+	request.onreadystatechange= function ()
+	{
+		
+		if ((this.readyState == 4)&&(this.status == 200))
+		{
+			HandleLoginResponse(this.responseText);
+		}		
+	}
+	request.send("type=login&uname="+username+"&pword="+password);
+}
+</script>
+
+<h1>Welcome to Our Authentication Application!!</h1>
+<body>
+<div id="textResponse">
+Please hold while we are awaiting your response.
+</div>
+<script>
+SendLoginRequest("bourne","52766");
+</script>
+<form action = "clientRequestTest.php"
+		id "Form">
+	Enter User Identification
+	<input type = text
+     			name = "userid"
+			size = 10
+			placeholder = "User ID [Required Field]">
+	<br><br>
+	Enter Account Password
+	<input type = text
+			name = "userpw"
+			size = 10
+			placeholder = "User PW [Required Field]">
+	<br><br>
+
+	<input type = submit
+			value = "Submit">
+</form>
+</body>
+</html>
