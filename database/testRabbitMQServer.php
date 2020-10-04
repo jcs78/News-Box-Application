@@ -33,10 +33,19 @@ function requestProcessor($request)
 	catch(Exception $e){
 		return $e->getMessage();
 	}
+    case "login":
+	try{
+		$account = databaseTest($request);
+		return $account;
+	}
+	catch(Exception $e){
+		return $e->getMessage();
+	}
     case "validate_session":
       return doValidate($request['sessionId']);
   }
-  return array("returnCode" => '0', 'message'=>"Server received request and processed");
+  //return array("returnCode" => '0', 'message'=>"Server received request and processed");
+  return "Not a valid Case";
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
