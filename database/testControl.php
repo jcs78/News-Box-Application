@@ -1,21 +1,24 @@
 <?php
 
-function databaseTest($array){
+function databaseTest($array)
+{
 
 	$conn = new PDO("mysql:host=localhost;dbname=testDB", "testUser", "12345");
-	
 
 	$action = $array['type'];
 
-	switch($action){
-		case'Login':{
-			$newUsername = $action['username']
-			$newPassword = $action['password']
+	switch($action)
+	{
+		case'register':
+		{
+			$newUsername = $array['username'];
 
-			$query = "insert into `testLogin`
+			$newPassword = $array['password'];
+
+			$query = "insert into `userInfo`
 					(`username`, `password`)
 				  values
-					(:username, :password);
+					(:username, :password)";
 			$statement = $conn->prepare($query);
 
 			$statement->bindValue(':username', $newUsername);

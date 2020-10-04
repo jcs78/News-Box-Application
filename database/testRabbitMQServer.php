@@ -3,6 +3,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('testControl.php');
 
 function doLogin($username,$password)
 {
@@ -15,16 +16,23 @@ function doLogin($username,$password)
 function requestProcessor($request)
 {
   echo "received request".PHP_EOL;
-  var_dump($request);
+  //var_dump($request);
+  print_r($request);
   if(!isset($request['type']))
   {
     return "ERROR: unsupported message type";
   }
   switch ($request['type'])
   {
-    case "login":
+    case "register":
         //return doLogin($request['username'],$request['password']);
-	return "working";
+	try{
+		databaseTest($request);
+		return "added new user";
+	}
+	catch(Exception $e){
+		return $e->getMessage();
+	}
     case "validate_session":
       return doValidate($request['sessionId']);
   }
