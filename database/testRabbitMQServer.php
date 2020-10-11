@@ -36,6 +36,12 @@ function requestProcessor($request)
     case "login":
 	try{
 		$account = databaseTest($request);
+
+		//$rtnArray = array();
+		//$rtnArray['account'] = $account;
+		//$rtnArray['phpSession'] = 'phpSession';
+		//return $rtnArray;
+
 		return $account;
 	}
 	catch(Exception $e){
