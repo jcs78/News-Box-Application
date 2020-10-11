@@ -1,3 +1,5 @@
+#!/usr/bin/php
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -20,10 +22,8 @@
                     <label style="color:red;">* </label>
                     <input type="password" name="" required="required" placeholder="Enter Your Password">   
                 </div>
-                <br><input type="submit" id ="loginSubmit" name="" value="REGISTER" style="color: white;">
-                
+                <br><input type="submit" id ="loginSubmit" name="" value="REGISTER" style="color: white;"> 
 
-                    
         </form>
     </div>
 
