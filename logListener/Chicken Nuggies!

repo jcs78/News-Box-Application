@@ -1,0 +1,2 @@
+[12-Oct-2020 11:36:25 America/New_York] PHP Warning:  require_once(alsoNonExistent.php): failed to open stream: No such file or directory in /home/jcs78/git/news-box-app/logListener/logSpeaker.php on line 16
+[12-Oct-2020 11:36:25 America/New_York] PHP Fatal error:  require_once(): Failed opening required 'alsoNonExistent.php' (include_path='.:/usr/share/php:/home/dkehoe/git/system_integration') in /home/jcs78/git/news-box-app/logListener/logSpeaker.php on line 16
