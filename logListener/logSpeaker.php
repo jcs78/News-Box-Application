@@ -6,7 +6,10 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 
 function handleError($errNo, $errMsg, $error_file, $error_line) {
+	global $client;
 	$errorType = "";
+	$e_Error = "";
+
 	switch ($errNo)	{
 		case 1:
 			$errorType = "E_ERROR";
@@ -56,9 +59,11 @@ function handleError($errNo, $errMsg, $error_file, $error_line) {
 		default:
 			$errorType = "No Type Determined.";
 	}
-	echo "Error [$errorType] " . date("h:i:sa") . " at "  . date("m-d-Y") . ": $errMsg inside $error_file on line $error_line.";
-	echo "\n\n";
-	echo "Chicken Nuggies!\n\n";
+
+	$e_Error = "Error [$errorType] detected at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": $errMsg inside $error_file on line $error_line.\n";
+	$client->send_log($e_Error);
+
+	echo $e_Error;
 
 	die();
 }
@@ -66,15 +71,21 @@ function handleError($errNo, $errMsg, $error_file, $error_line) {
 error_reporting(E_ALL);
 set_error_handler("handleError");
 
-try {
+$client = new rabbitMQClient("logRabbitMQ.ini", "logServer");
+$throwableError = "";
+
+try {	
 //	Causes an Throwable Error.
-//	nonExistent();
+	nonExistent();
 }
 catch (Throwable $e) {
-	echo "Throwable Error Caught on " . date("h:i:sa") . " at "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n\n";
+	$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+	$client->send_log($throwableError);
+	
+	echo $throwableError;
 
 //	Causes an error that is caught by handler.
-//	echo "Trace: " . $e->getTrace() . "\n";
+	echo "Trace: " . $e->getTrace() . "\n";
 }
 
 ?>
