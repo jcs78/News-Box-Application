@@ -3,7 +3,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('testControl.php');
+require_once('mainControl.php');
 
 function doLogin($username,$password)
 {
@@ -27,7 +27,7 @@ function requestProcessor($request)
     case "register":
         //return doLogin($request['username'],$request['password']);
 	try{
-		databaseTest($request);
+		databaseAction($request);
 		return "added new user";
 	}
 	catch(Exception $e){
@@ -35,7 +35,7 @@ function requestProcessor($request)
 	}
     case "login":
 	try{
-		$account = databaseTest($request);
+		$account = databaseAction($request);
 
 		//$rtnArray = array();
 		//$rtnArray['account'] = $account;
@@ -61,4 +61,3 @@ $server->process_requests('requestProcessor');
 echo "testRabbitMQServer END".PHP_EOL;
 exit();
 ?>
-
