@@ -1,6 +1,6 @@
 <?php
 
-function registerUser($username, $password){
+function registerUser($conn, $username, $password){
 	$query = "insert into `userInfo`
                  	(`username`, `password`)
                   values
@@ -12,19 +12,24 @@ function registerUser($username, $password){
         $statement->execute();
         $statement->closeCursor();
 
+	//create proper return for mainControl
+
 }
 
-function loginUser($username, $password){
+function validUserLogin($conn, $username, $password){
+
 	$query = 'select * from userInfo where
                  	username = :username and password = :password';
        	$statement = $conn->prepare($query);
-        $statement->bindValue(':username', $loginUser);
-        $statement->bindValue(':password', $loginPass);
+        $statement->bindValue(':username', $username);
+        $statement->bindValue(':password', $password);
         $statement->execute();
 
         $account = $statement->fetchALL();
 
 	//print_r($account);
+
+	//create proper return for mainControl
 
         if(count($account) === 0){
         	return false;

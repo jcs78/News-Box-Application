@@ -1,4 +1,6 @@
 <?php
+require_once("dbFunctions/userFunctions.php");
+
 
 function databaseAction($array)
 {
@@ -18,7 +20,7 @@ function databaseAction($array)
 
 			$newPassword = $array['password'];
 
-			registerUser($newUsername, $newPassword);
+			registerUser($conn, $newUsername, $newPassword);
 		}
 		case 'login':
 		{
@@ -26,7 +28,7 @@ function databaseAction($array)
 
 			$loginPassword = $array['password'];
 
-			loginUser($loginUsername, $loginPassword);
+			validUserLogin($conn, $loginUsername, $loginPassword);
 
 		}
 	}
