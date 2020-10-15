@@ -92,7 +92,7 @@ class rabbitMQServer
 		{
 			call_user_func($this->callback,$payload);
 		}
-		echo "Processed one-way message.\n";
+//		echo "Processed one-way message.\n";
 	}
 
 	function process_logs($callback)
@@ -208,28 +208,32 @@ class rabbitMQClient
 
 			$exchange = new AMQPExchange($channel);
       			$exchange->setName($this->exchange);
-      			$exchange->setType($this->exchange_type);
+     			$exchange->setType($this->exchange_type);
 
-     			$callback_queue = new AMQPQueue($channel);
-    			$callback_queue->setName($this->queue."_response");
-     			$callback_queue->declare();
-			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");
+//		Commented out because we do not want to create a new queue that is directed back at the Speaker of the Logs. [-jcs78]
+//     			$callback_queue = new AMQPQueue($channel);
+//    			$callback_queue->setName($this->queue."_response");
+//     			$callback_queue->declare();
+//			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");
 
 			$this->conn_queue = new AMQPQueue($channel);
 			$this->conn_queue->setName($this->queue);
 			$this->conn_queue->bind($exchange->getName(),$this->routing_key);
 
-			$exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));
-     			$this->response_queue[$uid] = "waiting";
-			$callback_queue->consume(array($this,'process_response'));
+//		Commented out because we do not want to create a new exchange that is directed back at the Speaker of the Logs. [-jcs78]
+//			$exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));
+			$exchange->publish($json_message, $this->routing_key,AMQP_NOPARAM);
 
-			$response = $this->response_queue[$uid];
-			unset($this->response_queue[$uid]);
-			return $response;
+//		Commented out becuase there is nothing being sent by the Listener of the Logs to process. [-jcs78]
+//     			$this->response_queue[$uid] = "waiting";
+//			$callback_queue->consume(array($this,'process_response'));
+//			$response = $this->response_queue[$uid];
+//			unset($this->response_queue[$uid]);
+//			return $response;
 		}
 		catch(Exception $e)
 		{
-			die("failed to send message to exchange: ". $e->getMessage()."\n");
+			die("Failed to send message to exchange: ". $e->getMessage()."\n");
 		}
 	}
 
@@ -264,7 +268,7 @@ class rabbitMQClient
 		}
 		catch(Exception $e)
 		{
-			die("failed to send message to exchange: ". $e->getMessage()."\n");
+			die("Failed to send message to exchange: ". $e->getMessage()."\n");
 		}
 	}
 }
