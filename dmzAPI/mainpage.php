@@ -1,3 +1,4 @@
+
 <?php
 
 if(!empty($GET['headlines']))
@@ -12,4 +13,6 @@ if(!empty($GET['headlines']))
 
 
 ?>
+
+#still need to replace and test GET with POST
 
