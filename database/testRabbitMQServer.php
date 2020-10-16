@@ -15,43 +15,46 @@ function doLogin($username,$password)
 
 function requestProcessor($request)
 {
-  echo "received request".PHP_EOL;
-  //var_dump($request);
-  print_r($request);
-  if(!isset($request['type']))
-  {
-    return "ERROR: unsupported message type";
-  }
-  switch ($request['type'])
-  {
-    case "register":
-        //return doLogin($request['username'],$request['password']);
-	try{
-		databaseAction($request);
-		return "added new user";
-	}
-	catch(Exception $e){
-		return $e->getMessage();
-	}
-    case "login":
-	try{
-		$account = databaseAction($request);
+  	echo "received request".PHP_EOL;
+  	//var_dump($request);
+  	print_r($request);
+  	if(!isset($request['type']))
+  	{
+   		return "ERROR: unsupported message type";
+  	}
+  	switch ($request['type'])
+  	{
+		case "register":
+	        	//return doLogin($request['username'],$request['password']);
+			try{
+				databaseAction($request);
+				return "added new user";
+			}
+			catch(Exception $e){
+				return $e->getMessage();
+			}
+	    	case "login":
+			try{
+				$account = databaseAction($request);
 
-		//$rtnArray = array();
-		//$rtnArray['account'] = $account;
-		//$rtnArray['phpSession'] = 'phpSession';
-		//return $rtnArray;
+				//$rtnArray = array();
+				//$rtnArray['account'] = $account;
+				//$rtnArray['phpSession'] = 'phpSession';
+				//return $rtnArray;
 
-		return $account;
+				return $account;
+			}
+			catch(Exception $e){
+				return $e->getMessage();
+			}
+	    	case "validate_session":
+	      		return doValidate($request['sessionId']);
+
+		default:
+			return "Not a valid Case";
 	}
-	catch(Exception $e){
-		return $e->getMessage();
-	}
-    case "validate_session":
-      return doValidate($request['sessionId']);
-  }
-  //return array("returnCode" => '0', 'message'=>"Server received request and processed");
-  return "Not a valid Case";
+	//return array("returnCode" => '0', 'message'=>"Server received request and processed");
+	//return "Not a valid Case";
 }
 
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");

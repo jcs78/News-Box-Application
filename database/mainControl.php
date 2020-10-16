@@ -20,7 +20,9 @@ function databaseAction($array)
 
 			$newPassword = $array['password'];
 
-			registerUser($conn, $newUsername, $newPassword);
+			$$newUser = registerUser($conn, $newUsername, $newPassword);
+
+			return $newUser;
 		}
 		case 'login':
 		{
@@ -28,8 +30,9 @@ function databaseAction($array)
 
 			$loginPassword = $array['password'];
 
-			validUserLogin($conn, $loginUsername, $loginPassword);
+			$validUser = validUserLogin($conn, $loginUsername, $loginPassword);
 
+			return $validUser;
 		}
 	}
 }
