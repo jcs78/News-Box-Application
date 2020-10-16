@@ -22,11 +22,15 @@ curl_setopt_array($curl, array(
 $response = curl_exec($curl);
 
 curl_close($curl);
-echo $response;
+
+$json = json_decode($response);
+echo json_encode($json, JSON_PRETTY_PRINT);
+
 
 $content = ob_get_clean();
 file_put_contents('file.txt', $content);
 ?>
+
 
 
 
