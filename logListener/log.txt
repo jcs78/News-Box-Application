@@ -1,0 +1,6 @@
+Throwable Error Caught at 10:22:15am on 10-16-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/logListener/logSpeaker.php on line 92.
+
+Error [E_NOTICE] detected at 10:22:15am on 10-16-2020: Array to string conversion inside /home/jcs78/git/news-box-app/logListener/logSpeaker.php on line 105.
+
+Throwable Error Caught at 10:30:47am on 10-16-2020: Call to undefined function nonExistent() inside /home/nolan/git/News-Box-Application/logListener/logSpeaker.php on line 92.
+

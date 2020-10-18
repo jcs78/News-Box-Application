@@ -1,19 +1,31 @@
 <?php
 
 function registerUser($conn, $username, $password){
-	$query = "insert into `userInfo`
-                 	(`username`, `password`)
-                  values
-                      	(:username, :password)";
-        $statement = $conn->prepare($query);
 
-        $statement->bindValue(':username', $newUsername);
-       	$statement->bindValue(':password', $newPassword);
-        $statement->execute();
-        $statement->closeCursor();
+	try{
+		$query = "insert into `userInfo`
+	                 	(`username`, `password`)
+	                  values
+	                      	(:username, :password)";
+	        $statement = $conn->prepare($query);
 
-	//create proper return for mainControl
+	        $statement->bindValue(':username', $newUsername);
+	       	$statement->bindValue(':password', $newPassword);
+	        $statement->execute();
+	        $statement->closeCursor();
 
+		//create proper return for mainControl
+
+		return True;
+
+	}catch(Exception $e){
+
+		$rtnArray = array();
+
+		$rtnArray[0] = False;
+
+		$rtnArray[1] = $e->getMessage();
+	}
 }
 
 function validUserLogin($conn, $username, $password){
