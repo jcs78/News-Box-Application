@@ -36,10 +36,12 @@ function validUserLogin($conn, $username, $password){
         $statement->bindValue(':username', $username);
         $statement->bindValue(':password', $password);
         $statement->execute();
+	$statement->closeCursor();
+
 
         $account = $statement->fetchALL();
 
-	//print_r($account);
+	print_r($account);
 
 	//create proper return for mainControl
 

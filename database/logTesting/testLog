@@ -1,8 +1,0 @@
-#!/usr/bin/php
-<?php
-
-$var = "me";
-echo $var;
-
-?>
-

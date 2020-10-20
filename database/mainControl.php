@@ -2,7 +2,7 @@
 require_once("dbFunctions/userFunctions.php");
 
 
-function databaseAction($array)
+function databaseAction($inputArray)
 {
 	$dbUser = "testUser";
 
@@ -10,7 +10,7 @@ function databaseAction($array)
 
 	$conn = new PDO("mysql:host=localhost;dbname=testDB", $dbUser, $dbPassword);
 
-	$action = $array['type'];
+	$action = $inputArray['type'];
 
 	switch($action)
 	{
@@ -26,9 +26,9 @@ function databaseAction($array)
 		}
 		case 'login':
 		{
-			$loginUsername = $array['username'];
+			$loginUsername = $inputArray['username'];
 
-			$loginPassword = $array['password'];
+			$loginPassword = $inputArray['password'];
 
 			$validUser = validUserLogin($conn, $loginUsername, $loginPassword);
 

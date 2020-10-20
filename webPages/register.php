@@ -75,7 +75,12 @@
 
     <section id="register">
       <div class="registerForm">
+
+
+
         <form>
+	  <input type="hidden" name="action" value="registerUser">	
+
           <div class="inputBox">
             <br /><label style="color: lightskyblue;"> Username </label>
             <label style="color:red;">* </label>
@@ -105,6 +110,8 @@
             style="color: white;"
           />
         </form>
+
+
       </div>
     </section>
 

@@ -5,18 +5,15 @@ require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('mainControl.php');
 
-function doLogin($username,$password)
-{
-    // lookup username in databas
-    // check password
-    return true;
-    //return false if not valid
-}
+//Log Stuff
+//require_once('logRabbitMQLib.inc');
+
 
 function requestProcessor($request)
 {
   	echo "received request".PHP_EOL;
   	//var_dump($request);
+	echo "inside function \n";
   	print_r($request);
   	if(!isset($request['type']))
   	{
@@ -35,12 +32,8 @@ function requestProcessor($request)
 			}
 	    	case "login":
 			try{
+				echo "inside login case \n";
 				$account = databaseAction($request);
-
-				//$rtnArray = array();
-				//$rtnArray['account'] = $account;
-				//$rtnArray['phpSession'] = 'phpSession';
-				//return $rtnArray;
 
 				return $account;
 			}
@@ -56,7 +49,45 @@ function requestProcessor($request)
 	//return array("returnCode" => '0', 'message'=>"Server received request and processed");
 	//return "Not a valid Case";
 }
+/*
+//Log Stuff
+error_reporting(E_ALL);
+set_error_handler("handleError");
 
+$clientLog = new rabbitMQClient("logRabbitMQ.ini", "logServer");
+$throwableError = "";
+
+try {   
+// Causes a 'Throwable Error' (used as a test to see if throwable errors are caught and s$
+
+	//DELETE THIS
+	nonExistent();
+
+	//place any code that needs to be error checked and logged
+
+}
+catch (Throwable $e) {
+// Using the individual pieces of info caught about the error, a string is stored inside $
+        $throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date($
+
+// Sends the content inside that string variable to be shot through the log exchange and $
+        $clientLog->send_log($throwableError);
+
+	//This can be used as a test
+
+// Used as a test to ensure the latest log(s) were sent to the log listener(s). [-jcs78]
+//      echo $throwableError;
+
+//DELETE THIS
+//      Causes an error that is caught by handler (used as a test to see if errors are ha$
+        echo "Trace: " . $e->getTrace() . "\n";
+}
+*/
+
+//
+
+
+//Main Function - this can be moved into the try/catch block
 $server = new rabbitMQServer("testRabbitMQ.ini","testServer");
 
 echo "testRabbitMQServer BEGIN".PHP_EOL;
