@@ -1,6 +1,6 @@
 <?php
 
-include('abstractViews/header.php');
+///include('abstractViews/header.php');
 
 //session_start();
 
@@ -66,9 +66,16 @@ include('abstractViews/header.php');
 	<!-- Change hrefs to this server  -->
         <div class="navbar-menu">
 
+
+          <a href= "newsbox.php">
+            Home</a
+          >
+
+	<!-- Needs to link to to our site
           <a href="https://news-box-application.glitch.me/Newsbox.html">
             Home</a
           >
+	-->
 
 	  <!-- Needs to link back to our site
           <a href="https://news-box-application.glitch.me/login.html">

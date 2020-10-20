@@ -45,8 +45,8 @@
         </button>
         <!-- Where all the nav bar will list -->
         <div class="navbar-menu">
-          <a href="#"> Home</a>
-          <a href="#"> Login </a>
+          <a href="newsbox.php"> Home</a>
+          <a href="login.php"> Login </a>
           <a href="#"> Register</a>
           <a href="#"> Forum</a>
         </div>

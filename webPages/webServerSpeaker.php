@@ -1,7 +1,7 @@
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+require('path.inc');
+require('get_host_info.inc');
+require('rabbitMQLib.inc');
 
 function speak($userInputArray){
 	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
@@ -9,3 +9,5 @@ function speak($userInputArray){
 	$response = $client->send_request($userInputArray);
 	return $response;
 }
+
+

@@ -1,6 +1,12 @@
 <?php
-//make this file
-require('webServerSpeaker.php');
+
+//session_start();
+
+
+//this require statement causes the code to stall
+//for some reason it does not like the called file
+//to have php tags
+require("webServerSpeaker.php");
 
 session_start();
 
@@ -15,6 +21,7 @@ if ($webServerAction == NULL){
 print_r($_SESSION);
 
 switch ($webServerAction){
+
 	case 'showLogin':{
 		include('login.php');
 	}
@@ -44,6 +51,7 @@ switch ($webServerAction){
 
 		header('Location: .?action=showLandingPage');
 	}
+
 	default:{
 		echo "Unknown Action";
 	}
