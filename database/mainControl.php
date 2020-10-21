@@ -26,13 +26,18 @@ function databaseAction($inputArray)
 		}
 		case 'login':
 		{
-			$loginUsername = $inputArray['username'];
+			try{
+				$loginUsername = $inputArray['username'];
 
-			$loginPassword = $inputArray['password'];
+				$loginPassword = $inputArray['password'];
 
-			$validUser = validUserLogin($conn, $loginUsername, $loginPassword);
+				$validUser = validUserLogin($conn, $loginUsername, $loginPassword);
 
-			return $validUser;
+				return $validUser;
+
+			}catch(Exception $e){
+				return $e->getMessage();
+			}
 		}
 	}
 }

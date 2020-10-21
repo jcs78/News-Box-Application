@@ -1,12 +1,10 @@
 <?php
-
 //session_start();
-
 
 //this require statement causes the code to stall
 //for some reason it does not like the called file
 //to have php tags
-require("webServerSpeaker.php");
+require('webServerSpeaker.php');
 
 session_start();
 
@@ -18,7 +16,7 @@ if ($webServerAction == NULL){
 
 //echo $webServerAction;
 
-print_r($_SESSION);
+//print_r($_SESSION);
 
 switch ($webServerAction){
 

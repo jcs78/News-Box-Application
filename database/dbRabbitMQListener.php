@@ -12,9 +12,12 @@ require_once('mainControl.php');
 function requestProcessor($request)
 {
   	echo "received request".PHP_EOL;
+
+  	//Shows input data
+
+	//echo "inside function \n";
   	//var_dump($request);
-	echo "inside function \n";
-  	print_r($request);
+
   	if(!isset($request['type']))
   	{
    		return "ERROR: unsupported message type";
@@ -32,7 +35,11 @@ function requestProcessor($request)
 			}
 	    	case "login":
 			try{
-				echo "inside login case \n";
+				//Shows input data
+
+				//echo "inside login case current array: \n";
+				//print_r($request);
+
 				$account = databaseAction($request);
 
 				return $account;

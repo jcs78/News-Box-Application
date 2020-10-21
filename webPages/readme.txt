@@ -6,3 +6,6 @@ Oct 20, 2020------------------------------
 - when I did run for errors it said that you cannot start a
 	session inside of the file, probably have to dig around
 	to see how to fix this issue.
+
+Oct 21, 2020------------------------------
+- index.php is still not working, and shows the same error
