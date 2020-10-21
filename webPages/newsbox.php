@@ -1,3 +1,11 @@
+<?php
+
+///include('abstractViews/header.php');
+
+//session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -50,12 +58,33 @@
             <i class="fas fa-search"></i>
           </a>
         </div>
+
+
+
+
+
+	<!-- Change hrefs to this server  -->
         <div class="navbar-menu">
+
+
+          <a href= "newsbox.php">
+            Home</a
+          >
+
+	<!-- Needs to link to to our site
           <a href="https://news-box-application.glitch.me/Newsbox.html">
             Home</a
           >
+	-->
+
+	  <!-- Needs to link back to our site
           <a href="https://news-box-application.glitch.me/login.html">
             Login
+	  -->
+
+	  <a href="login.php">
+	    Login
+
           </a>
           <a href="https://news-box-application.glitch.me/register.html">
             Register</a

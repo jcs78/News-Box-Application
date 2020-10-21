@@ -39,7 +39,12 @@ function validUserLogin($conn, $username, $password){
 
         $account = $statement->fetchALL();
 
+	$statement->closeCursor();
+
+	//Shows output array
+	//echo "inside validUserLogin, output data from query: \n";
 	//print_r($account);
+	//echo "\n";
 
 	//create proper return for mainControl
 
