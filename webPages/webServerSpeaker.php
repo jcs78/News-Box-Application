@@ -14,8 +14,8 @@ function speak($userInputArray){
 	return $response;
 }
 
-/* Testing
-
+// Testing
+/*
 $inputArray = array();
 
 $inputArray['type'] = 'login';
@@ -33,7 +33,7 @@ $rtnInfo = speak($inputArray);
 print_r($rtnInfo);
 echo "\n\n";
 */
-
+?>
 
 
 
