@@ -1,0 +1,4 @@
+Throwable Error Caught at 02:34:13pm on 10-18-2020: Call to undefined function nonExistent() inside /home/nmaster/git_one/News-Box-Application/dmzAPI/logSpeaker.php on line 23.
+
+Error [E_NOTICE] detected at 02:34:13pm on 10-18-2020: Array to string conversion inside /home/nmaster/git_one/News-Box-Application/dmzAPI/logSpeaker.php on line 36.
+
