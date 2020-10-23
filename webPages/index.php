@@ -1,28 +1,12 @@
+#!/usr/bin/php
 <?php
+//require_once('../../../webServerSpeakerFiles/webServerSpeaker.php');
 
-//this require statement causes the code to stall
-//it does not like rabbitMQLib.inc
-require('../../../home/nolan/webPages/webServerSpeaker.php');
 
-//making the speak function inside of this file
-//require('path.inc');
-//require('get_host_info.inc');
-//require_once('rabbitMQLib.inc');
+//getting the directory with client info
+//require('../../../home/nolan/webServerSpeakerFiles/webServerSpeaker.php');
 
-/*
-function speak($userInputArray){
-        //Show input
-        //echo "inside speak function array: \n";
-        //print_r($userInputArray);
-        //echo "\n";
-        $client = new rabbitMQClient("testRabbitMQ.ini","testServer");
-
-        $response = $client->send_request($userInputArray);
-        return $response;
-}
-*/
 //Main web page control//
-
 session_start();
 
 $webServerAction = filter_input(INPUT_POST, 'action');
@@ -67,6 +51,21 @@ switch ($webServerAction){
 
 
 		header('Location: .?action=showLandingPage');
+	}
+
+	case 'registerUser':{
+		$newUsername = filter_input(INPUT_POST, 'username');
+                $newPassword = filter_input(INPUT_POST, 'password');
+
+		$registerRequest = array();
+                $registerRequest['type'] = "register";
+                $registerRequest['username'] = $newUsername;
+                $registerRequest['password'] = $newPassword;
+
+		$isRegistered = speak($registerRequest);
+
+		//finish what happens here
+
 	}
 
 	default:{

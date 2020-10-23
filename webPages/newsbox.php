@@ -85,10 +85,17 @@
 	  <a href="login.php">
 	    Login
 
+
+	<!--
           </a>
           <a href="https://news-box-application.glitch.me/register.html">
             Register</a
           >
+	-->
+
+	 <a href= "register.php">
+            Register</a
+
           <a href="#"> Forum</a>
         </div>
       </div>

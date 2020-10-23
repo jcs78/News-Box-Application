@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 require('path.inc');
 require('get_host_info.inc');
@@ -15,24 +16,20 @@ function speak($userInputArray){
 }
 
 // Testing
-/*
+
 $inputArray = array();
 
 $inputArray['type'] = 'login';
 $inputArray['username'] = 'testName1';
 $inputArray['password'] = 'testPass1';
 
-
-//Shows Test Array
-echo "Test array \n";
-print_r($inputArray);
-echo "\n";
+echo"\n";
 
 $rtnInfo = speak($inputArray);
 
 print_r($rtnInfo);
 echo "\n\n";
-*/
+
 ?>
 
 
