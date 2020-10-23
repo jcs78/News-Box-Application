@@ -58,17 +58,7 @@
       <div class="inner-width">
         <div class="content">
           <h1></h1>
-          <!--
           
-          <div class="sm">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-google"></a>
-            <a href="#" class="fa fa-linkedin"></a>
-            <a href="#" class="fa fa-youtube"></a>
-          </div>
-          
-          -->
         </div>
       </div>
     </section>
@@ -100,8 +90,22 @@
               required="required"
               placeholder="Enter Your Password"
             />
+          </div> 
+                     <div class="checkBox">
+          <br>
+          <br><input type="checkbox" id="ref1" name="ref1" value="Bss">
+          <label for="userRef1"> Business</label><br>
+          <br> <input type="checkbox" id="ref2" name="ref2" value="Ettm">
+          <label for="userRef2"> Entertainment </label><br>
+          <br> <input type="checkbox" id="ref3" name="ref3" value="Hth">
+          <label for="userRef3"> Health</label><br>
+          <br><input type="checkbox" id="ref4" name="ref4" value="Sci">
+          <label for="userRef4"> Science</label><br>
+          <br><input type="checkbox" id="ref5" name="ref5" value="Sprt">
+          <label for="userRef5"> Sports </label><br>
+          <br> <input type="checkbox" id="ref6" name="ref6" value="Tech">
+          <label for="userRef6"> Technology</label><br><br>
           </div>
-
           <br /><input
             type="submit"
             id="loginSubmit"
