@@ -1,0 +1,266 @@
+{
+    "status": "ok",
+    "totalResults": 70,
+    "articles": [
+        {
+            "source": {
+                "id": "cnn",
+                "name": "CNN"
+            },
+            "author": "Mirna Alsharif and Steve Almasy, CNN",
+            "title": "Nearly 50 people contracted coronavirus after fellowship event at a small church in Maine - CNN",
+            "description": "Three people have been hospitalized with Covid-19 and 46 others have contracted the coronavirus after a fellowship event at a church in a small town in Maine, according to the state's top health official.",
+            "url": "https:\/\/www.cnn.com\/2020\/10\/22\/us\/maine-church-covid-19-outbreak\/index.html",
+            "urlToImage": "https:\/\/cdn.cnn.com\/cnnnext\/dam\/assets\/201022174814-maine-church-covid-19-outbreak-super-tease.jpg",
+            "publishedAt": "2020-10-22T23:22:00Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Uwyo.edu"
+            },
+            "author": null,
+            "title": "Five COVID Cases on UW Residence Hall Floor Prompt Action | News - University of Wyoming News",
+            "description": null,
+            "url": "http:\/\/www.uwyo.edu\/uw\/news\/2020\/10\/five-covid-cases-on-uw-residence-hall-floor-prompt-action.html",
+            "urlToImage": null,
+            "publishedAt": "2020-10-22T22:22:40Z",
+            "content": "Five active cases of COVID-19 have been detected on another floor of a residence hall at the University of Wyoming, prompting the university to take action to limit the spread of the virus in that gr\u2026 [+1356 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "WCAX"
+            },
+            "author": "Christina Guessferd",
+            "title": "Vermont wedding barn linked to COVID outbreak - WCAX",
+            "description": "It\u2019s a call no business owner wants to get. A week after a wedding at a Cambridge farm, the Vermont Health Department told the owners of the venue that at least seven Vermonters in the party have tested positive for the coronavirus.",
+            "url": "https:\/\/www.wcax.com\/2020\/10\/22\/vermont-wedding-linked-to-covid-outbreak\/",
+            "urlToImage": "https:\/\/gray-wcax-prod.cdn.arcpublishing.com\/resizer\/rIWvRnSHUUjxuT-uL6JKXbUTcH0=\/980x0\/smart\/cloudfront-us-east-1.images.arcpublishing.com\/gray\/KDIGD6Z6YNBZVHRVVXBVCTCCQM.jpg",
+            "publishedAt": "2020-10-22T21:44:00Z",
+            "content": "CAMBRIDGE, Vt. (WCAX) - Its a call no business owner wants to get. A week after a wedding at a Cambridge farm, the Vermont Health Department told the owners of the venue that at least seven Vermonter\u2026 [+2110 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Hawaii News Now"
+            },
+            "author": "Chavonnie Ramos",
+            "title": "Mourning 'Tuxedo Man\u2019: After a homeless man\u2019s death, his life story comes to light - Hawaii News Now",
+            "description": "\u201cHe always had great pride in his appearance and his demeanor, so he never saw himself as a homeless person.\u201d",
+            "url": "https:\/\/www.hawaiinewsnow.com\/2020\/10\/22\/mourning-tuxedo-man-after-homeless-mans-death-his-life-story-comes-light\/",
+            "urlToImage": "https:\/\/www.hawaiinewsnow.com\/resizer\/IFqwJQveH1Ipz_O5ytUJKESWeAc=\/1200x0\/cloudfront-us-east-1.images.arcpublishing.com\/raycom\/CGT2W72KMZAO7FCWBVQ4TUAASE.jpeg",
+            "publishedAt": "2020-10-22T21:39:00Z",
+            "content": "HONOLULU, Hawaii (HawaiiNewsNow) - Raymond Petry spent more than three decades on the streets of Oahu. His signature outfit a black suit earned him the nickname Tuxedo Man.\r\nBut it wasnt until his de\u2026 [+3982 chars]"
+        },
+        {
+            "source": {
+                "id": "usa-today",
+                "name": "USA Today"
+            },
+            "author": "Ken Alltucker",
+            "title": "Alzheimer's disease: IBM study cites language use as an early sign of disease - USA TODAY",
+            "description": "A study performed by IBM and funded by Pfizer found a computerized model analyzing language patterns accurately Alzheimer's disease later in life.",
+            "url": "https:\/\/www.usatoday.com\/story\/news\/health\/2020\/10\/22\/ibm-study-found-program-analyzing-language-predicts-alzheimers\/3728608001\/",
+            "urlToImage": "https:\/\/www.gannett-cdn.com\/-mm-\/b2b05a4ab25f4fca0316459e1c7404c537a89702\/c=0-0-1365-768\/local\/-\/media\/2020\/08\/06\/USATODAY\/usatsports\/247WallSt.com-247WS-727324-imageforentry2-tki.jpg?width=1600&height=800&fit=crop",
+            "publishedAt": "2020-10-22T21:34:44Z",
+            "content": "Scientists are closing in on a long-sought goal _ a blood test to screen people for possible signs of Alzheimer's disease and other forms of dementia. Half a dozen research groups gave new results at\u2026 [+5379 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "YouTube"
+            },
+            "author": null,
+            "title": "At Least 13 Dead After Getting Flu Vaccines in South Korea | NowThis - NowThis News",
+            "description": "At least 13 people died after receiving flu vaccines in South Korea \u2014 health officials say they have found no direct link between the deaths and the vaccinat...",
+            "url": "https:\/\/www.youtube.com\/watch?v=YqX2r_kMcgc",
+            "urlToImage": "https:\/\/i.ytimg.com\/vi\/YqX2r_kMcgc\/hqdefault.jpg",
+            "publishedAt": "2020-10-22T20:59:50Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Daily Mail"
+            },
+            "author": "By Emily Crane For Dailymail.com",
+            "title": "Daily Covid-19 deaths surpass 1,000 for the first time in a month - Daily Mail",
+            "description": "COVID-19 deaths across the country have been averaging about 700 per day for the past month before rising to\u00a01,124 on Wednesday. It's the highest daily toll since September 16.",
+            "url": "https:\/\/www.dailymail.co.uk\/news\/article-8869801\/Daily-Covid-19-deaths-surpass-1-000-time-month.html",
+            "urlToImage": "https:\/\/i.dailymail.co.uk\/1s\/2020\/10\/22\/22\/34727848-0-image-a-8_1603403042503.jpg",
+            "publishedAt": "2020-10-22T20:49:57Z",
+            "content": "The daily number of COVID-19 deaths in the United States has surpassed 1,000 for the first time in a month - as infections continue to rise across the Midwest with Kansas' positivity rate surging to \u2026 [+5225 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Richmond.com"
+            },
+            "author": "SABRINA MORENO  Richmond Times-Dispatch",
+            "title": "Anyone who attended a recent concert at a Henrico restaurant should quarantine, says Health Dept. - Richmond.com",
+            "description": "The Henrico County Health District reported Thursday that it's investigating a COVID-19 outbreak associated with an Oct. 9 live music event at JJ's Grille, a restaurant on Staples Mill Road",
+            "url": "https:\/\/richmond.com\/entertainment\/dining\/anyone-who-attended-a-recent-concert-at-a-henrico-restaurant-should-quarantine-health-officials-say\/article_760c8abd-4d6a-5203-8c3a-8f1b12d24bf6.html",
+            "urlToImage": "https:\/\/bloximages.newyork1.vip.townnews.com\/richmond.com\/content\/tncms\/assets\/v3\/editorial\/b\/99\/b995bc2c-035f-58a4-9101-c250ee0c08b1\/5f91c51fb336b.image.jpg?crop=1636%2C920%2C0%2C173&resize=1120%2C630&order=crop%2Cresize",
+            "publishedAt": "2020-10-22T20:45:00Z",
+            "content": "The site of the outbreak also was a factor, Avula said, noting that not all patrons' first and last names were available.\r\n\"In an office setting, you know everybody who works in the office and spent \u2026 [+1209 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "WJHL-TV News Channel 11"
+            },
+            "author": "News Channel 11 Staff",
+            "title": "TDH: 74 new COVID-19 cases reported in Sullivan County - WJHL-TV News Channel 11",
+            "description": "NASHVILLE, Tenn. (WJHL)- The Tennessee Department of Health reported\u00a0225,658 confirmed cases and 12,249 probable cases of COVID-19 in the state on Thursday. The health department also announced 2,872 confirmed deaths and 1,300 current hospitalizations due to \u2026",
+            "url": "https:\/\/www.wjhl.com\/coronavirus\/tdh-74-new-covid-19-cases-reported-in-sullivan-county\/",
+            "urlToImage": "https:\/\/www.wjhl.com\/wp-content\/uploads\/sites\/98\/2020\/10\/225658.jpg?w=1280",
+            "publishedAt": "2020-10-22T20:15:00Z",
+            "content": "NASHVILLE, Tenn. (WJHL)- The Tennessee Department of Health reported\u00a0225,658 confirmed cases and 12,249 probable cases of COVID-19 in the state on Thursday.\r\nThe health department also announced 2,87\u2026 [+1625 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Madeline Farber",
+            "title": "Can mouthwash protect against coronavirus? Experts discuss results of viral study - Fox News",
+            "description": "Before you stockpile Listerine, take the findings of a recent study with a grain of salt \u2014 at least until the results are replicated in a human clinical trial, several experts told Fox News.",
+            "url": "https:\/\/www.foxnews.com\/health\/mouthwash-protect-against-coronavirus-experts-discuss-study-results",
+            "urlToImage": "https:\/\/static.foxnews.com\/foxnews.com\/content\/uploads\/2020\/10\/mouth-wash-1.jpg",
+            "publishedAt": "2020-10-22T20:06:34Z",
+            "content": "Before you stockpile Listerine, take the findings of a recent study with a grain of salt \u2014 at least until the results are replicated in a human clinical trial, several experts told Fox News.\u00a0\r\nA new \u2026 [+7571 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "OregonLive"
+            },
+            "author": "Lizzy Acker | The Oregonian\/OregonLive",
+            "title": "Coronavirus in Oregon: 373 new cases reported, with 11 deaths - OregonLive",
+            "description": "The Oregon Health Authority announced 373 new confirmed or presumptive cases of COVID-19 Thursday, as the daily case count remained elevated during Oregon\u2019s second peak of the virus.",
+            "url": "https:\/\/www.oregonlive.com\/coronavirus\/2020\/10\/coronavirus-in-oregon-373-new-cases-reported-with-11-deaths.html",
+            "urlToImage": "https:\/\/www.oregonlive.com\/resizer\/jDXTmv4hasE1HwIn7_Q6-Mcf-nI=\/1280x0\/smart\/cloudfront-us-east-1.images.arcpublishing.com\/advancelocal\/JOBAGHTUONFADH7OEO4HRKDQOE.JPG",
+            "publishedAt": "2020-10-22T20:03:00Z",
+            "content": "The Oregon Health Authority announced 373 new confirmed or presumptive cases of COVID-19 on Thursday, as the daily case count remained elevated during Oregons second peak of the virus.\r\nWeekly averag\u2026 [+3847 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "KCRA Sacramento"
+            },
+            "author": "Hope Miller",
+            "title": "Coronavirus outbreak worsens at Yolo County nursing home - KCRA Sacramento",
+            "description": "A coronavirus outbreak at a Yolo County nursing home has worsened as more than 70 cases have been confirmed and four people have died, according to county officials.",
+            "url": "https:\/\/www.kcra.com\/article\/coronavirus-outbreak-yolo-county-nursing-home\/34452164",
+            "urlToImage": "https:\/\/kubrick.htvapps.com\/htv-prod-media.s3.amazonaws.com\/images\/alderson-1603387968.jpg?crop=1.00xw:0.972xh;0,0&resize=1200:*",
+            "publishedAt": "2020-10-22T19:47:00Z",
+            "content": "WOODLAND, Calif. \u2014A coronavirus outbreak at a Yolo County nursing home has worsened as more than 70 cases have been confirmed and four people have died, according to county officials. \r\nAs of Wednesd\u2026 [+1415 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "PRI"
+            },
+            "author": null,
+            "title": "A doctor in India dances to cheer up his COVID-19 patients, in full PPE - The World",
+            "description": "A video Dr. Arup Senapati dancing for his patients to the party track \u201cGhungroo\u201d has gone viral, winning praise even from Bollywood.",
+            "url": "https:\/\/www.pri.org\/stories\/2020-10-22\/doctor-india-dances-cheer-his-covid-19-patients-full-ppe",
+            "urlToImage": "https:\/\/media.pri.org\/s3fs-public\/styles\/open_graph\/public\/images\/2020\/10\/2020-10-22-senapati-dance.jpg?itok=U0g1yPF-",
+            "publishedAt": "2020-10-22T19:00:00Z",
+            "content": "Imagine ending up in the hospital with COVID-19. You're sick in bed, and you're scared. A doctor comes in wearing full protective gear face shield, mask, medical gown, the whole nine yards.\r\nThen som\u2026 [+1722 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "New York Post"
+            },
+            "author": "Jackie Salo",
+            "title": "Study reveals factors that could lead to long-term COVID-19 issues - New York Post ",
+            "description": "COVID-19 patients who experience at least five symptoms early on are more likely to suffer from lingering issues from the virus, researchers said. Researchers at King\u2019s College London publish\u2026",
+            "url": "https:\/\/nypost.com\/2020\/10\/22\/study-reveals-factors-that-could-lead-to-long-term-covid-19-issues\/",
+            "urlToImage": "https:\/\/nypost.com\/wp-content\/uploads\/sites\/2\/2020\/10\/coronavirus-long-haul-03.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-10-22T18:45:00Z",
+            "content": "COVID-19 patients who experience at least five symptoms early on are more likely to suffer from lingering issues from the virus, researchers said.\r\nResearchers at King\u2019s College London published a\u00a0pr\u2026 [+1926 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "KOMO News"
+            },
+            "author": "KOMO News Staff",
+            "title": "Wash. state tops 100,000 confirmed cases of coronavirus - KOMO News",
+            "description": "OLYMPIA, Wash. - Washington state reached a grim milestone in its battle against the coronavirus Thursday as the number of confirmed cases in the state topped 100,000. Gov. Jay Inslee announced the news in a Thursday morning tweet that said, \"Washington passe\u2026",
+            "url": "https:\/\/komonews.com\/news\/local\/wash-state-tops-100000-confirmed-cases-of-coronavirus",
+            "urlToImage": "https:\/\/static-12.sinclairstoryline.com\/resources\/media\/88bb132a-53d7-47a8-a502-608c3545483a-large16x9_200509_komo_covid_coronavirus_harborview_hospital_02.jpg?1603392096336",
+            "publishedAt": "2020-10-22T18:41:00Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Science Magazine"
+            },
+            "author": null,
+            "title": "The engines of SARS-CoV-2 spread - Science Magazine",
+            "description": "Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) has spread rapidly across the globe, causing epidemics that range from quickly controlled local outbreaks (such as New Zealand) to large ongoing epidemics infecting millions (such as the United Stat\u2026",
+            "url": "https:\/\/science.sciencemag.org\/content\/370\/6515\/406.full",
+            "urlToImage": "https:\/\/science.sciencemag.org\/content\/370\/6515\/406\/F1.large.jpg",
+            "publishedAt": "2020-10-22T17:55:09Z",
+            "content": "Severe acute respiratory syndrome coronavirus 2 (SARS-CoV-2) has spread rapidly across the globe, causing epidemics that range from quickly controlled local outbreaks (such as New Zealand) to large o\u2026 [+12831 chars]"
+        },
+        {
+            "source": {
+                "id": "usa-today",
+                "name": "USA Today"
+            },
+            "author": null,
+            "title": "Rheumatoid arthritis drug tocilizumab advances as a COVID-19 treatment, as other regimens fall back, studies show - msnNOW",
+            "description": "The list of drugs effective at treating COVID-19 got longer Tuesday, even as another well-used drug lost some of its luster.",
+            "url": "https:\/\/www.usatoday.com\/story\/news\/health\/2020\/10\/20\/arthritis-drug-tocilizumab-shown-effective-sickest-covid-patients\/3650814001\/",
+            "urlToImage": "https:\/\/img-s-msn-com.akamaized.net\/tenant\/amp\/entityid\/BB19JuH0.img?h=630&w=1200&m=6&q=60&o=t&l=f&f=jpg",
+            "publishedAt": "2020-10-22T17:51:00Z",
+            "content": "The list of drugs shown effective for treating COVID-19 got longer Tuesday, even as another well-used drug lost some of its luster.\r\nIn a large clinical study, tocilizumab, an immune modulator long u\u2026 [+4707 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Madeline Farber",
+            "title": "American Heart Association announces updated CPR guidelines that emphasize recovery - Fox News",
+            "description": "The American Heart Association on Wednesday announced its new guidelines for cardiopulmonary resuscitation (CPR), with the recovery period following cardiac arrest \u2012\u00a0when the heart abruptly stops beating \u2012\u00a0now considered an important element of survival.",
+            "url": "https:\/\/www.foxnews.com\/health\/american-heart-association-updated-cpr-guidelines",
+            "urlToImage": "https:\/\/static.foxnews.com\/foxnews.com\/content\/uploads\/2020\/10\/2125f252-CPR.jpg",
+            "publishedAt": "2020-10-22T17:40:23Z",
+            "content": "The American Heart Association on Wednesday announced its new guidelines for cardiopulmonary resuscitation (CPR), with the recovery period following cardiac arrest \u2012\u00a0when the heart abruptly stops bea\u2026 [+3065 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Kayla Rivas",
+            "title": "\u2018Enormous impact\u2019 of coronavirus translates to 2.5 million years of potential life lost: study - Fox News",
+            "description": "A new study suggests the societal impact of COVID-19 extends far beyond estimated death counts. Years of active, productive life were forfeited to COVID-19, one researcher said, finding the death toll translates to over 2.5 million years of potential life los\u2026",
+            "url": "https:\/\/www.foxnews.com\/health\/coronavirus-millions-years-potential-life-lost-study",
+            "urlToImage": "https:\/\/static.foxnews.com\/foxnews.com\/content\/uploads\/2020\/10\/iStock-1156452308-1.jpg",
+            "publishedAt": "2020-10-22T17:19:06Z",
+            "content": "Coronavirus has led to a staggering loss of life in a brief amount of time, killing over 220,000 people in the U.S. this year.\u00a0\r\nHowever, a new study suggests the disease\u2019s societal impact extends fa\u2026 [+2704 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Gizmodo.com"
+            },
+            "author": "Ed Cara",
+            "title": "A Brain-Destroying Prion Disease Is Becoming More Common, Study Finds - Gizmodo",
+            "description": "New research from Japan suggests that a rare brain-destroying disease caused by rogue prion proteins may be becoming more common\u2014likely due to an aging population.",
+            "url": "https:\/\/gizmodo.com\/a-brain-destroying-prion-disease-is-becoming-more-commo-1845451661",
+            "urlToImage": "https:\/\/i.kinja-img.com\/gawker-media\/image\/upload\/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200\/qg3nqnrgncmhji6o6qha.png",
+            "publishedAt": "2020-10-22T17:01:00Z",
+            "content": "New research from Japan suggests that a rare brain-destroying disease caused by rogue prion proteins may be becoming more commonlikely due to an aging population. \r\nThe study, published last month in\u2026 [+3484 chars]"
+        }
+    ]
+}

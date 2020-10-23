@@ -1,0 +1,266 @@
+{
+    "status": "ok",
+    "totalResults": 70,
+    "articles": [
+        {
+            "source": {
+                "id": null,
+                "name": "Fox Business"
+            },
+            "author": "Jessica Napoli",
+            "title": "Netflix won Shonda Rhimes after Disneyland pass dispute - Fox Business",
+            "description": "Shonda Rhimes reportedly signed a nine-figure production deal with Netflix.",
+            "url": "https:\/\/www.foxbusiness.com\/media\/shonda-rhimes-disneyland-pass-netflix",
+            "urlToImage": "https:\/\/a57.foxnews.com\/static.foxbusiness.com\/foxbusiness.com\/content\/uploads\/2020\/10\/0\/0\/shonda.jpg?ve=1&tl=1",
+            "publishedAt": "2020-10-22T23:27:19Z",
+            "content": "Showrunner Shonda Rhimes left ABC for a massive Netflix production deal in 2017, and now she's opening up about why she made the decision to leave the network and its parent company Disney.\r\nRhimes c\u2026 [+2327 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Fox Business"
+            },
+            "author": "Melissa Roberto",
+            "title": "Elton John Barbie hits Walmart stores for the price of $50; pop legend calls it 'a real honor' - Fox Business",
+            "description": "The pop legend teamed up with Mattel for the creation of his own Barbie, and its purpose is to pay tribute to the platinum-selling artist and his many achievements in music.",
+            "url": "https:\/\/www.foxbusiness.com\/lifestyle\/elton-john-barbie-walmart",
+            "urlToImage": "https:\/\/a57.foxnews.com\/static.foxbusiness.com\/foxbusiness.com\/content\/uploads\/2020\/10\/0\/0\/Elton-John-barbie-doll.jpg?ve=1&tl=1",
+            "publishedAt": "2020-10-22T22:58:53Z",
+            "content": "An Elton John-inspired Barbie doll has made its way to Walmart.\r\nThe pop legend teamed up with Mattel for the creation of his\u00a0Barbie, and its purpose is to pay tribute to the platinum-selling artist \u2026 [+1497 chars]"
+        },
+        {
+            "source": {
+                "id": "fox-news",
+                "name": "Fox News"
+            },
+            "author": "Jessica Napoli",
+            "title": "Jill Duggar Dillard claims she wasn\u2019t paid for family's reality TV shows until an attorney got \u2018involved\u2019 - Fox News",
+            "description": "Jill Duggar Dillard starred in TLC's \"19 Kids and Counting\" and a spinoff series called \"Counting On.\"",
+            "url": "https:\/\/www.foxnews.com\/entertainment\/jill-duggar-dillard-never-paid-reality-tv-shows",
+            "urlToImage": "https:\/\/static.foxnews.com\/foxnews.com\/content\/uploads\/2019\/06\/jill-duggar-derick-dillard-getty.jpg",
+            "publishedAt": "2020-10-22T22:56:41Z",
+            "content": "Jill Duggar Dillard and her family shot to stardom after their reality TV show, \"19 Kids and Counting,\" on TLC became a success.\r\nThe series followed the conservative, religious Duggar family as they\u2026 [+2346 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "The A.V. Club"
+            },
+            "author": "William Hughes",
+            "title": "Jeffrey Katzenberg admits Quibi's failure wasn't entirely COVID's fault - The A.V. Club",
+            "description": "Jeffrey Katzenberg admitted he was being \"flippant\" when he suggested Quibi's problems started and stopped with launching in the middle of a global pandemic.",
+            "url": "https:\/\/news.avclub.com\/jeffrey-katzenberg-admits-quibis-failure-wasnt-entirely-1845456525",
+            "urlToImage": "https:\/\/i.kinja-img.com\/gawker-media\/image\/upload\/c_fill,f_auto,fl_progressive,g_center,h_675,pg_1,q_80,w_1200\/eupsucyqlptpmauuwdrg.jpg",
+            "publishedAt": "2020-10-22T22:17:00Z",
+            "content": "As far as historical counterfactuals go, Would Quibi have actually worked in a world where the COVID-19 pandemic didnt happen? is roughly as important as Without the Civil War, would Abraham Lincoln \u2026 [+2257 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "YouTube"
+            },
+            "author": null,
+            "title": "First Look at Tom Holland in the Uncharted Movie - IGN Now - IGN",
+            "description": "First Look at Tom Holland in the Uncharted Movie - IGN Now #ign #gaming #movies",
+            "url": "https:\/\/www.youtube.com\/watch?v=QXEJXwlhyZs",
+            "urlToImage": "https:\/\/i.ytimg.com\/vi\/QXEJXwlhyZs\/maxresdefault.jpg",
+            "publishedAt": "2020-10-22T21:49:57Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Page Six"
+            },
+            "author": "Leah Bitsky",
+            "title": "Blake Lively Photoshops shoes on herself in Instagram post - Page Six",
+            "description": "Blake Lively dipped her toes into the world of Photoshop fails.",
+            "url": "https:\/\/pagesix.com\/2020\/10\/22\/blake-lively-photoshops-shoes-on-herself-in-instagram-post\/",
+            "urlToImage": "https:\/\/pagesix.com\/wp-content\/uploads\/sites\/3\/2020\/10\/blake-lively-shoes.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-10-22T21:43:00Z",
+            "content": "Blake Lively dipped her toes into the world of Photoshop fails.\r\nThe \u201cGossip Girl\u201d actress posted a photo to her Instagram on Thursday where she very poorly photoshopped a pair of shoes onto her bare\u2026 [+1172 chars]"
+        },
+        {
+            "source": {
+                "id": "google-news",
+                "name": "Google News"
+            },
+            "author": null,
+            "title": "Disneyland Emails Annual Passholders Regarding \"Restrictive\" Reopening Guidelines and Future of AP Program - wdwnt.com",
+            "description": null,
+            "url": "https:\/\/news.google.com\/__i\/rss\/rd\/articles\/CBMigwFodHRwczovL3dkd250LmNvbS8yMDIwLzEwL2Rpc25leWxhbmQtZW1haWxzLWFubnVhbC1wYXNzaG9sZGVycy1yZWdhcmRpbmctcmVzdHJpY3RpdmUtcmVvcGVuaW5nLWd1aWRlbGluZXMtYW5kLWZ1dHVyZS1vZi1hcC1wcm9ncmFtL9IBAA?oc=5",
+            "urlToImage": null,
+            "publishedAt": "2020-10-22T21:38:44Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Billboard"
+            },
+            "author": "Heran Mamo",
+            "title": "Which Musical Act Should Get Their Own Barbie Doll Next? Vote! - Billboard",
+            "description": "Elton John\u00a0is the latest musician to enter the Barbie world with his own doll\u00a0-- but who should be next?",
+            "url": "https:\/\/www.billboard.com\/articles\/news\/lifestyle\/9471354\/next-musical-act-barbie-doll-poll",
+            "urlToImage": "https:\/\/static.billboard.com\/files\/2020\/10\/Lizzo-Billboard-Music-Awards-2020-Billboard-1548-1603400368-1024x677.jpg",
+            "publishedAt": "2020-10-22T21:33:50Z",
+            "content": "Rosal\u00eda told\u00a0W Magazine\u00a0last year about how she used to cut her Barbies' hair, paint tattoos all over their bodies, and design new clothes for them. \"I would invent elaborate stories: fights, dramas,\u2026 [+643 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Showbiz Cheat Sheet"
+            },
+            "author": "Eduard Varnham",
+            "title": "'The Andy Griffith Show': Andy Griffith's Loved Playing Pranks On 1 Co-Star - Showbiz Cheat Sheet",
+            "description": "'The Andy Griffith Show' fans have loved Mayberry even after it left their screens, and fans will love the behind-the-scenes pranks the actors played.",
+            "url": "https:\/\/www.cheatsheet.com\/entertainment\/the-andy-griffith-show-andy-griffiths-loved-playing-pranks-on-1-co-star.html\/",
+            "urlToImage": "https:\/\/www.cheatsheet.com\/wp-content\/uploads\/2020\/10\/The-Andy-Griffith-Show-1-1024x808.jpg",
+            "publishedAt": "2020-10-22T21:20:30Z",
+            "content": "As you might imagine, when you confine several talented comedic actors who are used to be the center of attention on a television set for months or even years on end, you\u2019ve got an environment perfec\u2026 [+4043 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "YouTube"
+            },
+            "author": null,
+            "title": "News of the World - Official Trailer (2020) Tom Hanks - IGN",
+            "description": "Five years after the end of the Civil War, Captain Jefferson Kyle Kidd (Hanks), a veteran of three wars, now moves from town to town as a non-fiction storyte...",
+            "url": "https:\/\/www.youtube.com\/watch?v=3Xoc4EG3Rho",
+            "urlToImage": "https:\/\/i.ytimg.com\/vi\/3Xoc4EG3Rho\/maxresdefault.jpg",
+            "publishedAt": "2020-10-22T20:57:06Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "YouTube"
+            },
+            "author": null,
+            "title": "Matthew McConaughey Reveals He Was Sexually Abused In His Teens - ET Canada",
+            "description": "Opening up like never before, Oscar-winning actor Matthew McConaughey reveals in his new memoir 'Greenlights' that he was sexually abused as a teenager. SUBS...",
+            "url": "https:\/\/www.youtube.com\/watch?v=1NgyFk3et8U",
+            "urlToImage": "https:\/\/i.ytimg.com\/vi\/1NgyFk3et8U\/hqdefault.jpg",
+            "publishedAt": "2020-10-22T20:38:18Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Eonline.com"
+            },
+            "author": "Kaitlin Reilly",
+            "title": "The Bachelorette's Rachel Lindsay and Bryan Abasolo Defend Their Long-Distance Marriage - E! NEWS",
+            "description": "Rachel Lindsay said her long-distance relationship with Bryan Abasolo is about putting their family in the \"best position\" for the future.",
+            "url": "https:\/\/www.eonline.com\/news\/1201140\/the-bachelorettes-rachel-lindsay-and-bryan-abasolo-defend-their-long-distance-marriage",
+            "urlToImage": "https:\/\/akns-images.eonline.com\/eol_images\/Entire_Site\/2020922\/rs_1200x1200-201022125145-1200-Rachel-Lindsay-and-Bryan-Abasolo-.jpg?fit=around|1080:1080&output-quality=90&crop=1080:1080;center,top",
+            "publishedAt": "2020-10-22T20:29:00Z",
+            "content": "After a year of marriage, former\u00a0Bachelorette Rachel Lindsay\u00a0and husband\u00a0Bryan Abasolo are defending their long-distance relationship.\u00a0\r\nRachel and Bryan fell in love on\u00a0The Bachelorette\u00a0in 2017. The\u2026 [+907 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Billboard"
+            },
+            "author": "Rania Aniftos",
+            "title": "Charlamagne Tha God Talks 50 Cent's Support for Trump: 'I Can\u2019t Pick Racism & Bigotry' - Billboard",
+            "description": "Charlamagne tha God is sharing his thoughts on 50 Cent endorsing Donald Trump after seeing\u00a0Joe Biden's tax plan.",
+            "url": "https:\/\/www.billboard.com\/articles\/columns\/hip-hop\/9471145\/charlamagne-tha-god-50-cent-support-for-trump",
+            "urlToImage": "https:\/\/static.billboard.com\/files\/2020\/10\/video-9471545-image-1024x576.jpg",
+            "publishedAt": "2020-10-22T20:04:41Z",
+            "content": "Charlamagne tha God is sharing his thoughts on 50 Cent endorsing Donald Trump after seeing\u00a0Joe Biden's tax plan.\r\nIn a conversation with\u00a0Fox Business' Lisa Kennedy Montgomery, the\u00a0Breakfast Club co-h\u2026 [+742 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "NowThis"
+            },
+            "author": "Versha Sharma",
+            "title": "Chris Pratt Wasn\u2019t Asked To Attend Biden Fundraiser With \u201cAvengers\u201d Cast, Director Says - NowThis",
+            "description": "In an interview with NowThis Thursday, director Joe Russo said Chris Pratt \u201cwas not asked to participate because he was halfway across the world in the wrong time zone.\u201d Social media has been rife with speculation this week about Pratt\u2019s political views after\u2026",
+            "url": "https:\/\/nowthisnews.com\/pop\/chris-pratt-wasnt-asked-to-attend-biden-fundraiser-with-avengers-cast-director-says",
+            "urlToImage": "https:\/\/assets3.thrillist.com\/v1\/image\/2904587\/1200x600\/crop;",
+            "publishedAt": "2020-10-22T19:54:12Z",
+            "content": "The Russo Brothers want to clear the air about actor Chris Pratt, as his absence at a Biden fundraiser with much of the \u201cAvengers\u201d cast this week combined with prior speculation about his beliefs led\u2026 [+6759 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Billboard"
+            },
+            "author": "Rania Aniftos",
+            "title": "Did 'The Masked Singer' Accidentally Reveal the Crocodile's Identity? - Billboard",
+            "description": "Spoiler alert...maybe?",
+            "url": "https:\/\/www.billboard.com\/articles\/news\/television\/9471238\/the-masked-singer-accidentally-reveal-crocodile-identity",
+            "urlToImage": "https:\/\/static.billboard.com\/files\/2020\/10\/Crocodile-the-masked-singer-billboard-1548-1603394530-1024x677.jpg",
+            "publishedAt": "2020-10-22T19:44:16Z",
+            "content": "Spoiler alert...maybe?\r\nThe Masked Singer\u00a0generally does an incredible job at keeping the contestants' identities a secret with a clue package that is quite difficult to decode. However, in season fo\u2026 [+339 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "cleveland.com"
+            },
+            "author": "Joey Morona, cleveland.com",
+            "title": "Rudy Giuliani explains suggestive cameo in \u2018Borat\u2019 sequel: \u2018I was tucking in my shirt\u2019 - cleveland.com",
+            "description": "\u201cThe Borat video is a complete fabrication,\" President Trump's personal lawyer says.",
+            "url": "https:\/\/www.cleveland.com\/entertainment\/2020\/10\/rudy-giuliani-explains-suggestive-cameo-in-borat-sequel-i-was-tucking-in-my-shirt.html",
+            "urlToImage": "https:\/\/www.cleveland.com\/resizer\/77fUgauW0JL3TVaG2u6yMvrQUf4=\/1280x0\/smart\/cloudfront-us-east-1.images.arcpublishing.com\/advancelocal\/IVS5VV4JJFGV5O44VE4G4GTKLI.jpg",
+            "publishedAt": "2020-10-22T19:44:00Z",
+            "content": "CLEVELAND, Ohio -- Rudy Giuliani is still master of his domain.\r\nPresident Donald Trumps personal attorney provided an explanation for why he was caught in a seemingly compromising position in the up\u2026 [+2552 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Daily Mail"
+            },
+            "author": "By Tracy Wright For Dailymail.com",
+            "title": "Khloe Kardashian gets a kiss from Tristan Thompson as couple rekindle romance at Kim's 40th birthday - Daily Mail",
+            "description": "The 36-year-old reality star was on the receiving end of a kiss on the cheek from the professional basketball player as they giggled in a photo booth at the sparkling soiree.",
+            "url": "https:\/\/www.dailymail.co.uk\/tvshowbiz\/article-8869811\/Khloe-Kardashian-gets-kiss-Tristan-Thompson-couple-rekindle-romance-Kims-40th-birthday.html",
+            "urlToImage": "https:\/\/i.dailymail.co.uk\/1s\/2020\/10\/22\/20\/34723698-0-image-a-25_1603395638501.jpg",
+            "publishedAt": "2020-10-22T19:41:51Z",
+            "content": "Love was certainly in the air at Kim Kardashian's surprise 40th birthday celebration.\r\nAnd Khloe Kardashian seemed smitten with Tristan Thompson as the pair stayed closed together throughout the nigh\u2026 [+2478 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Page Six"
+            },
+            "author": "Melissa Minton",
+            "title": "Camila Cabello debuts new haircut: 'Lost my short hair virginity' - Page Six",
+            "description": "\u201cTime to feel the air on these shoulders.\u201d",
+            "url": "https:\/\/pagesix.com\/2020\/10\/22\/camila-cabello-debuts-new-haircut-lost-my-short-hair-virginity\/",
+            "urlToImage": "https:\/\/pagesix.com\/wp-content\/uploads\/sites\/3\/2020\/10\/camila-cabello-hair.jpg?quality=90&strip=all&w=1200",
+            "publishedAt": "2020-10-22T19:41:00Z",
+            "content": "Camila Cabello is now a short-haired se\u00f1orita.\r\nThe \u201cHavana\u201d singer, 23, showed off a new haircut that reached just past her shoulders on Thursday, having chopping multiple inches off her curls.\r\n\u201cLO\u2026 [+629 chars]"
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "YouTube"
+            },
+            "author": null,
+            "title": "Nikki Bella & Brie Bella Both Moving To Napa Valley - Access",
+            "description": "Nikki and Brie Bella are totally twinning! The \u201cTotal Bellas\u201d stars were on \u201cThe Bellas Podcast\u201d where Brie revealed she had moved to Napa Valley in Californ...",
+            "url": "https:\/\/www.youtube.com\/watch?v=fopgT6vSJPE",
+            "urlToImage": "https:\/\/i.ytimg.com\/vi\/fopgT6vSJPE\/maxresdefault.jpg",
+            "publishedAt": "2020-10-22T19:20:19Z",
+            "content": null
+        },
+        {
+            "source": {
+                "id": null,
+                "name": "Pitchfork"
+            },
+            "author": "Matthew Strauss",
+            "title": "The Weeknd Shares New Video for \u201cToo Late\u201d: Watch - Pitchfork",
+            "description": "Two women discover the Weeknd\u2019s disembodied head, which he\u2019d lost in the visual for \u201cIn Your Eyes\u201d",
+            "url": "https:\/\/pitchfork.com\/news\/the-weeknd-shares-graphic-too-late-video\/",
+            "urlToImage": "https:\/\/media.pitchfork.com\/photos\/5f91d974f623ef4101139793\/16:9\/w_1280,c_limit\/The-Weeknd.jpg",
+            "publishedAt": "2020-10-22T19:18:45Z",
+            "content": "The Weeknd has released the music video for his After Hours song Too Late. The new clip continues the storyline from the In Your Eyes video, which ended with the Weeknd getting beheaded. In the Too L\u2026 [+622 chars]"
+        }
+    ]
+}
