@@ -48,11 +48,15 @@ $content = ob_get_clean();
 //file_put_contents('file.txt', $content);
 
 
+//Copy this code and change 'prefernce'
+//to the name of the preference
+//---------------------------------
 $trending = array();
 $trending['prefernce'] = 'general';
 $trending['articles'] = $content;
 
 $rtnInfo = speak($trending);
+//--------------------------------
 
 // Log Stuff
 try {
