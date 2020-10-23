@@ -25,10 +25,13 @@ function requestProcessor($request)
   	switch ($request['type'])
   	{
 		case "register":
-	        	//return doLogin($request['username'],$request['password']);
-			try{
-				databaseAction($request);
-				return "added new user";
+	        	try{
+				$isNewuser = databaseAction($request);
+				if ($isNewUser){
+					return "added new user";
+				}else{
+					return "An error Occured";
+				}
 			}
 			catch(Exception $e){
 				return $e->getMessage();

@@ -1,6 +1,6 @@
 <?php
 
-function registerUser($conn, $username, $password){
+function registerUser($conn, $newUsername, $newPassword){
 
 	try{
 		$query = "insert into `userInfo`
@@ -15,7 +15,7 @@ function registerUser($conn, $username, $password){
 	        $statement->closeCursor();
 
 		//create proper return for mainControl
-
+		//This can be an array with one index of True
 		return True;
 
 	}catch(Exception $e){

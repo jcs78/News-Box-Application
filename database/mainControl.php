@@ -22,6 +22,7 @@ function databaseAction($inputArray)
 
 			$$newUser = registerUser($conn, $newUsername, $newPassword);
 
+			//Double check Return
 			return $newUser;
 		}
 		case 'login':

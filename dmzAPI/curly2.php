@@ -1,7 +1,6 @@
-#! /usr/bin/php
+#!/usr/bin/php
 <?php
-
-
+require_once('dmzRabbitMQSpeaker.php');
 
 require_once('path.inc');
 require_once('get_host_info.inc');
@@ -46,13 +45,22 @@ echo json_encode($json, JSON_PRETTY_PRINT);
 
 
 $content = ob_get_clean();
-file_put_contents('file.txt', $content);
+//file_put_contents('file.txt', $content);
 
+
+//Copy this code and change 'prefernce'
+//to the name of the preference
+//---------------------------------
+$trending = array();
+$trending['prefernce'] = 'general';
+$trending['articles'] = $content;
+
+$rtnInfo = speak($trending);
+//--------------------------------
 
 // Log Stuff
 try {
 
-       
 }
 catch (Throwable $e) {
 // Using the individual pieces of info caught about the error, a string is stored inside this created variable that helps whoever reads the logs easily identify where the error is occuring, among other things. [-jcs78]
