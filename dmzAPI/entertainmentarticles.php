@@ -18,6 +18,7 @@ $throwableError = "";
 
 
 
+
 ob_start();
 
 $curl = curl_init();
@@ -47,8 +48,13 @@ echo json_encode($json, JSON_PRETTY_PRINT);
 
 
 $content = ob_get_clean();
-file_put_contents('entertainmentarticlesoutput.txt', $content);
+//file_put_contents('entertainmentarticlesoutput.txt', $content);
 
+$trending = array();
+$trending['preference'] = 'entertainment';
+$trending['articles'] = $content;
+
+$rtnInfo = speak($trending);
 
 // Log Stuff
 try {

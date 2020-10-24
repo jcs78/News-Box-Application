@@ -46,8 +46,16 @@ echo json_encode($json, JSON_PRETTY_PRINT);
 
 
 
+
 $content = ob_get_clean();
-file_put_contents('healtharticlesoutput.txt', $content);
+//file_put_contents('healtharticlesoutput.txt', $content);
+
+
+$trending = array();
+$trending['preference'] = 'health';
+$trending['articles'] = $content;
+
+$rtnInfo = speak($trending);
 
 
 // Log Stuff

@@ -48,11 +48,13 @@ $content = ob_get_clean();
 //file_put_contents('file.txt', $content);
 
 
+/*
 $trending = array();
-$trending['prefernce'] = 'general';
+$trending['preference'] = 'general';
 $trending['articles'] = $content;
 
 $rtnInfo = speak($trending);
+ */
 
 // Log Stuff
 try {
@@ -67,6 +69,7 @@ catch (Throwable $e) {
 
 // Used as a test to ensure the latest log(s) were sent to the log listener(s). [-jcs78]
 echo $throwableError;
+
 
 
 }
