@@ -38,3 +38,5 @@ Error [E_NOTICE] detected at 01:46:40pm on 10-18-2020: Array to string conversio
 >>>>>>> 7fe276d725b0ce160b122e402b65f7a13b1ead99
 >>>>>>> 3c22eb885d383065664e8b8262cbc9f391283b6e
 
+Error [E_NOTICE] detected at 05:52:31pm on 10-24-2020: Undefined index: wbClient inside /home/jcs78/git/news-box-app/webPages/webServerSpeaker.php on line 16.
+

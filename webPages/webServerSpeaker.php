@@ -1,36 +1,21 @@
 #!/usr/bin/php
 <?php
-require('path.inc');
-require('get_host_info.inc');
-require('rabbitMQLib.inc');
 
-function speak($userInputArray){
-	//Show input
-	//echo "inside speak function array: \n";
-	//print_r($userInputArray);
-	//echo "\n";
-	$client = new rabbitMQClient("testRabbitMQ.ini","testServer");
+session_start();
 
-	$response = $client->send_request($userInputArray);
-	return $response;
-}
+require('rabbitMainframe.php');
 
-// Testing
+error_reporting(E_ALL);
+set_error_handler("handleError");
 
-$inputArray = array();
+$loginInput = array();
+$loginInput['type'] = 'login';
+$loginInput['username'] = 'Ben Jerry';
+$loginInput['password'] = 'Ice Cream';
 
-$inputArray['type'] = 'login';
-$inputArray['username'] = 'testName1';
-$inputArray['password'] = 'testPass1';
-
-echo"\n";
-
-$rtnInfo = speak($inputArray);
-
-print_r($rtnInfo);
-echo "\n\n";
+$response = $_SESSION["wbClient"]->send_request("loginInput");
+//echo $response;
+echo $loginInput;
 
 ?>
-
-
 

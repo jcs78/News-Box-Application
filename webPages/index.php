@@ -1,23 +1,17 @@
 #!/usr/bin/php
 <?php
-//require_once('../../../webServerSpeakerFiles/webServerSpeaker.php');
-
-
-//getting the directory with client info
-//require('../../../home/nolan/webServerSpeakerFiles/webServerSpeaker.php');
 
 //Main web page control//
 session_start();
+
+require('webServerRabbitMQLib.php');
+//echo "Well, excuuuuuse me, Princess!";
 
 $webServerAction = filter_input(INPUT_POST, 'action');
 
 if ($webServerAction == NULL){
 	$webServerAction = 'showLandingPage';
 }
-
-//echo $webServerAction;
-
-//print_r($_SESSION);
 
 switch ($webServerAction){
 
@@ -43,12 +37,9 @@ switch ($webServerAction){
 		$loginRequest['username'] = $username;
 		$loginRequest['password'] = $password;
 
-
-		$userInfo = speak($loginRequest);
+		$userInfo = $_SESSION["wpClient"]->send_request("loginRequest");
 		$_SESSION['username'] = $userInfo['username'];
 		$_SESSION['password'] = $userInfo['password'];
-
-
 
 		header('Location: .?action=showLandingPage');
 	}
@@ -65,14 +56,11 @@ switch ($webServerAction){
 		$isRegistered = speak($registerRequest);
 
 		//finish what happens here
-
 	}
 
 	default:{
 		echo "Unknown Action";
 	}
 }
-
-
 
 ?>
