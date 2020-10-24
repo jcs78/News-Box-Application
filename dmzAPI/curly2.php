@@ -48,13 +48,12 @@ $content = ob_get_clean();
 //file_put_contents('file.txt', $content);
 
 
-/*
+
 $trending = array();
 $trending['preference'] = 'general';
 $trending['articles'] = $content;
 
 $rtnInfo = speak($trending);
- */
 
 // Log Stuff
 try {
