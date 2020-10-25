@@ -2,7 +2,7 @@
 
 require_once('get_host_info.inc');
 
-class logRabbitMQServer
+class rabbitMQServer
 {
 	private $machine = "";
 	public  $BROKER_HOST;
@@ -134,7 +134,7 @@ class logRabbitMQServer
 	}
 }
 
-class logRabbitMQClient
+class rabbitMQClient
 {
 	private $machine = "";
 	public  $BROKER_HOST;
@@ -275,7 +275,7 @@ class logRabbitMQClient
 
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line) {
-        global $clientLog;
+	$clientLog = new rabbitMQClient("logRabbitMQ.ini", "logServer");
         $errorType = "";
         $e_Error = "";
 

@@ -10,7 +10,11 @@ error_reporting(E_ALL);
 set_error_handler("handleError");
 
 // Create a client using the information inside 'logRabbitMQ.ini.' [-jcs78]
+<<<<<<< HEAD
 $clientLog = new lograbbitMQClient("logRabbitMQ.ini", "logServer");
+=======
+$clientLog = new logRabbitMQClient("logRabbitMQ.ini", "logServer");
+>>>>>>> 67d7d62820ee697380d0eb147b47b920dd20d8dd
 $throwableError = "";
 
 
