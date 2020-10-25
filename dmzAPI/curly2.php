@@ -10,7 +10,7 @@ error_reporting(E_ALL);
 set_error_handler("handleError");
 
 // Create a client using the information inside 'logRabbitMQ.ini.' [-jcs78]
-$clientLog = new rabbitMQClient("logRabbitMQ.ini", "logServer");
+$clientLog = new lograbbitMQClient("logRabbitMQ.ini", "logServer");
 $throwableError = "";
 
 
@@ -53,7 +53,14 @@ $trending = array();
 $trending['preference'] = 'general';
 $trending['articles'] = $content;
 
+$trending['type'] = 'article'; 
+
+
 $rtnInfo = speak($trending);
+
+print_r($rtnInfo);
+
+
 
 // Log Stuff
 try {
@@ -76,6 +83,7 @@ echo $throwableError;
 
 
 ?>
+
 
 
 
