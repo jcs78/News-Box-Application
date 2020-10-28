@@ -3,6 +3,7 @@
 <?php
 
 
+require_once('dmzRabbitMQSpeaker.php');
 
 require_once('path.inc');
 require_once('get_host_info.inc');
@@ -12,8 +13,9 @@ error_reporting(E_ALL);
 set_error_handler("handleError");
 
 // Create a client using the information inside 'logRabbitMQ.ini.' [-jcs78]
-$clientLog = new rabbitMQClient("logRabbitMQ.ini", "logServer");
+$clientLog = new lograbbitMQClient("logRabbitMQ.ini", "logServer");
 $throwableError = "";
+
 
 
 
@@ -55,6 +57,8 @@ $trending['preference'] = 'entertainment';
 $trending['articles'] = $content;
 
 $rtnInfo = speak($trending);
+
+print_r($rtnInfo);
 
 // Log Stuff
 try {

@@ -221,7 +221,7 @@ class rabbitMQClient
 
 //			$exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));
 
-			$exchange->publish($json_message, $this->routin    g_key,AMQP_NOPARAM);
+			$exchange->publish($json_message, $this->routing_key,AMQP_NOPARAM);
 
 //			$this->response_queue[$uid] = "waiting";
 //			$callback_queue->consume(array($this,'process_response'));
