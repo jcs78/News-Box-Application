@@ -11,54 +11,90 @@ echo "\n\n";
 //print_r($text);
 
 //output for one article
-$articleInfo = array();
-
 $onlyArticlesArr = explode(': [' ,$text);
 
-$sepArr = explode('},', $onlyArticlesArr[1]);
+$articlesInArray = explode('},', $onlyArticlesArr[1]);
 
-//echo $sepArr[0];
+$articleArrayCorrectFormat = array();
 
-//echo "\n\n";
+$numArticles = 0;
 
-//echo $sepArr[1];
+for($i = 0; $i < sizeof($articlesInArray); $i+=2){
+	$singleArticle = array();
+	$singleArticle[0] = $articlesInArray[$i];
+	$singleArticle[1] = $articlesInArray[$i+1];
 
-$testArr = array();
-$x = 0;
-
-//Get the Source
-$sourceInfo = explode("\n", $sepArr[0]);
-
-$sourceNameArr = explode(': ',$sourceInfo[4]);
-
-//print_r($sourceNameArr);
-
-$testArr['name'] = $sourceNameArr[1];
-
-//$articleInfo['name'] = $sourceNameArr[1];
-//Separates each article to its most basic parts
-
-$linesInArticle = explode('",',$sepArr[1]);
-
-$singleLine = $linesInArticle[0];
-
-$lineInfo = explode(': ', $singleLine);
-
-//echo ltrim($lineInfo[0],"\n");
+	$articleArrayCorrectFormat[$numArticles] = $singleArticle;
+	$numArticles++;
+}
 
 
-foreach ( $linesInArticle as $line){
-	$lineSplit =  explode(': ', $line);
+foreach($articleArrayCorrectFormat as $singleArticle){
+	//$singleArticle is an array()
 
-	//Fix Formatting for the keys inside of the array
-	$articleInfoCate = ltrim($lineSplit[0]," \n\"");
-	$articleInfoCate = chop($articleInfoCate,'"');
+	$articleInfo = array();
 
-	$testArr[$articleInfoCate] = $lineSplit[1];
+	//Getting Article Source Name
+	$articleNameArr = explode("\n",$singleArticle[0]);
+	$articleNameLineArr = explode(": ", $articleNameArr[4]);
+
+	//print_r($articleNameLineArr);
+
+	$articleInfo['name'] = $articleNameLineArr[1];
+	print_r($articleInfo);
 
 }
 
-print_r($testArr);
+
+/*
+	//echo $sepArr[0];
+
+	//echo "\n\n";
+
+	//echo $sepArr[1];
+
+	$testArr = array();
+
+	//Get the Source
+	$sourceInfo = explode("\n", $sepArr[0]);
+
+	$sourceNameArr = explode(': ',$sourceInfo[4]);
+
+	//print_r($sourceNameArr);
+
+	$testArr['name'] = $sourceNameArr[1];
+
+	//$articleInfo['name'] = $sourceNameArr[1];
+	//Separates each article to its most basic parts
+
+	$linesInArticle = explode('",',$sepArr[1]);
+
+	$singleLine = $linesInArticle[0];
+
+	$lineInfo = explode(': ', $singleLine);
+
+	//echo ltrim($lineInfo[0],"\n");
+
+
+	foreach ( $linesInArticle as $line){
+		$lineSplit =  explode(': ', $line);
+
+		//Fix Formatting for the keys inside of the array
+		$articleInfoCate = ltrim($lineSplit[0]," \n\"");
+		$articleInfoCate = chop($articleInfoCate,'"');
+
+		$testArr[$articleInfoCate] = $lineSplit[1];
+
+	}
+*/
+
+//print_r($articleArrayCorrectFormat);
+
+
+//print_r($testArr);
+
+
+//print_r($testArr);
 
 //echo $testArr['"url"'];
 
