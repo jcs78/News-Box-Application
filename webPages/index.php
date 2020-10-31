@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 
 //Main web page control//
@@ -24,6 +23,9 @@ switch ($webServerAction){
 	case 'showLandingPage':{
 		include('newsbox.php');
 	}
+	case 'showHome':{
+		include('home.php');
+	}
 
 	case 'validateLogin':{
 		$username = filter_input(INPUT_POST, 'username');
@@ -37,9 +39,11 @@ switch ($webServerAction){
 		$loginRequest['username'] = $username;
 		$loginRequest['password'] = $password;
 
-		$userInfo = $_SESSION["wpClient"]->send_request("loginRequest");
+		$userInfo = $_SESSION["wpClient"]->send_request($loginRequest);
+		$_SESSION['userID'] = $userInfo['userID'];
 		$_SESSION['username'] = $userInfo['username'];
 		$_SESSION['password'] = $userInfo['password'];
+
 
 		header('Location: .?action=showLandingPage');
 	}
@@ -53,9 +57,19 @@ switch ($webServerAction){
                 $registerRequest['username'] = $newUsername;
                 $registerRequest['password'] = $newPassword;
 
-		$isRegistered = speak($registerRequest);
+		$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
 
-		//finish what happens here
+		if($isRegistered){
+			$_SESSION['userID'] = $userInfo['userID'];
+	                $_SESSION['username'] = $userInfo['username'];
+	                $_SESSION['password'] = $userInfo['password'];
+
+			header('Location: .?action=showHome');
+		}else{
+			$_SESSION['registerProblem'] = true;
+			header('Location: .?action=showRegister');
+		}
+
 	}
 
 	default:{

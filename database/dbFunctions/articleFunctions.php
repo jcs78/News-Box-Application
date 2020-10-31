@@ -1,3 +1,4 @@
+<?php
 function getArticles($preferencesArray){
 
 }
@@ -37,3 +38,4 @@ function addArticle($conn, $prefName, $sourceName, $author, $title, $description
 
 
 }
+?>

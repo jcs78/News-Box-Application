@@ -8,5 +8,5 @@ create table articleTable(
 	urlToImage 	VARCHAR(255),
 	publishedAt 	VARCHAR(255),
 	content 	MEDIUMTEXT,
-	PRIMARY KEY(aritcleID)
+	PRIMARY KEY(articleID)
 );

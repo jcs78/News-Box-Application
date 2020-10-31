@@ -1,17 +1,16 @@
-require_once('../dbFunctions/articleFunctions.php');
+<?php
+
+require_once("../dbFunctions/articleFunctions.php");
 
 function addArticlesToDB($preference, $articles){
 	$dbUser = "testUser";
-
         $dbPassword = "12345";
-
         $conn = new PDO("mysql:host=localhost;dbname=testDB", $dbUser, $dbPassword);
 
-
-	switch ($preference){
+	switch($preference){
 
 		case 'general':
-
+		{
 			foreach($articles as $article){
 
 			$sourceName = $article['name'];
@@ -24,8 +23,8 @@ function addArticlesToDB($preference, $articles){
 			$content = $article['content'];
 
 			addArticle($conn, $preference, $sourceName, $author, $title, $description, $url, $urlToImage, $publishedAt, $content);
-
 			}
-			return;
+		}
 	}
 }
+?>

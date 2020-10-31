@@ -4,7 +4,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
 require_once('separateArticles.php');
-require_once('dmzMainControl.php');
+require_once("dmzMainControl.php");
 
 //require_once('../dbFunctions/articleFunctions.php');
 
@@ -33,6 +33,8 @@ function requestProcessor($request)
 		case 'article':
 			$formattedArticles = separateArticles($request['articles']);
 
+			print_r($formattedArticles);
+
 			addArticlesToDB($request['preference'], $formattedArticles);
 
 			echo "Articles Added";
@@ -52,7 +54,7 @@ set_error_handler("handleError");
 $clientLog = new rabbitMQClient("logRabbitMQ.ini", "logServer");
 $throwableError = "";
 
-try {   
+try {
 // Causes a 'Throwable Error' (used as a test to see if throwable errors are caught and s$
 
 	//DELETE THIS

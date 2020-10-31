@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 
 //this should be the array index send by rabbit
