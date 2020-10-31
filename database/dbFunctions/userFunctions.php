@@ -16,15 +16,16 @@ function registerUser($conn, $newUsername, $newPassword){
 
 		//create proper return for mainControl
 		//This can be an array with one index of True
-		return True;
+		$rtnArr = array();
+		$rtnArr[0] = true;
 
 	}catch(Exception $e){
+		$rtnArr = array();
 
-		$rtnArray = array();
+		$rtnArr[0] = false;
+		$rtnArr[1] = $e->getMessage();
 
-		$rtnArray[0] = False;
-
-		$rtnArray[1] = $e->getMessage();
+		return $rtnArr;
 	}
 }
 
@@ -55,5 +56,27 @@ function validUserLogin($conn, $username, $password){
         }
 
 }
+
+function isUsernameTaken($conn, $username){
+
+	$query = 'select * from userInfo where
+                        username = :username';
+
+        $statement = $conn->prepare($query);
+        $statement->bindValue(':username', $username);
+        $statement->execute();
+
+        $account = $statement->fetchALL();
+
+        $statement->closeCursor();
+
+        if(count($account) == 0){
+        	return false;
+        }else{
+                return true;
+        }
+
+}
+
 
 ?>

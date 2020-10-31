@@ -16,14 +16,23 @@ function databaseAction($inputArray)
 	{
 		case'register':
 		{
-			$newUsername = $array['username'];
+			$newUsername = $inputArray['username'];
+			$newPassword = $inputArray['password'];
 
-			$newPassword = $array['password'];
+			$isUsernameTaken = isUsernameTaken($conn, $newUserName);
 
-			$$newUser = registerUser($conn, $newUsername, $newPassword);
+			if (!$isUsedUsername){
 
-			//Double check Return
-			return $newUser;
+				//Data type of $newUser is an array
+				$responceArr = registerUser($conn, $newUsername, $newPassword);
+
+				return $responceArr;
+			}else{
+				$responceArr = array();
+				$responceArr[0] = false;
+
+				return $responceArr;
+			}
 		}
 		case 'login':
 		{

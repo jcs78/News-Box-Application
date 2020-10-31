@@ -3,7 +3,7 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
-require_once('mainControl.php');
+require_once('wsMainControl.php');
 
 //Log Stuff
 //require_once('logRabbitMQLib.inc');
@@ -27,10 +27,10 @@ function requestProcessor($request)
 		case "register":
 	        	try{
 				$isNewuser = databaseAction($request);
-				if ($isNewUser){
-					return "added new user";
+				if ($isNewUser[0]){
+					return true;
 				}else{
-					return "An error Occured";
+					return false;
 				}
 			}
 			catch(Exception $e){

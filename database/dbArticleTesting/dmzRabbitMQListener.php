@@ -3,6 +3,12 @@
 require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('rabbitMQLib.inc');
+require_once('separateArticles.php');
+require_once("dmzMainControl.php");
+
+//require_once('../dbFunctions/articleFunctions.php');
+
+
 //require_once('mainControl.php');
 
 //Log Stuff
@@ -24,35 +30,15 @@ function requestProcessor($request)
   	}
   	switch ($request['type'])
   	{
-		case "register":
-	        	try{
-				$isNewuser = databaseAction($request);
-				if ($isNewUser){
-					return "added new user";
-				}else{
-					return "An error Occured";
-				}
-			}
-			catch(Exception $e){
-				return $e->getMessage();
-			}
-	    	case "login":
-			try{
-				//Shows input data
+		case 'article':
+			$formattedArticles = separateArticles($request['articles']);
 
-				//echo "inside login case current array: \n";
-				//print_r($request);
+			print_r($formattedArticles);
 
-				$account = databaseAction($request);
+			addArticlesToDB($request['preference'], $formattedArticles);
 
-				return $account;
-			}
-			catch(Exception $e){
-				return $e->getMessage();
-			}
-	    	case "article":
-			print_r($request);
-
+			echo "Articles Added";
+			return;
 
 		default:
 			return "Not a valid Case";
@@ -68,7 +54,7 @@ set_error_handler("handleError");
 $clientLog = new rabbitMQClient("logRabbitMQ.ini", "logServer");
 $throwableError = "";
 
-try {   
+try {
 // Causes a 'Throwable Error' (used as a test to see if throwable errors are caught and s$
 
 	//DELETE THIS

@@ -1,0 +1,1002 @@
+??/??/???? - 10/30/2020
+
+  173  cd ../dbFunctions/
+  174  nano userFunctions.php 
+  175  exit
+  176  cd git/News-Box-Application/database/
+  177  ls
+  178  nano testRabbitMQClient.php 
+  179  exit
+  180  cd git/News-Box-Application/database/
+  181  nano rabbitMQLib.inc 
+  182  cd git
+  183  cd News-Box-Application/
+  184  ls
+  185  git pull origin master
+  186  gut pull git@github.com:jcs78/News-Box-Application.git
+  187  git pull git@github.com:jcs78/News-Box-Application.git
+  188  git login
+  189  git account
+  190  git config --global credential.helper cache
+  191  git config --global user.name"nolancustodio"
+  192  git config --global user.email nac53@njit.edu
+  193  gut pull git@github.com:jcs78/News-Box-Application.git
+  194  git pull git@github.com:jcs78/News-Box-Application.git
+  195  sudo git pull git@github.com:jcs78/News-Box-Application.git
+  196  git pull https://github.com/jcs78/News-Box-Application.git
+  197  git branch
+  198  sudo apt update
+  199  ls
+  200  git branch
+  201  git pull master
+  202  git add .
+  203  git commit -m "panic commit"
+  204  cd ..
+  205  ls
+  206  rm News-Box-Application/
+  207  rm -r News-Box-Application/
+  208  sudo rm -r News-Box-Application/
+  209  ls
+  210  git clone https://github.com/jcs78/News-Box-Application.git
+  211  ls
+  212  cd News-Box-Application/
+  213  ls
+  214  git pull master
+  215  ls 
+  216  cd logListener/
+  217  ls
+  218  nano log.
+  219  nano log.txt
+  220  nano logRabbitMQ.ini 
+  221  nano logSpeaker.php 
+  222  ./logListener.php 
+  223  nano log.txt
+  224  nano logSpeaker.php 
+  225  nano logRabbitMQ.ini 
+  226  ./logListener.php 
+  227  nano logRabbitMQ.ini 
+  228  ./logListener.php 
+  229  ls
+  230  cd ..
+  231  ls
+  232  cd database/
+  233  ls
+  234  nano testRabbitMQServer.
+  235  nano testRabbitMQServer.php
+  236  cd dbFunctions/
+  237  ls
+  238  nano userFunctions.php 
+  239  sudo mysql
+  240  cd ..
+  241  nano mainControl.php 
+  242  nano testRabbitMQServer.php
+  243  cd ..
+  244  ls
+  245  git add .
+  246  git commit -m "minor changes"
+  247  git push origin master
+  248  ls
+  249  cd logListener/
+  250  ls
+  251  nano logListener.php 
+  252  nano get_host_info.inc 
+  253  nano host.ini 
+  254  nano host.ini local.ini 
+  255  nano host.ini 
+  256  nano local.ini 
+  257  nano logRabbitMQ.ini 
+  258  y
+  259  nano logRabbitMQ.ini 
+  260  ./logSpeaker.php 
+  261  nano logRabbitMQ.ini 
+  262  ./logSpeaker.php 
+  263  nano logRabbitMQ.ini 
+  264  nano logSpeaker.php 
+  265  nano -c logSpeaker.php 
+  266  ./logListener.php 
+  267  nano -c logSpeaker.php 
+  268  nano rabbitMQLib.inc 
+  269  nano -c rabbitMQLib.inc 
+  270  nano -c logListener.php 
+  271  nano -c logSpeaker.php 
+  272  nano rabbitMQLib.inc 
+  273  nano -c logSpeaker.php 
+  274  nano rabbitMQLib.inc 
+  275  nano -c rabbitMQLib.inc 
+  276  nano rabbitMQLib.inc ls
+  277  ls
+  278  cat log.txt
+  279  ./logListener.php 
+  280  nano log.txt
+  281  nano logSpeaker.php 
+  282  exit
+  283  cd git
+  284  cd News-Box-Application/
+  285  ls
+  286  cd logListener/
+  287  nano logSpeaker.php 
+  288  nano logRabbitMQ.ini 
+  289  ./logListener.php 
+  290  cat log.txt
+  291  nano log.txt
+  292  nano logRabbitMQ.ini 
+  293  ./logSpeaker.php 
+  294  nano logRabbitMQ.ini 
+  295  cat log.txt
+  296  ./logSpeaker.php 
+  297  nano logSpeaker.php 
+  298  cd ..
+  299  cd database/
+  300  ls
+  301  nano testRabbitMQServer.php
+  302  exit
+  303  ls
+  304  nano log.txt 
+  305  cat log.txt
+  306  ./logSpeaker.php 
+  307  cat log.txt 
+  308  ./logSpeaker.php 
+  309  cat log.txt
+  310  rm -r log.txt
+  311  touch log.txt
+  312  ls
+  313  cat log.txt
+  314  ls
+  315  cat log.txt
+  316  cat log.txt 
+  317  rm -r log.txt 
+  318  touch log.txt
+  319  ls
+  320  nano logRabbitMQ.ini 
+  321  cat log.txt
+  322  clear
+  323  cat log.txt
+  324  nano logSpeaker.php 
+  325  ls
+  326  clear
+  327  ls
+  328  nano logSpeaker.php 
+  329  cp logRabbitMQLib.inc ../database/
+  330  cd ../database/
+  331  ls
+  332  nano local.ini
+  333  cd ..
+  334  cd logListener/
+  335  ;s
+  336  ls
+  337  nano local.ini 
+  338  cp logListener.php ../database/
+  339  cd ../database/
+  340  ls
+  341  ./logListener.php 
+  342  cd ../logListener/
+  343  nano get_host_info.inc 
+  344  ls
+  345  cp logRabbitMQ.ini ../database/
+  346  ls
+  347  nano logSpeaker.php 
+  348  nano logRabbitMQ.ini 
+  349  ./logListener.php 
+  350  nano logRabbitMQ.ini 
+  351  ./logListener.php 
+  352  nano logRabbitMQ.ini 
+  353  ./logListener.php 
+  354  exit
+  355  ls
+  356  nano testRabbitMQClient.php 
+  357  cd webPages/
+  358  ls
+  359  ./webServerSpeaker.php 
+  360  cd git/News-Box-Application/
+  361  ls
+  362  cd database/
+  363  ls
+  364  nano mainControl.php 
+  365  cd git
+  366  cd news
+  367  ls
+  368  cd News-Box-Application/
+  369  cd database/
+  370  ls
+  371  nano readme.txt
+  372  exit
+  373  ls
+  374  git pull
+  375  git pull origin master
+  376  ls
+  377  rm -r webPages/
+  378  cp ~/webPages/ .
+  379  cp -r ~/webPages/ .
+  380  ls
+  381  cd webPages/
+  382  ls
+  383  cd ..
+  384  ls
+  385  git add .
+  386  git commit -m "testing functionallity for web pages, working on login and will get to register after"
+  387  git push origin master
+  388  ls
+  389  cd webPages/
+  390  ls
+  391  nano moveWebPages.sh 
+  392  ls
+  393  ./moveWebPages.sh 
+  394  cd /var/www
+  395  ls
+  396  cd htjml
+  397  cd html
+  398  ls
+  399  nano index.php 
+  400  cd ~/git/
+  401  ls
+  402  cd News-Box-Application/
+  403  ls
+  404  cd webPages/
+  405  ls
+  406  nano index.php 
+  407  sudo apt install apache2
+  408  ls
+  409  nano index.php 
+  410  sudo systemctl start apache2
+  411  sudo systemctl restart apache2
+  412  cd /var/www
+  413  ls
+  414  cd html
+  415  ls
+  416  nano index.php 
+  417  nano webServerSpeaker.php 
+  418  cd ~/git/News-Box-Application/webPages/
+  419  ls
+  420  nano webServerSpeaker.php 
+  421  nano index.php 
+  422  ./moveWebPages.sh 
+  423  nano index.php 
+  424  nano newsbox.php 
+  425  nano index.php 
+  426  cd /var/www/html
+  427  ls
+  428  nano index.php 
+  429  cat index.php
+  430  ls
+  431  nano newsbox.php 
+  432  cd ~/webPages/
+  433  ls
+  434  nano index.php 
+  435  ./webServerSpeaker.php 
+  436  ./moveWebPages.sh 
+  437  nano webServerSpeaker.php 
+  438  nano index.php 
+  439  nano webServerSpeaker.php 
+  440  ./webServerSpeaker.php 
+  441  nano webServerSpeaker.php 
+  442  sudo apt upgrade apache2
+  443  ls
+  444  ./moveWebPages.sh 
+  445  nano moveWebPages.sh 
+  446  cd /etc/apache2/
+  447  ls
+  448  cd sites-available/
+  449  ls
+  450  nano 000-default.conf 
+  451  cd ../sites-enabled/
+  452  ls
+  453  cd ~
+  454  ls
+  455  cd git/
+  456  ls
+  457  cd News-Box-Application/
+  458  ls
+  459  cd webPages/
+  460  ls
+  461  cd ~/webPages/
+  462  ls
+  463  cd ..
+  464  cd git/News-Box-Application/
+  465  ls
+  466  cd webPages/
+  467  ls
+  468  nano index.php 
+  469  ./moveWebPages.sh 
+  470  nano index.php 
+  471  nano path.inc 
+  472  nano get_host_info.inc 
+  473  nano rabbitMQLib.inc 
+  474  nano index.php 
+  475  chmod u+x index.php 
+  476  ./index.php 
+  477  nano index.php 
+  478  y
+  479  ./moveWebPages.sh 
+  480  ./index.php 
+  481  nano webServerSpeaker.php 
+  482  ./index.php 
+  483  ./moveWebPages.sh 
+  484  httpd -t
+  485  netstat -tap
+  486  sudo systemctl status
+  487  sudo apt remove apache2
+  488  cd /var
+  489  cd www
+  490  ls
+  491  cd html
+  492  ls
+  493  cd ..
+  494  sudo rm -r html/
+  495  cd ~
+  496  cd git/News-Box-Application/webPages/
+  497  ls
+  498  sudo apt install apache2
+  499  ls
+  500  ./moveWebPages.sh 
+  501  ls
+  502  cd /var/www
+  503  s
+  504  ls
+  505  cd html/
+  506  ls
+  507  cd ~/git/News-Box-Application/webPages/
+  508  ls
+  509  nano index.php 
+  510  ./moveWebPages.sh 
+  511  nano index.php 
+  512  ./moveWebPages.sh 
+  513  nano webServerSpeaker.php 
+  514  ./moveWebPages.sh 
+  515  nano webServerSpeaker.php 
+  516  ./moveWebPages.sh 
+  517  nano webServerSpeaker.php 
+  518  ./moveWebPages.sh 
+  519  nano webServerSpeaker.php 
+  520  ./moveWebPages.sh 
+  521  nano webServerSpeaker.php 
+  522  ./webServerSpeaker.php 
+  523  nano webServerSpeaker.php 
+  524  ./webServerSpeaker.php 
+  525  nano webServerSpeaker.php 
+  526  pa
+  527  ls
+  528  chmod u+x path.inc 
+  529  ./path.inc 
+  530  nano path.inc 
+  531  ./path.inc 
+  532  nano path.inc 
+  533  nano get_host_info.inc 
+  534  chmod u+x get_host_info.inc 
+  535  ./get_host_info.inc 
+  536  nano get_host_info.inc 
+  537  nano rabbitMQLib.inc 
+  538  chmod u+x rabbitMQLib.inc 
+  539  ./rabbitMQLib.inc 
+  540  cd ..
+  541  ls
+  542  cd webPages/
+  543  nano rabbitMQLib.inc 
+  544  ls
+  545  nano index.php 
+  546  ./moveWebPages.sh 
+  547  nano index.php 
+  548  ./index.php 
+  549  nano index.php 
+  550  ./moveWebPages.sh 
+  551  nano index.php 
+  552  ./moveWebPages.sh 
+  553  nano newsbox.php 
+  554  nano login.php 
+  555  ./moveWebPages.sh 
+  556  nano login.php 
+  557  ./moveWebPages.sh 
+  558  nano login.in
+  559  nano login.php
+  560  nano index.php 
+  561  ls
+  562  nano readme.txt
+  563  cd ..
+  564  git add .
+  565  git commit -m "index.php has bugs with a require statement, /webPages/readme.txt has more information"
+  566  git push origin master
+  567  exit
+  568  cd git/News-Box-Application/
+  569  cd webPages/
+  570  ls
+  571  nano webServerSpeaker.php 
+  572  nano newsbox.php 
+  573  nano index.php 
+  574  nano -c index.php 
+  575  ./moveWebPages.sh 
+  576  nano index.php 
+  577  ./moveWebPages.sh 
+  578  nano index.php 
+  579  ./moveWebPages.sh 
+  580  nano webServerSpeaker.php 
+  581  ls
+  582  cd /var/www/html
+  583  ls
+  584  cd ~/git/News-Box-Application/
+  585  cd webPages/
+  586  ls
+  587  nano webServerSpeaker.php 
+  588  exit
+  589  cd git/News-Box-Application/database/
+  590  ls
+  591  nano dbRabbitMQListener.php 
+  592  cp ~/git/rabbitmqphp_example/testRabbitMQ.ini .
+  593  ls
+  594  cp ~/git/rabbitmqphp_example/testRabbitMQ.ini ~/git/News-Box-Application/webPages/.
+  595  ./testRabbitMQClient.php 
+  596  nano testRabbitMQClient.php 
+  597  ./testRabbitMQClient.php 
+  598  nano testRabbitMQClient.php 
+  599  nano mainControl.php 
+  600  ./testRabbitMQClient.php 
+  601  nano mainControl.php 
+  602  ./testRabbitMQClient.php 
+  603  nano testRabbitMQClient.php 
+  604  ls
+  605  nano testRabbitMQClient.php 
+  606  nano dbRabbitMQListener.php 
+  607  cd dbFunctions/
+  608  nano userFunctions.php 
+  609  cd ..
+  610  ./testRabbitMQClient.php 
+  611  cd dbFunctions/
+  612  ls
+  613  nano userFunctions.php 
+  614  cd ..
+  615  ls
+  616  ls
+  617  cd git/News-Box-Application/
+  618  ls
+  619  cd webPages/
+  620  ls
+  621  ./moveWebPages.sh 
+  622  nano index.php 
+  623  ./moveWebPages.sh 
+  624  nano index.php 
+  625  nano webServerSpeaker.php 
+  626  nano testRabbitMQClient.php 
+  627  nano webServerSpeaker.php 
+  628  nano testRabbitMQClient.php 
+  629  ls
+  630  nano dbTestSpeaker.php 
+  631  nano index.php 
+  632  nano dbTestSpeaker.php 
+  633  ./dbTestSpeaker.php 
+  634  nano dbTestSpeaker.php 
+  635  nano webServerSpeaker.php 
+  636  ./webServerSpeaker.php 
+  637  nano webServerSpeaker.php 
+  638  ./webServerSpeaker.php 
+  639  nano webServerSpeaker.php 
+  640  ./webServerSpeaker.php 
+  641  nano webServerSpeaker.php 
+  642  ./webServerSpeaker.php 
+  643  nano webServerSpeaker.php ls
+  644  ls
+  645  ./webServerSpeaker.php 
+  646  nano webServerSpeaker.php 
+  647  ./webServerSpeaker.php 
+  648  nano webServerSpeaker.php 
+  649  ./webServerSpeaker.php 
+  650  nano webServerSpeaker.php 
+  651  ./webServerSpeaker.php 
+  652  nano webServerSpeaker.php 
+  653  nano index.php 
+  654  ./moveWebPages.sh 
+  655  nano index.php 
+  656  ./index.php 
+  657  nano webServerSpeaker.php 
+  658  cd ../logListener/
+  659  ls
+  660  nano logRabbitMQ.ini 
+  661  cd git/News-Box-Application/database/
+  662  ls
+  663  ./dbRabbitMQListener.php 
+  664  cd ..
+  665  cd webPages/
+  666  ls
+  667  cd ..
+  668  ls
+  669  cd database/
+  670  ls
+  671  nano dbRabbitMQListener.php 
+  672  ./dbRabbitMQListener.php 
+  673  nano dbRabbitMQListener.php 
+  674  ./dbRabbitMQListener.php 
+  675  db dbFunctions/
+  676  ls dbFunctions/
+  677  nano user
+  678  cd dbFunctions/
+  679  nano userFunctions.php 
+  680  cd ..
+  681  ./dbRabbitMQListener.php 
+  682  clear
+  683  ./dbRabbitMQListener.php 
+  684  cd git/News-Box-Application/webPages/
+  685  ls
+  686  cd nano web
+  687  nano webServerSpeaker.php 
+  688  ./webServerSpeaker.php 
+  689  nano webServerSpeaker.php 
+  690  nano testRabbitMQClient.php 
+  691  cp testRabbitMQClient.php dbTestSpeaker.php
+  692  ls
+  693  nano dbTestSpeaker.php 
+  694  ls
+  695  ./dbTestSpeaker.php 
+  696  nano dbTestSpeaker.php 
+  697  nano -c dbTestSpeaker.php 
+  698  ./dbTestSpeaker.php 
+  699  nano webServerSpeaker.php 
+  700  ./webServerSpeaker.php 
+  701  nano webServerSpeaker.php 
+  702  ./webServerSpeaker.php 
+  703  nano webServerSpeaker.php 
+  704  ./webServerSpeaker.php 
+  705  nano webServerSpeaker.php 
+  706  ./webServerSpeaker.php 
+  707  nano webServerSpeaker.php 
+  708  ./webServerSpeaker.php 
+  709  nano webServerSpeaker.php 
+  710  la
+  711  ls
+  712  nano webServerSpeaker.php 
+  713  ls
+  714  nano testRabbitMQ.ini
+  715  ./webServerSpeaker.php 
+  716  nano webServerSpeaker.php 
+  717  ./webServerSpeaker.php 
+  718  nano webServerSpeaker.php 
+  719  ./webServerSpeaker.php 
+  720  nano webServerSpeaker.php 
+  721  ./webServerSpeaker.php 
+  722  nano webServerSpeaker.php 
+  723  sudo mysql;
+  724  ls
+  725  nano webServerSpeaker.php 
+  726  ./webServerSpeaker.php 
+  727  nano index.php 
+  728  nano -c index.php 
+  729  ./index.php 
+  730  nano -c index.php 
+  731  ./moveWebPages.sh 
+  732  ls
+  733  nano -c index.php 
+  734  ./moveWebPages.sh 
+  735  nano -c index.php 
+  736  ./moveWebPages.sh 
+  737  nano readme.txt 
+  738  nano moveWebPages.sh 
+  739  nano index.php 
+  740  nano path.inc 
+  741  cp ~/git/rabbitmqphp_example/local.ini .
+  742  ls
+  743  nano local.ini 
+  744  ./moveWebPages.sh 
+  745  nano index.php 
+  746  ./moveWebPages.sh 
+  747  nano testRabbitMQ.ini 
+  748  nano index.php 
+  749  ./index.php 
+  750  cd database/
+  751  ls
+  752  nano dbRabbitMQListener.php 
+  753  cd ../logListener/
+  754  ls
+  755  nano logRabbitMQ.ini
+  756  nano logRabbitMQLib.inc 
+  757  cd ../database/
+  758  ls
+  759  cd git/News-Box-Application/webPages/
+  760  ls
+  761  nano login.php
+  762  ls
+  763  cd git/News-Box-Application/webPages/
+  764  ls
+  765  nano index.php 
+  766  ./moveWebPages.sh 
+  767  cd ..
+  768  cp -r webPages/ ../../.
+  769  cd webPages/
+  770  ./moveWebPages.sh 
+  771  sudo systemctl restart apache2
+  772  ./moveWebPages.sh 
+  773  nano index.php 
+  774  ./moveWebPages.sh 
+  775  nano index.php 
+  776  ./moveWebPages.sh 
+  777  nano index.php 
+  778  exit
+  779  cd git
+  780  cd News-Box-Application/webPages/
+  781  ls
+  782  ./moveWebPages.sh 
+  783  nano index.php 
+  784  ls
+  785  nano index.php 
+  786  ./moveWebPages.sh 
+  787  ls
+  788  cd ../..
+  789  ls
+  790  cd ..
+  791  ls
+  792  rm -r webpages
+  793  rm -r webPages/
+  794  ls
+  795  cp git/News-Box-Application/webPages/ .
+  796  cp -r git/News-Box-Application/webPages/ .
+  797  ls
+  798  cd git/News-Box-Application/webPages/
+  799  ls
+  800  nano index.php 
+  801  pwd
+  802  nano index.php 
+  803  ls
+  804  ./moveWebPages.sh 
+  805  cd /var/www/html
+  806  ls
+  807  cd ..
+  808  ls
+  809  cd home/
+  810  ls
+  811  cd nolan
+  812  ls
+  813  cd /var/www/html
+  814  ls
+  815  cd ~
+  816  ls
+  817  cd webPages/
+  818  nano index.php 
+  819  ls
+  820  nano webServerSpeaker.php 
+  821  nano index.php 
+  822  nano webServerSpeaker.php 
+  823  exit
+  824  cd /var/www/html
+  825  nano index.php 
+  826  exit
+  827  ls
+  828  cd dbFunctions/
+  829  nano userFunctions.php 
+  830  cd /var/www
+  831  ls
+  832  cd html
+  833  ls
+  834  cd ~
+  835  cd webServerSpeakerFiles/
+  836  ls
+  837  nano webServerSpeaker.php 
+  838  ls
+  839  nano webServerSpeaker.php 
+  840  nano rabbitMQLib.inc 
+  841  sudo systemctl restart apache2
+  842  nano rabbitMQLib.inc 
+  843  nano webServerSpeaker.php 
+  844  y
+  845  nano webServerSpeaker.php 
+  846  nano rabbitMQLib.inc 
+  847  y
+  848  sudo systemctl restart apache2
+  849  nano rabbitMQLib.inc 
+  850  sudo systemctl restart apache2
+  851  nano rabbitMQLib.inc 
+  852  sudo systemctl restart apache2
+  853  nano webServerSpeaker.php 
+  854  nano rabbitMQLib.inc 
+  855  sudo systemctl restart apache2
+  856  ls
+  857  nano webServerSpeaker.php 
+  858  sudo systemctl restart apache2
+  859  nano webServerSpeaker.php 
+  860  ls
+  861  nano rabbitMQLib.inc 
+  862  nano webServerSpeaker.php 
+  863  nano rabbitMQLib.inc 
+  864  cp rabbitMQLib.inc ./rabbitMQLib.php
+  865  ls
+  866  nano rabbitMQLib.php
+  867  nano webServerSpeaker.php 
+  868  nano rabbitMQLib.php
+  869  nano webServerSpeaker.php 
+  870  nano rabbitMQLib.php
+  871  nano webServerSpeaker.php 
+  872  nano rabbitMQLib.php
+  873  nano webServerSpeaker.php 
+  874  nano rabbitMQLib.php
+  875  cd ../git/News-Box-Application/database/
+  876  ls
+  877  nano dbRabbitMQListener.php 
+  878  cd webPages/
+  879  ls
+  880  cd ..
+  881  ls
+  882  mkdir webServerSpeakerFiles
+  883  cd webPages/
+  884  ls
+  885  cp get_host_info.inc ../webServerSpeakerFiles/
+  886  cp path.inc ../webServerSpeakerFiles/
+  887  cp rabbitMQLib.inc ../webServerSpeakerFiles/
+  888  cp testRabbitMQ.ini ../webServerSpeakerFiles/
+  889  cp webServerSpeaker.php ../webServerSpeakerFiles/
+  890  ls
+  891  cd ..
+  892  ls
+  893  cd webServerSpeakerFiles/
+  894  ls
+  895  nano webServerSpeaker.php 
+  896  ./webServerSpeaker.php 
+  897  nano webServerSpeaker.php 
+  898  ./webServerSpeaker.php 
+  899  ls
+  900  nano rabbitMQLib.inc 
+  901  cd ..
+  902  cd git/News-Box-Application/webPages/
+  903  ls
+  904  nano index.php 
+  905  cd ../..
+  906  cd ..
+  907  ls
+  908  nano git/News-Box-Application/webPages/index.php 
+  909  ./git/News-Box-Application/webPages/moveWebPages.sh 
+  910  cd git/News-Box-Application/webPages/
+  911  ls
+  912  ./moveWebPages.sh 
+  913  nano webServerSpeaker.php 
+  914  ./moveWebPages.sh 
+  915  nano index.php 
+  916  ls
+  917  nano index
+  918  nano index.php 
+  919  ls
+  920  ./moveWebPages.sh 
+  921  nano index.php 
+  922  ./moveWebPages.sh 
+  923  ls
+  924  nano webServerSpeaker.php 
+  925  ./moveWebPages.sh 
+  926  sudo systemctl restart apache2
+  927  nano index.php 
+  928  ./index.php 
+  929  nano index.php 
+  930  ./index.php 
+  931  nano index.php 
+  932  ./index.php 
+  933  nano index.php 
+  934  nano -c index.php 
+  935  ./index.php 
+  936  nano -c index.php 
+  937  ls
+  938  cd dmzAPI/
+  939  ls
+  940  cd ..
+  941  ls
+  942  git pull origin master
+  943  ls
+  944  cd dmzAPI/
+  945  ls
+  946  nano file.txt 
+  947  cd ../webPages/
+  948  ls
+  949  nano index.php 
+  950  nano rabbitMQLib.inc 
+  951  cd ..
+  952  ls
+  953  cd ..
+  954  ls
+  955  cd webServerSpeakerFiles/
+  956  ls
+  957  nano webServerSpeaker.php 
+  958  cd ../git/News-Box-Application/data
+  959  cd ../git/News-Box-Application/database/
+  960  ls
+  961  nano dbRabbitMQListener.php 
+  962  ls
+  963  nano dbRabbitMQListener.php 
+  964  ./dbRabbitMQListener.php 
+  965  nano dbRabbitMQListener.php 
+  966  mv testRabbitMQ.ini 
+  967  nano testRabbitMQ.ini 
+  968  ls
+  969  nano testRabbitMQ.ini 
+  970  ./dbRabbitMQListener.php 
+  971  cd ../../
+  972  cd ..
+  973  cd webServerSpeakerFiles/
+  974  ls
+  975  nano webServerSpeaker.php 
+  976  ls
+  977  cd ..
+  978  ls
+  979  cd web
+  980  cd webPages/
+  981  ls
+  982  nano index.php 
+  983  xit
+  984  exit
+  985  ls
+  986  sudo mysql
+  987  cd ../database/
+  988  ls
+  989  cd dbScripting/
+  990  ls
+  991  nano userTable.sql 
+  992  sudo mysql -u root testDB < userTable.sql 
+  993  sudo mysql
+  994  nano userTable.sql 
+  995  sudo mysql
+  996  nano userTable.sql 
+  997  cd ../dbFunctions/
+  998  nano userFunctions.php 
+  999  cd ../dbScripting/
+ 1000  ls
+ 1001  sudo mysql
+ 1002  cd ../dbFunctions/
+ 1003  ls
+ 1004  nano userFunctions.php 
+ 1005  nano ../dbScripting/
+ 1006  cd ../dbScripting/
+ 1007  nano userTable.sql 
+ 1008  cd ../dbFunctions/
+ 1009  ls
+ 1010  cd ../dbScripting/
+ 1011  sudo mysql -u root testDB < userTable.sql 
+ 1012  sudo mysql
+ 1013  ls
+ 1014  nano userTable.sql 
+ 1015  sudo mysql
+ 1016  exit
+ 1017  ls
+ 1018  nano userFunctions.php 
+ 1019  ls
+ 1020  cd git/News-Box-Application/database/
+ 1021  ls
+ 1022  nano mainControl.php 
+ 1023  cd git/News-Box-Application/
+ 1024  ls
+ 1025  nano database/
+ 1026  ls
+ 1027  cd database/
+ 1028  ls
+ 1029  mkdir dbToWebServerRabbitFiles
+ 1030  ls
+ 1031  nano testphp.php 
+ 1032  mv dbRabbitMQListener.php dbToWebServerRabbitFiles/
+ 1033  cd dbToWebServerRabbitFiles/
+ 1034  ls
+ 1035  ./dbRabbitMQListener.php 
+ 1036  ls
+ 1037  ./dbRabbitMQListener.php 
+ 1038  nan dbRabbitMQListener.php 
+ 1039  vim dbRabbitMQListener.php 
+ 1040  ./dbRabbitMQListener.php 
+ 1041  nan dbRabbitMQListener.php 
+ 1042  nano dbRabbitMQListener.php 
+ 1043  ./dbRabbitMQListener.php 
+ 1044  ls
+ 1045  vim get_host_info.inc 
+ 1046  ls
+ 1047  ./dbRabbitMQListener.php 
+ 1048  ls
+ 1049  vim rabbitMQLib.inc 
+ 1050  ls
+ 1051  nano host.ini 
+ 1052  nano get_host_info.inc 
+ 1053  ./dbRabbitMQListener.php 
+ 1054  ls
+ 1055  nano testRabbitMQ.ini 
+ 1056  ./dbRabbitMQListener.php 
+ 1057  rm dbRabbitMQ.ini 
+ 1058  ./dbRabbitMQListener.php 
+ 1059  ls
+ 1060  vim dbRabbitMQListener.php 
+ 1061  ls
+ 1062  cd ..
+ 1063  ls
+ 1064  mv -r dbToDMZRabbitFiles/ dmzRabbitFiles
+ 1065  mv dbToDMZRabbitFiles/ dmzRabbitFiles
+ 1066  ls
+ 1067  cd dbArticleTesting/
+ 1068  ls
+ 1069  cd ..
+ 1070  ls
+ 1071  nano testRabbitMQServer.conf 
+ 1072  cd dbFunctions/
+ 1073  ls
+ 1074  nano articleFunctions.php 
+ 1075  ls
+ 1076  cd dbToWebServerRabbitFiles/
+ 1077  ls
+ 1078  cd ..
+ 1079  cd dbArticleTesting/
+ 1080  ls
+ 1081  ./test.php 
+ 1082  nano test.php 
+ 1083  nano -c test.php 
+ 1084  ls
+ 1085  mv test.php separateArticles.php
+ 1086  ls
+ 1087  nano separateArticles.php 
+ 1088  cp separateArticles.php ../dbFunctions/
+ 1089  ls
+ 1090  cd ..
+ 1091  git add .
+ 1092  git commit -m "database/dbArticleTesting/separatesArray.php can now take a string from the dmz and turn the string into usable arrays for database input"
+ 1093  git push origin master
+ 1094  exit
+ 1095  cd git/News-Box-Application/database/dbArticleTesting/
+ 1096  ls
+ 1097  ./test.php 
+ 1098  cd ..
+ 1099  ls
+ 1100  cd dbArticleTesting/
+ 1101  cd ..
+ 1102  ls
+ 1103  cd dbFunctions/
+ 1104  l
+ 1105  ls
+ 1106  exit
+ 1107  cd git/News-Box-Application/
+ 1108  ls
+ 1109  git pull origin master
+ 1110  cd webPages/
+ 1111  ls
+ 1112  nano loginValidate.php 
+ 1113  ./loginValidate.php
+ 1114  chmod u+x loginValidate.php 
+ 1115  ./loginValidate.php 
+ 1116  cd ..
+ 1117  cd database/
+ 1118  ls
+ 1119  cd dbFunctions/
+ 1120  ls
+ 1121  cd ../dbArticleTesting/
+ 1122  ./separateArticles.php 
+ 1123  ls
+ 1124  mv dmzRabbitMQListener.php 
+ 1125  mv dbRabbitMQListener.php dmzRabbitMQListener.php 
+ 1126  ls
+ 1127  nano dmzRabbitMQListener.php 
+ 1128  nano separateArticles.php 
+ 1129  ./separateArticles.php 
+ 1130  nano dmzRabbitMQListener.php 
+ 1131  ls
+ 1132  nano dmzMainControl.php 
+ 1133  nano dmzRabbitMQListener.php 
+ 1134  nano dmzMainControl.php 
+ 1135  cd dbF
+ 1136  cd ../dbFunctions/
+ 1137  ls
+ 1138  nano userFunctions.php 
+ 1139  cd ..
+ 1140  cd dbArticleTesting/
+ 1141  nano dmzMainControl.php 
+ 1142  cd git/News-Box-Application/database/
+ 1143  ls
+ 1144  cd dbArticleTesting/
+ 1145  ls
+ 1146  nano dmzMainControl.php 
+ 1147  nano testRabbitMQClient.php 
+ 1148  ./testRabbitMQClient.php 
+ 1149  quit
+ 1150  exit
+ 1151  cd git/News-Box-Application/database/
+ 1152  ls
+ 1153  cd dbArticleTesting/
+ 1154  ls
+ 1155  ./dmzRabbitMQListener.php 
+ 1156  nano dmzMainControl.php 
+ 1157  nano dmzRabbitMQListener.php 
+ 1158  ./dmzRabbitMQListener.php 
+ 1159  nano dmzRabbitMQListener.php 
+ 1160  quit
+ 1161  exit
+ 1162  cd git/News-Box-Application/
+ 1163  ls
+ 1164  cd database/
+ 1165  ls
+ 1166  nano mainControl.php 
+ 1167  nano dbRabbitMQListener.php 
+ 1168  history
+ 1169  ls
+ 1170  touch history1.txt
+ 1171  cat history | history1.txt
+ 1172  history > history1.txt 

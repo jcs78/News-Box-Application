@@ -1,28 +1,43 @@
-#!/usr/bin/php
 <?php
-
-//Main web page control//
 session_start();
 
 require('webServerRabbitMQLib.php');
 //echo "Well, excuuuuuse me, Princess!";
 
-$webServerAction = filter_input(INPUT_POST, 'action');
+$webServerAction = filter_input(INPUT_POST, "action");
 
-if ($webServerAction == NULL){
-	$webServerAction = 'showLandingPage';
+echo ($webServerAction);
+
+if($webServerAction == NULL){
+	$webServerAction = filter_input(INPUT_GET, 'action');
+	if ($webServerAction == NULL){
+		$webServerAction = 'showLandingPage';
+	}
 }
+
+echo ($webServerAction);
 
 switch ($webServerAction){
 
 	case 'showLogin':{
 		include('login.php');
+
+		break;
 	}
 	case 'showRegister':{
 		include('register.php');
+
+		break;
 	}
 	case 'showLandingPage':{
 		include('newsbox.php');
+
+		break;
+	}
+	case 'showHome':{
+		include('home.php');
+
+		break;
 	}
 
 	case 'validateLogin':{
@@ -37,11 +52,15 @@ switch ($webServerAction){
 		$loginRequest['username'] = $username;
 		$loginRequest['password'] = $password;
 
-		$userInfo = $_SESSION["wpClient"]->send_request("loginRequest");
+		$userInfo = $_SESSION["wpClient"]->send_request($loginRequest);
+		$_SESSION['userID'] = $userInfo['userID'];
 		$_SESSION['username'] = $userInfo['username'];
 		$_SESSION['password'] = $userInfo['password'];
 
+
 		header('Location: .?action=showLandingPage');
+
+		break;
 	}
 
 	case 'registerUser':{
@@ -53,13 +72,29 @@ switch ($webServerAction){
                 $registerRequest['username'] = $newUsername;
                 $registerRequest['password'] = $newPassword;
 
-		$isRegistered = speak($registerRequest);
+		$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
 
-		//finish what happens here
+		if($isRegistered){
+			$_SESSION['userID'] = $userInfo['userID'];
+	                $_SESSION['username'] = $userInfo['username'];
+	                $_SESSION['password'] = $userInfo['password'];
+
+			header('Location: .?action=showHome');
+
+			break;
+		}else{
+			$_SESSION['registerProblem'] = true;
+			header('Location: .?action=showRegister');
+
+			break;
+		}
+
 	}
 
 	default:{
 		echo "Unknown Action";
+
+		break;
 	}
 }
 

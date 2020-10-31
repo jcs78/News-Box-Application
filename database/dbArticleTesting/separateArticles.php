@@ -1,11 +1,10 @@
-#!/usr/bin/php
 <?php
 
 //this should be the array index send by rabbit
 //the data type will also be a string so this
 //mimics the data that we will be getting
 
-$text = file_get_contents('file.txt');
+//$text = file_get_contents('file.txt');
 
 echo "\n\n";
 //print_r($text);
@@ -95,8 +94,7 @@ function separateArticles($inputText){
 }
 
 //testing
-$output = separateArticles($text);
-
-print_r($output);
+//$output = separateArticles($text);
+//print_r($output);
 
 ?>

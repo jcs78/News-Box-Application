@@ -1,17 +1,10 @@
-<?php
-
-///include('abstractViews/header.php');
-
-//session_start();
-
-?>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width= device-width, initial-scale = 1.0" />
     <title>News Box</title>
+
     <link
       rel="shortcut icon"
       href="https://cdn.glitch.com/5ee84088-d31b-4f20-89d8-592128411228%2Ffavicon-32x32%5B1%5D.png?v=1602708884887"
@@ -40,66 +33,12 @@
     <script src="Newsbox.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
   </head>
+
+
   <body>
-    <!-- This is NavBar -->
+   <!-- This is NavBar -->
 
-    <nav class="navbar">
-      <div class="inner-width">
-        <a href="#" class="logo"></a>
-        <button class="menu-toggler">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <!-- Where all the nav bar will list -->
-        <div class="search-box">
-          <input class="search-txt" type="text" name="" placeholder="Search" />
-          <a class="search-btn" href="#">
-            <i class="fas fa-search"></i>
-          </a>
-        </div>
-
-
-
-
-
-	<!-- Change hrefs to this server  -->
-        <div class="navbar-menu">
-
-
-          <a href= "newsbox.php">
-            Home</a
-          >
-
-	<!-- Needs to link to to our site
-          <a href="https://news-box-application.glitch.me/Newsbox.html">
-            Home</a
-          >
-	-->
-
-	  <!-- Needs to link back to our site
-          <a href="https://news-box-application.glitch.me/login.html">
-            Login
-	  -->
-
-	  <a href="login.php">
-	    Login
-
-
-	<!--
-          </a>
-          <a href="https://news-box-application.glitch.me/register.html">
-            Register</a
-          >
-	-->
-
-	 <a href= "register.php">
-            Register</a
-
-          <a href="#"> Forum</a>
-        </div>
-      </div>
-    </nav>
+	//<?php include('abstractViews/nav.php'); ?>
 
     <!-- Home -->
     <section id="home">
@@ -107,7 +46,7 @@
         <div class="content">
           <h1></h1>
           <!--
-          
+
           <div class="sm">
             <a href="#" class="fa fa-facebook"></a>
             <a href="#" class="fa fa-twitter"></a>
@@ -115,8 +54,9 @@
             <a href="#" class="fa fa-linkedin"></a>
             <a href="#" class="fa fa-youtube"></a>
           </div>
-          
-          -->
+
+
+         -->
         </div>
       </div>
     </section>
