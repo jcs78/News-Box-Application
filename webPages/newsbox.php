@@ -4,6 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width= device-width, initial-scale = 1.0" />
     <title>News Box</title>
+
     <link
       rel="shortcut icon"
       href="https://cdn.glitch.com/5ee84088-d31b-4f20-89d8-592128411228%2Ffavicon-32x32%5B1%5D.png?v=1602708884887"
@@ -32,10 +33,12 @@
     <script src="Newsbox.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/js/all.min.js"></script>
   </head>
+
+
   <body>
    <!-- This is NavBar -->
 
-	<?php include('abstractViews/nav.php'); ?>
+	//<?php include('abstractViews/nav.php'); ?>
 
     <!-- Home -->
     <section id="home">

@@ -18,11 +18,13 @@
 
         <div class="navbar-menu">
 
-          <a href="newsbox.php">Home</a>
+	  <a href="index.php?action=showLandingPage">Landing</a>
 
-	  <a href="login.php">Login</a>
+          <a href="index.php?action=showHome">Home</a>
 
-	  <a href="register.php">Register</a
+	  <a href="index.php?action=showLogin">Login</a>
+
+	  <a href="index.php?action=showRegister">Register</a>
 
           <a href="#">Forum</a>
         </div>

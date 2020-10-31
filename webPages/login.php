@@ -34,25 +34,9 @@
   </head>
   <body>
     <!-- This is NavBar -->
-   
-    <nav class="navbar">
-      <div class="inner-width">
-        <a href="#" class="logo"></a>
-        <button class="menu-toggler">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <!-- Where all the nav bar will list -->
-        <div class="navbar-menu">
-          <a href="newsbox.php"> Home</a>
-          <a href="login.php"> Login </a>
-          <a href="#"> Register</a>
-          <a href="#"> Forum</a>
-        </div>
-      </div>
-    </nav>
-    
+
+	<?php include('abstractViews/nav.php'); ?>
+
     <!-- Home -->
     <section id="home">
       <div class="inner-width">

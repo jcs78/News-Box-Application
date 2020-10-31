@@ -35,24 +35,7 @@
   <body>
     <!-- This is NavBar -->
 
-    <nav class="navbar">
-      <div class="inner-width">
-        <a href="#" class="logo"></a>
-        <button class="menu-toggler">
-          <span></span>
-          <span></span>
-          <span></span>
-        </button>
-        <!-- Where all the nav bar will list -->
-        <div class="navbar-menu">
-          <a href="#"> Home</a>
-          <a href="https://news-box-application.glitch.me/login.html"> Login </a>
-          <a href="https://news-box-application.glitch.me/register.html"> Register</a>
-          <a href="#"> Forum</a>
-        </div>
-      </div>
-    </nav>
-
+	<?php include('abstractViews/nav.php'); ?>
 
     <!-- Home -->
 
