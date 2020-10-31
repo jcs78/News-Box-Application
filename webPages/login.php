@@ -42,17 +42,6 @@
       <div class="inner-width">
         <div class="content">
           <h1></h1>
-          <!--
-          
-          <div class="sm">
-            <a href="#" class="fa fa-facebook"></a>
-            <a href="#" class="fa fa-twitter"></a>
-            <a href="#" class="fa fa-google"></a>
-            <a href="#" class="fa fa-linkedin"></a>
-            <a href="#" class="fa fa-youtube"></a>
-          </div>
-          
-          -->
 
         </div>
       </div>
