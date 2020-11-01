@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 
 require_once('get_host_info.inc');
@@ -5,23 +6,13 @@ require_once('get_host_info.inc');
 error_reporting (E_ALL);
 set_error_handler("handleError");
 
-
-//Tried to put the rabbit object into a function
 function speak($inputArray){
 
 	$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
 	$response = $wpClient->send_request($inputArray);
 	return $response;
 
-}
-
-//$_SESSION["wpClient"] = $wpClient;
-
-/*
-Classes for Rabbit Connection to Web Page 
-*/
-
-class webpageClient
+class dmzClient
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -52,14 +43,7 @@ class webpageClient
                         $this->auto_delete = $this->machine[$server]["AUTO_DELETE"];
                 }
                 $this->exchange = $this->machine[$server]["EXCHANGE"];
-		
-// 		Added an exchange to receive a response. [-jcs78]
-		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];
-
-		$this->queue = $this->machine[$server]["QUEUE"];
-
-//		Added a queue to receive a response. [-jcs78]
-		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];
+                $this->queue = $this->machine[$server]["QUEUE"];
         }
 
 	function process_response($response)
@@ -67,8 +51,8 @@ class webpageClient
                 $uid = $response->getCorrelationId();
                 if (!isset($this->response_queue[$uid]))
                 {
-                  	echo  "Unknown UID\n";
-                  	return true;
+                  echo  "Unknown UID\n";
+                  return true;
                 }
                 $this->conn_queue->ack($response->getDeliveryTag());
                 $body = $response->getBody();
@@ -104,15 +88,10 @@ class webpageClient
                         $exchange->setName($this->exchange);
                         $exchange->setType($this->exchange_type);
 
-//			$callback_queue = new AMQPQueue($channel);
-//     			$callback_queue->setName($this->queue."_response");
-//     			$callback_queue->declare();
-//                      $callback_queue->bind($exchange->getName(),$this->routing_key.".response");
-
-//			Established a queue to callback to that is already inside the host. [-jcs78]
-			$callback_queue = new AMQPQueue($channel)
-			$callback_queue->setName($this->queue_rsp);
-			$callback_queue->bind($exchange->getName(),$this->routing_key".response");
+			$callback_queue = new AMQPQueue($channel);
+      			$callback_queue->setName($this->queue."_response");
+      			$callback_queue->declare();
+                        $callback_queue->bind($exchange->getName(),$this->routing_key.".response");
 
                         $this->conn_queue = new AMQPQueue($channel);
                         $this->conn_queue->setName($this->queue);
