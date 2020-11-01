@@ -49,9 +49,7 @@
 
     <section id="login"></section>
         <div class="loginForm" >
-          <form action = "index.php" method="post">
-
-
+          <form action="index.php" method="post">
 
 	    <input type="hidden" name="action" value="validateLogin">
 
@@ -88,7 +86,7 @@
               type="submit"
               id="loginSubmit"
               name=""
-              value="LOG IN"
+              value="Submit"
               style="color: white;"
             />
           </form>

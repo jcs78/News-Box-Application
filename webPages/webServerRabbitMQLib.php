@@ -5,8 +5,17 @@ require_once('get_host_info.inc');
 error_reporting (E_ALL);
 set_error_handler("handleError");
 
-$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
-$_SESSION["wpClient"] = $wpClient;
+
+//Tried to put the rabbit object into a function
+function speak($inputArray){
+
+	$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
+	$response = $wpClient->send_request($inputArray);
+	return $response;
+
+}
+
+//$_SESSION["wpClient"] = $wpClient;
 
 /*
 Classes for Rabbit Connection to Web Page 

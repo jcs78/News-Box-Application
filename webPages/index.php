@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 session_start();
 
@@ -5,8 +6,6 @@ require('webServerRabbitMQLib.php');
 //echo "Well, excuuuuuse me, Princess!";
 
 $webServerAction = filter_input(INPUT_POST, "action");
-
-echo ($webServerAction);
 
 if($webServerAction == NULL){
 	$webServerAction = filter_input(INPUT_GET, 'action');
@@ -16,6 +15,12 @@ if($webServerAction == NULL){
 }
 
 echo ($webServerAction);
+echo "<br><br>";
+
+if(isset($_SESSION['username'])){
+	print_r($_SESSION['username']);
+	echo "<br><br>";
+}
 
 switch ($webServerAction){
 
@@ -52,13 +57,17 @@ switch ($webServerAction){
 		$loginRequest['username'] = $username;
 		$loginRequest['password'] = $password;
 
-		$userInfo = $_SESSION["wpClient"]->send_request($loginRequest);
+		print_r($loginRequest);
+
+		//Changed the rabbit call to be a function
+		$userInfo = speak($loginRequest);
+
 		$_SESSION['userID'] = $userInfo['userID'];
 		$_SESSION['username'] = $userInfo['username'];
 		$_SESSION['password'] = $userInfo['password'];
 
 
-		header('Location: .?action=showLandingPage');
+		header('Location: .?action=showHome');
 
 		break;
 	}

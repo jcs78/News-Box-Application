@@ -38,7 +38,7 @@
   <body>
    <!-- This is NavBar -->
 
-	//<?php include('abstractViews/nav.php'); ?>
+	<?php include('abstractViews/nav.php'); ?>
 
     <!-- Home -->
     <section id="home">
