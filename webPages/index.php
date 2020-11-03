@@ -27,11 +27,11 @@ switch ($webServerAction){
 
 	case 'showLogin':
 	{
-//		include('login.php');
-		
-		ob_start();
-		header("Location: login.php");
-		ob_end_flush();
+		include('login.php');
+
+//		ob_start();
+//		header("Location: login.php");
+//		ob_end_flush();
 
 		break;
 	}
@@ -39,7 +39,7 @@ switch ($webServerAction){
 //		include('register.php');
 
 		ob_start();
-                header("Location: login.php");
+                header("Location: register.php");
                 ob_end_flush();
 
 		break;
@@ -98,11 +98,15 @@ switch ($webServerAction){
 	case 'registerUser':{
 		$newUsername = filter_input(INPUT_POST, 'username');
                 $newPassword = filter_input(INPUT_POST, 'password');
+		$newPrefsArr = filter_input(INPUT_POST, 'prefs',
+						FILTER_SNITIZE_FULL_SPECIAL_CHARS,
+						FILTER_REQUIRE_ARRAY);
 
 		$registerRequest = array();
                 $registerRequest['type'] = "register";
                 $registerRequest['username'] = $newUsername;
                 $registerRequest['password'] = $newPassword;
+		$registerRequest['preferences'] = $newPrefsArr;
 
 		$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
 

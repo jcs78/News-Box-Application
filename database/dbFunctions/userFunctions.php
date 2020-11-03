@@ -1,8 +1,38 @@
 <?php
 
-function registerUser($conn, $newUsername, $newPassword){
+function registerUser($conn, $newUsername, $newPassword, $newPrefsArr){
 
 	try{
+		$wantsBusiness = False;
+		$wantsEntertainment = False;
+		$wantsHealth = False;
+		$wantsScience = False;
+		$wantsSports = False;
+		$wantsTech = False;
+
+		if(in_array("business", $newsPrefsArr)){
+			$wantsBusiness = True;
+		}
+		if(in_array("entertainment", $newsPrefsArr)){
+                        $wantsEntertainment = True;
+                }
+		if(in_array("health", $newsPrefsArr)){
+                        $wantsHealth = True;
+                }
+		if(in_array("science", $newsPrefsArr)){
+                        $wantsScience = True;
+                }
+		if(in_array("sports", $newsPrefsArr)){
+                        $wantsSports = True;
+                }
+		if(in_array("tech", $newsPrefsArr)){
+                        $wantsTech = True;
+                }
+
+
+
+
+
 		$query = "insert into `userInfo`
 	                 	(`username`, `password`)
 	                  values
