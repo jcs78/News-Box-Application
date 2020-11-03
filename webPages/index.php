@@ -44,6 +44,11 @@ switch ($webServerAction){
 
 		break;
 	}
+	case 'showForum':{
+		include('forum.php');
+
+		break;
+	}
 
 	case 'validateLogin':{
 		$username = filter_input(INPUT_POST, 'username');
