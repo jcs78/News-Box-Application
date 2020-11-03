@@ -1,4 +1,4 @@
-#! /usr/bin/php
+#!/usr/bin/php
 <?php
 
 require_once('get_host_info.inc');
@@ -442,12 +442,12 @@ class logListenerServer
 		catch(Exception $e)
                 {
 // 			AMQP throws exception if get fails.
-//                      echo "Error: rabbitMQServer: process_message: Exception caught: ".$e;
-			$clientLog = speakLog();
-			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        echo "Error: rabbitMQServer: process_message: Exception caught: ".$e;
+			
+//			$clientLog = speakLog();
+//			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
-			$clientLog->send_log($throwableError);
-                        die();
+//			$clientLog->send_log($throwableError);
                 }
 		
 //		Message does not require a response, send ack immediately.
@@ -495,12 +495,12 @@ class logListenerServer
 		
 		catch (Exception $e)
                 {
-//                      trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
+//			trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
+
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
 			$clientLog->send_log($throwableError);
-                        die();
                 }
         }
 }

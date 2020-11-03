@@ -3,14 +3,21 @@
 
 session_start();
 
-require('webServerRabbitMQLib.php');
-//echo "Well, excuuuuuse me, Princess!";
+require('validateLogin.php');
+require_once('webServerRabbitMQLib.php');
+
+error_reporting(E_ALL);
+set_error_handler("handleError");
+
+// echo "Well, excuuuuuse me, Princess!";
 
 $webServerAction = filter_input(INPUT_POST, "action");
 
-if($webServerAction == NULL){
+if ($webServerAction == NULL)
+{
 	$webServerAction = filter_input(INPUT_GET, 'action');
-	if ($webServerAction == NULL){
+	if ($webServerAction == NULL)
+	{
 		$webServerAction = 'showLandingPage';
 	}
 }
@@ -18,13 +25,14 @@ if($webServerAction == NULL){
 echo ($webServerAction);
 echo "<br><br>";
 
-if(isset($_SESSION['username'])){
+if (isset($_SESSION['username']))
+{
 	print_r($_SESSION['username']);
 	echo "<br><br>";
 }
 
-switch ($webServerAction){
-
+switch ($webServerAction)
+{
 	case 'showLogin':
 	{
 //		include('login.php');
@@ -35,16 +43,18 @@ switch ($webServerAction){
 
 		break;
 	}
-	case 'showRegister':{
+	case 'showRegister':
+	{
 //		include('register.php');
 
 		ob_start();
-                header("Location: login.php");
+                header("Location: register.php");
                 ob_end_flush();
 
 		break;
 	}
-	case 'showLandingPage':{
+	case 'showLandingPage':
+	{
 //		include('newsbox.php');
 
 		ob_start();
@@ -53,7 +63,8 @@ switch ($webServerAction){
 
 		break;
 	}
-	case 'showHome':{
+	case 'showHome':
+	{
 //		include('home.php');
 
 		ob_start();
@@ -62,40 +73,48 @@ switch ($webServerAction){
 
 		break;
 	}
-	case 'showForum':{
-		include('forum.php');
+	case 'showForum':
+	{
+//		include('forum.php');
+		
+		ob_start();
+		header("Location: forum.php");
+		ob_end_flush();
 
 		break;
 	}
 
-	case 'validateLogin':{
-		$username = filter_input(INPUT_POST, 'username');
-		$password = filter_input(INPUT_POST, 'password');
+	case 'validateLogin':
+	{
+//		$username = filter_input(INPUT_POST, 'username');
+//		$password = filter_input(INPUT_POST, 'password');
 
 		//echo $username;
 		//echo $password;
 
-		$loginRequest = array();
-		$loginRequest['type'] = "login";
-		$loginRequest['username'] = $username;
-		$loginRequest['password'] = $password;
+//		$loginRequest = array();
+//		$loginRequest['type'] = "login";
+//		$loginRequest['username'] = $username;
+//		$loginRequest['password'] = $password;
 
-		print_r($loginRequest);
+//		print_r($loginRequest);
 
-		//Changed the rabbit call to be a function
-		$userInfo = speak($loginRequest);
+//		Changed the rabbit call to be a function
+//		$userInfo = speak($loginRequest);
 
-		$_SESSION['userID'] = $userInfo['userID'];
-		$_SESSION['username'] = $userInfo['username'];
-		$_SESSION['password'] = $userInfo['password'];
+//		$_SESSION['userID'] = $userInfo['userID'];
+//		$_SESSION['username'] = $userInfo['username'];
+//		$_SESSION['password'] = $userInfo['password'];
 
+		validateLogin();
 
 		header('Location: .?action=showHome');
 
 		break;
 	}
 
-	case 'registerUser':{
+	case 'registerUser':
+	{
 		$newUsername = filter_input(INPUT_POST, 'username');
                 $newPassword = filter_input(INPUT_POST, 'password');
 
@@ -106,7 +125,8 @@ switch ($webServerAction){
 
 		$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
 
-		if($isRegistered){
+		if ($isRegistered)
+		{
 			$_SESSION['userID'] = $userInfo['userID'];
 	                $_SESSION['username'] = $userInfo['username'];
 	                $_SESSION['password'] = $userInfo['password'];
@@ -114,16 +134,18 @@ switch ($webServerAction){
 			header('Location: .?action=showHome');
 
 			break;
-		}else{
+		}
+		else
+		{
 			$_SESSION['registerProblem'] = true;
 			header('Location: .?action=showRegister');
 
 			break;
 		}
-
 	}
 
-	default:{
+	default:
+	{
 		echo "Unknown Action";
 
 		break;
@@ -131,3 +153,4 @@ switch ($webServerAction){
 }
 
 ?>
+

@@ -1,0 +1,6 @@
+Throwable Error Caught at 10:44:52am on 11-03-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/webPages/logSpeaker.php on line 23.
+
+Error [E_NOTICE] detected at 10:44:52am on 11-03-2020: Array to string conversion inside /home/jcs78/git/news-box-app/webPages/logSpeaker.php on line 36.
+
+Throwable Error Caught at 11:02:51am on 11-03-2020: Socket error: could not connect to host. inside /var/www/html/webServerRabbitMQLib.php on line 130.
+
