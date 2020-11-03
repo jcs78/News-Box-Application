@@ -29,18 +29,21 @@ function registerUser($conn, $newUsername, $newPassword, $newPrefsArr){
                         $wantsTech = True;
                 }
 
-
-
-
-
-		$query = "insert into `userInfo`
-	                 	(`username`, `password`)
+		$query = "insert into `newsBoxUsers`
+	                 	(`username`, `password`, `business`, `entertainment`, `health`, `science`, `sports`, `tech`,)
 	                  values
-	                      	(:username, :password)";
+	                      	(:username, :password, :business, :entertainment, :health, :science, :sports, :tech)";
 	        $statement = $conn->prepare($query);
 
 	        $statement->bindValue(':username', $newUsername);
 	       	$statement->bindValue(':password', $newPassword);
+		$statement->bindValue(':business', $wantsBusiness);
+		$statement->bindValue(':entertainment', $wantsEntertainment);
+		$statement->bindValue(':health', $wantsHealth);
+		$statement->bindValue(':science', $wantsScience);
+		$statement->bindValue(':sports', $wantsSports);
+		$statement->bindValue(':tech', $wantsTech);
+
 	        $statement->execute();
 	        $statement->closeCursor();
 
