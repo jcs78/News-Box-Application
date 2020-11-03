@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#! /usr/bin/php
 <?php
 
 require_once('get_host_info.inc');
@@ -6,12 +6,22 @@ require_once('get_host_info.inc');
 error_reporting (E_ALL);
 set_error_handler("handleError");
 
-function speak($inputArray){
+// Functions that establish the client and server.
+function speak($inputArray)
+{
+	$dmzClient = new dmzClient("dmzRabbitMQ.ini", "dmzServer");
+	$responseFromServer = $dmzClient->send_request($inputArray);
+	return $responseFromServer;
+}
 
-	$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
-	$response = $wpClient->send_request($inputArray);
-	return $response;
+function listen($inputArray)
+{
+        $dmzServer = new dmzServer("dmzRabbitMQ.ini", "dmzServer");
+        $requestFromClient = $dmzServer->send_request($inputArray);
+        return $requestFromClient;
+}
 
+// Classes for Rabbit Connection to Web Page
 class dmzClient
 {
         private $machine = "";
@@ -34,43 +44,57 @@ class dmzClient
                 $this->USER     = $this->machine[$server]["USER"];
                 $this->PASSWORD = $this->machine[$server]["PASSWORD"];
                 $this->VHOST = $this->machine[$server]["VHOST"];
-                if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
+
+		if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
                 {
                         $this->exchange_type = $this->machine[$server]["EXCHANGE_TYPE"];
                 }
-                if (isset( $this->machine[$server]["AUTO_DELETE"]))
+
+		if (isset( $this->machine[$server]["AUTO_DELETE"]))
                 {
                         $this->auto_delete = $this->machine[$server]["AUTO_DELETE"];
                 }
-                $this->exchange = $this->machine[$server]["EXCHANGE"];
-                $this->queue = $this->machine[$server]["QUEUE"];
+
+		$this->exchange = $this->machine[$server]["EXCHANGE"];
+		
+// 		Added an exchange to receive a response. [-jcs78]
+		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];
+
+		$this->queue = $this->machine[$server]["QUEUE"];
+
+//		Added a queue to receive a response. [-jcs78]
+		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];
         }
 
 	function process_response($response)
         {
                 $uid = $response->getCorrelationId();
-                if (!isset($this->response_queue[$uid]))
+
+		if (!isset($this->response_queue[$uid]))
                 {
-                  echo  "Unknown UID\n";
-                  return true;
+                  	echo  "Unknown UID\n";
+                  	return true;
                 }
-                $this->conn_queue->ack($response->getDeliveryTag());
+
+		$this->conn_queue->ack($response->getDeliveryTag());
                 $body = $response->getBody();
                 $payload = json_decode($body, true);
-                if (!(isset($payload)))
+
+		if (!(isset($payload)))
                 {
                         $payload = "[Empty Response]";
                 }
-                $this->response_queue[$uid] = $payload;
+
+		$this->response_queue[$uid] = $payload;
                 return false;
         }
 
 	function send_request($message)
         {
                 $uid = uniqid();
-
                 $json_message = json_encode($message);
-                try
+
+		try
                 {
                         $params = array();
                         $params['host'] = $this->BROKER_HOST;
@@ -88,10 +112,15 @@ class dmzClient
                         $exchange->setName($this->exchange);
                         $exchange->setType($this->exchange_type);
 
+//			$callback_queue = new AMQPQueue($channel);
+//     			$callback_queue->setName($this->queue."_response");
+//     			$callback_queue->declare();
+//                      $callback_queue->bind($exchange->getName(),$this->routing_key.".response");
+
+//			Established a queue to callback to that is already inside the host. [-jcs78]
 			$callback_queue = new AMQPQueue($channel);
-      			$callback_queue->setName($this->queue."_response");
-      			$callback_queue->declare();
-                        $callback_queue->bind($exchange->getName(),$this->routing_key.".response");
+			$callback_queue->setName($this->queue_rsp);
+			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");
 
                         $this->conn_queue = new AMQPQueue($channel);
                         $this->conn_queue->setName($this->queue);
@@ -108,14 +137,18 @@ class dmzClient
 		
 		catch(Exception $e)
                 {
-                        die("Failed to send message to exchange: ". $e->getMessage()."\n");
-                }
+//			die("Failed to send message to exchange: ". $e->getMessage()."\n");
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+			$clientLog->send_log($throwableError);
+			die();
+		}
 	}
 	
 	function publish($message)
         {
                 $json_message = json_encode($message);
-                try
+
+		try
                 {
 			$params = array();
       			$params['host'] = $this->BROKER_HOST;
@@ -137,15 +170,161 @@ class dmzClient
 		
 		catch(Exception $e)
                 {
-                        die("failed to send message to exchange: ". $e->getMessage()."\n");
+//			die("failed to send message to exchange: ". $e->getMessage()."\n");
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        $clientLog->send_log($throwableError);
+                        die();
                 }
 	}
 }
 
-/*
-Classes Related to the Log Listener & Speaker
-*/
+class dmzServer
+{
+        private $machine = "";
+        public  $BROKER_HOST;
+        private $BROKER_PORT;
+        private $USER;
+        private $PASSWORD;
+        private $VHOST;
+        private $exchange;
+        private $queue;
+        private $routing_key = '*';
+        private $exchange_type = "topic";
+        private $auto_delete = false;
 
+        function __construct($machine, $server = "rabbitMQ")
+        {
+                $this->machine = getHostInfo(array($machine));
+                $this->BROKER_HOST   = $this->machine[$server]["BROKER_HOST"];
+                $this->BROKER_PORT   = $this->machine[$server]["BROKER_PORT"];
+                $this->USER     = $this->machine[$server]["USER"];
+                $this->PASSWORD = $this->machine[$server]["PASSWORD"];
+                $this->VHOST = $this->machine[$server]["VHOST"];
+		
+		if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
+                {
+                        $this->exchange_type = $this->machine[$server]["EXCHANGE_TYPE"];
+                }
+		
+		if (isset( $this->machine[$server]["AUTO_DELETE"]))
+                {
+                        $this->auto_delete = $this->machine[$server]["AUTO_DELETE"];
+                }
+		
+		$this->exchange = $this->machine[$server]["EXCHANGE"];
+                $this->queue = $this->machine[$server]["QUEUE"];
+        }
+	
+	function process_message($msg)
+        {
+//		Send the ack to clear the item from the queue.
+                if ($msg->getRoutingKey() !== "*")
+    		{
+      			return;
+    		}
+		
+		$this->conn_queue->ack($msg->getDeliveryTag());
+
+		try
+                {
+                        if ($msg->getReplyTo())
+                        {
+// 				Message wants a response; process request.
+                                $body = $msg->getBody();
+                                $payload = json_decode($body, true);
+                                $response;
+
+				if (isset($this->callback))
+                                {
+                                        $response = call_user_func($this->callback,$payload);
+                                }
+
+				$params = array();
+      				$params['host'] = $this->BROKER_HOST;
+      				$params['port'] = $this->BROKER_PORT;
+      				$params['login'] = $this->USER;
+      				$params['password'] = $this->PASSWORD;
+      				$params['vhost'] = $this->VHOST;
+                        	$conn = new AMQPConnection($params);
+                        	$conn->connect();
+                        	$channel = new AMQPChannel($conn);
+                        	$exchange = new AMQPExchange($channel);
+      				$exchange->setName($this->exchange);
+      				$exchange->setType($this->exchange_type);
+
+                        	$conn_queue = new AMQPQueue($channel);
+                        	$conn_queue->setName($msg->getReplyTo());
+                        	$replykey = $this->routing_key.".response";
+                        	$conn_queue->bind($exchange->getName(),$replykey);
+                        	$exchange->publish(json_encode($response),$replykey,AMQP_NOPARAM,array('correlation_id'=>$msg->getCorrelationId()));
+
+                                return;
+                        }
+                }
+		
+		catch(Exception $e)
+                {
+//			ampq throws exception if get fails...
+//            		echo "error: rabbitMQServer: process_message: exception caught: ".$e;
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        $clientLog->send_log($throwableError);
+                        die();
+                }
+		
+//		Message does not require a response, send ack immediately.
+                $body = $msg->getBody();
+                $payload = json_decode($body, true);
+		
+		if (isset($this->callback))
+                {
+                        call_user_func($this->callback,$payload);
+                }
+        }
+	
+	function process_requests($callback)
+        {
+                try
+                {
+                	$this->callback = $callback;
+      			$params = array();
+      			$params['host'] = $this->BROKER_HOST;
+      			$params['port'] = $this->BROKER_PORT;
+      			$params['login'] = $this->USER;
+      			$params['password'] = $this->PASSWORD;
+      			$params['vhost'] = $this->VHOST;
+                        $conn = new AMQPConnection($params);
+                        $conn->connect();
+
+                        $channel = new AMQPChannel($conn);
+
+                        $exchange = new AMQPExchange($channel);
+      			$exchange->setName($this->exchange);
+      			$exchange->setType($this->exchange_type);
+
+                        $this->conn_queue = new AMQPQueue($channel);
+                        $this->conn_queue->setName($this->queue);
+                        $this->conn_queue->bind($exchange->getName(),$this->routing_key);
+
+                        $this->conn_queue->consume(array($this,'process_message'));
+
+//			Loop as long as the channel has callbacks registered
+                        while (count($channel->callbacks))
+                        {
+                                $channel->wait();
+                        }
+                }
+		
+		catch (Exception $e)
+                {
+//                      trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        $clientLog->send_log($throwableError);
+                        die();
+                }
+	}
+}
+
+// Classes Related to the Log Listener & Speaker
 class logListenerServer
 {
         private $machine = "";
@@ -168,36 +347,40 @@ class logListenerServer
                 $this->USER     = $this->machine[$server]["USER"];
                 $this->PASSWORD = $this->machine[$server]["PASSWORD"];
                 $this->VHOST = $this->machine[$server]["VHOST"];
-                if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
+
+		if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
                 {
                         $this->exchange_type = $this->machine[$server]["EXCHANGE_TYPE"];
                 }
-                if (isset( $this->machine[$server]["AUTO_DELETE"]))
+
+		if (isset( $this->machine[$server]["AUTO_DELETE"]))
                 {
                         $this->auto_delete = $this->machine[$server]["AUTO_DELETE"];
                 }
-                $this->exchange = $this->machine[$server]["EXCHANGE"];
+
+		$this->exchange = $this->machine[$server]["EXCHANGE"];
                 $this->queue = $this->machine[$server]["QUEUE"];
         }
 	
 	function process_message($msg)
         {
-                // send the ack to clear the item from the queue
+//		Send the ack to clear the item from the queue.
                 if ($msg->getRoutingKey() !== "*")
                 {
                         return;
                 }
-                $this->conn_queue->ack($msg->getDeliveryTag());
+		
+		$this->conn_queue->ack($msg->getDeliveryTag());
                 try
                 {
                         if ($msg->getReplyTo())
                         {
-                                // message wants a response
-                                // process request
+//				Message wants a response; process request.
                                 $body = $msg->getBody();
                                 $payload = json_decode($body, true);
                                 $response;
-                                if (isset($this->callback))
+				
+				if (isset($this->callback))
                                 {
                                         $response = call_user_func($this->callback,$payload);
                                 }
@@ -227,18 +410,21 @@ class logListenerServer
 		
 		catch(Exception $e)
                 {
-                        // ampq throws exception if get fails...
-                        echo "error: rabbitMQServer: process_message: exception caught: ".$e;
+// 			AMQP throws exception if get fails.
+//                      echo "Error: rabbitMQServer: process_message: Exception caught: ".$e;
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        $clientLog->send_log($throwableError);
+                        die();
                 }
 		
-		// message does not require a response, send ack immediately
+//		Message does not require a response, send ack immediately.
                 $body = $msg->getBody();
                 $payload = json_decode($body, true);
-                if (isset($this->callback))
+		
+		if (isset($this->callback))
                 {
                         call_user_func($this->callback,$payload);
                 }
-//              echo "Processed one-way message.\n";
         }
 	
 	function process_logs($callback)
@@ -267,7 +453,7 @@ class logListenerServer
 
                         $this->conn_queue->consume(array($this,'process_message'));
 
-                        // Loop as long as the channel has callbacks registered
+//			Loop as long as the channel has callbacks registered.
                         while (count($channel->callbacks))
                         {
                                 $channel->wait();
@@ -276,7 +462,10 @@ class logListenerServer
 		
 		catch (Exception $e)
                 {
-                        trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
+//                      trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        $clientLog->send_log($throwableError);
+                        die();
                 }
         }
 }
@@ -303,35 +492,42 @@ class logSpeakerClient
                 $this->USER     = $this->machine[$server]["USER"];
                 $this->PASSWORD = $this->machine[$server]["PASSWORD"];
                 $this->VHOST = $this->machine[$server]["VHOST"];
-                if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
+		
+		if (isset( $this->machine[$server]["EXCHANGE_TYPE"]))
                 {
                         $this->exchange_type = $this->machine[$server]["EXCHANGE_TYPE"];
                 }
-                if (isset( $this->machine[$server]["AUTO_DELETE"]))
+		
+		if (isset( $this->machine[$server]["AUTO_DELETE"]))
                 {
                         $this->auto_delete = $this->machine[$server]["AUTO_DELETE"];
                 }
-                $this->exchange = $this->machine[$server]["EXCHANGE"];
+		
+		$this->exchange = $this->machine[$server]["EXCHANGE"];
                 $this->queue = $this->machine[$server]["QUEUE"];
 	}
 	
 	function process_response($response)
         {
                 $uid = $response->getCorrelationId();
-                if (!isset($this->response_queue[$uid]))
+		
+		if (!isset($this->response_queue[$uid]))
                 {
-                  echo  "unknown uid\n";
-                  return true;
+                	echo  "Unknown uid\n";
+                	return true;
                 }
-                $this->conn_queue->ack($response->getDeliveryTag());
+		
+		$this->conn_queue->ack($response->getDeliveryTag());
                 $body = $response->getBody();
                 $payload = json_decode($body, true);
-                if (!(isset($payload)))
+		
+		if (!(isset($payload)))
                 {
                         $payload = "[empty response]";
                 }
-                $this->response_queue[$uid] = $payload;
-                return false;
+		
+		$this->response_queue[$uid] = $payload;
+		return false;
         }
 
         function send_log($message)
@@ -339,7 +535,8 @@ class logSpeakerClient
                 $uid = uniqid();
 
                 $json_message = json_encode($message);
-                try
+
+		try
                 {
                         $params = array();
                         $params['host'] = $this->BROKER_HOST;
@@ -367,14 +564,18 @@ class logSpeakerClient
 		
 		catch(Exception $e)
                 {
-                        die("Failed to send message to exchange: ". $e->getMessage()."\n");
+//                      die("Failed to send message to exchange: ". $e->getMessage()."\n");
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        $clientLog->send_log($throwableError);
+                        die();
                 }
         }
 
         function publish($message)
         {
                 $json_message = json_encode($message);
-                try
+
+		try
                 {
                         $params = array();
                         $params['host'] = $this->BROKER_HOST;
@@ -396,7 +597,10 @@ class logSpeakerClient
 		
 		catch(Exception $e)
                 {
-                        die("Failed to send message to exchange: ". $e->getMessage()."\n");
+//                      die("Failed to send message to exchange: ". $e->getMessage()."\n");
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+                        $clientLog->send_log($throwableError);
+                        die();
                 }
         }
 }
@@ -459,12 +663,8 @@ function handleError($errNo, $errMsg, $error_file, $error_line)
                         $errorType = "No Type Determined.";
         }
 
-// 	Using the individual pieces of info caught about the error, a string is stored inside this created variable that helps whoever reads the logs easily identify where the error is occuring, among other things. [-jcs78]
         $e_Error = "Error [$errorType] detected at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": $errMsg inside $error_file on line $error_line.\n";
-
-// 	Sends the content inside that string variable to be shot through the log exchange and queue toward the log listener(s). [-jcs78]
         $clientLog->send_log($e_Error);
-
         die();
 }
 

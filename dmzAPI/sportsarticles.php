@@ -1,24 +1,12 @@
-
 #! /usr/bin/php
 <?php
 
-require_once('dmzRabbitMQSpeaker.php');
-
-
 require_once('path.inc');
 require_once('get_host_info.inc');
-require_once('logRabbitMQLib.inc');
+require_once('dmzRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
-
-// Create a client using the information inside 'logRabbitMQ.ini.' [-jcs78]
-$clientLog = new lograbbitMQClient("logRabbitMQ.ini", "logServer");
-$throwableError = "";
-
-
-
-
 
 
 ob_start();
@@ -47,13 +35,8 @@ curl_close($curl);
 $json = json_decode($response);
 echo json_encode($json, JSON_PRETTY_PRINT);
 
-
-
 $content = ob_get_clean();
 //file_put_contents('sportsarticlesoutput.txt', $content);
-
-
-
 
 $trending = array();
 $trending['preference'] = 'sports';
@@ -61,32 +44,20 @@ $trending['articles'] = $content;
 
 $rtnInfo = speak($trending);
 
-
 print_r($rtnInfo);
 
-// Log Stuff
-try {
-
+// Try Catch Funtion For Testing Code
+try
+{
 
 }
-catch (Throwable $e) {
-// Using the individual pieces of info caught about the error, a string is stored inside this created variable that helps whoever reads the logs easily identify where the error is occuring, among other things. [-jcs78]
+catch (Throwable $e)
+{
         $throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
-// Sends the content inside that string variable to be shot through the log exchange and queue toward the log listener(s). [-jcs78]
         $clientLog->send_log($throwableError);
-
-// Used as a test to ensure the latest log(s) were sent to the log listener(s). [-jcs78]
-echo $throwableError;
-
-
+	echo $throwableError;
 }
 
-
-
 ?>
-
-
-
-
 

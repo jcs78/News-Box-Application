@@ -7,22 +7,22 @@ error_reporting (E_ALL);
 set_error_handler("handleError");
 
 // Functions that establish the client and server.
-function speak($inputArray)
+function listenToWbSvr($inputArray)
 {
-	$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
-	$responseFromServer = $wpClient->send_request($inputArray);
-	return $responseFromServer;
+	$dbServerI = new databaseServer("dbToWebRabbitMQ.ini", "dbServer");
+	$requestFromWebClient = $dbServerI->send_request($inputArray);
+	return $requestFromWebClient;
 }
 
-function listen($inputArray)
+function listenToDMZ($inputArray)
 {
-        $wpServer = new webpageServer("webServerRabbitMQ.ini", "webpageServer");
-        $requestFromClient = $wpServer->send_request($inputArray);
-        return $requestFromClient;
+        $dbServerII = new databaseServer("dbToDMZRabbitMQ.ini", "dbServer");
+        $requestFromDMZClient = $dbServerII->send_request($inputArray);
+        return $requestFromDMZClient;
 }
 
 // Classes for Rabbit Connection to Web Page
-class webpageClient
+class databaseClient
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -178,7 +178,7 @@ class webpageClient
 	}
 }
 
-class webpageServer
+class databaseServer
 {
         private $machine = "";
         public  $BROKER_HOST;
