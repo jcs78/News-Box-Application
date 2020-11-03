@@ -3,13 +3,13 @@
 
 session_start();
 
+require('webServerRabbitMQLib.php');
 require('validateLogin.php');
-require_once('webServerRabbitMQLib.php');
+require("registerUser");
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
 
-// echo "Well, excuuuuuse me, Princess!";
 
 $webServerAction = filter_input(INPUT_POST, "action");
 
@@ -37,85 +37,55 @@ switch ($webServerAction)
 	{
 		include('login.php');
 
-//		ob_start();
-//		header("Location: login.php");
-//		ob_end_flush();
-
 		break;
 	}
 	case 'showRegister':
 	{
-//		include('register.php');
-
-		ob_start();
-                header("Location: register.php");
-                ob_end_flush();
+		include('register.php');
 
 		break;
 	}
 	case 'showLandingPage':
 	{
-//		include('newsbox.php');
-
-		ob_start();
-                header("Location: newsbox.php");
-                ob_end_flush();
+		include('newsbox.php');
 
 		break;
 	}
 	case 'showHome':
 	{
-//		include('home.php');
-
-		ob_start();
-                header("Location: home.php");
-                ob_end_flush();
+		include('home.php');
 
 		break;
 	}
 	case 'showForum':
 	{
-//		include('forum.php');
+		include('forum.php');
 		
-		ob_start();
-		header("Location: forum.php");
-		ob_end_flush();
-
 		break;
 	}
 
 	case 'validateLogin':
 	{
-//		$username = filter_input(INPUT_POST, 'username');
-//		$password = filter_input(INPUT_POST, 'password');
+		$username = filter_input(INPUT_POST, 'username');
+		$password = filter_input(INPUT_POST, 'password');
 
-		//echo $username;
-		//echo $password;
+		$userInfo = validateLogin($username, $password);
+		
+		print_r($userInfo);
 
-//		$loginRequest = array();
-//		$loginRequest['type'] = "login";
-//		$loginRequest['username'] = $username;
-//		$loginRequest['password'] = $password;
+		if ($userInfo["userID"] == "incorrect")
+		{
+			header('Location: .?action=showLogin');
+		}
 
-//		print_r($loginRequest);
+		else
+		{
+			$_SESSION['userID'] = $userInfo['userID'];
+			$_SESSION['username'] = $userInfo['username'];
+//			$_SESSION['password'] = $userInfo['password'];
 
-//		Changed the rabbit call to be a function
-//		$userInfo = speak($loginRequest);
-
-<<<<<<< HEAD
-//		$_SESSION['userID'] = $userInfo['userID'];
-//		$_SESSION['username'] = $userInfo['username'];
-//		$_SESSION['password'] = $userInfo['password'];
-
-		validateLogin();
-=======
-		$_SESSION['userID'] = $userInfo['userID'];
-		$_SESSION['username'] = $userInfo['username'];
-		$_SESSION['password'] = $userInfo['password'];
-
->>>>>>> 369d4c015ba2c17247ce706b3a63709d5dd45205
-
-		header('Location: .?action=showHome');
+			header('Location: .?action=showHome');
+		}
 
 		break;
 	}
@@ -124,37 +94,26 @@ switch ($webServerAction)
 	{
 		$newUsername = filter_input(INPUT_POST, 'username');
                 $newPassword = filter_input(INPUT_POST, 'password');
-		$newPrefsArr = filter_input(INPUT_POST, 'prefs',
-						FILTER_SNITIZE_FULL_SPECIAL_CHARS,
-						FILTER_REQUIRE_ARRAY);
-
+		$newPrefsArr = filter_input(INPUT_POST, 'prefs', FILTER_SNITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 		$newPrefString = implode(" ", $newPrefsArr);
 
-		$registerRequest = array();
-                $registerRequest['type'] = "register";
-                $registerRequest['username'] = $newUsername;
-                $registerRequest['password'] = $newPassword;
-		$registerRequest['preferences'] = $newPrefsString;
+		$registerCheck = registerUser($newUsername, $newPassword, $newPrefString);
 
-		$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
-
-		if ($isRegistered)
+		if ($registerCheck["userID"] == "existant")
 		{
-			$_SESSION['userID'] = $userInfo['userID'];
-	                $_SESSION['username'] = $userInfo['username'];
-	                $_SESSION['password'] = $userInfo['password'];
-
-			header('Location: .?action=showHome');
-
-			break;
+			header('Location: .?action=showRegister');
 		}
+
 		else
 		{
-			$_SESSION['registerProblem'] = true;
-			header('Location: .?action=showRegister');
+			$_SESSION['userID'] = $registerCheck['userID'];
+			$_SESSION['username'] = $registerCheck['username'];
+//	           	$_SESSION['password'] = $registerCheck['password'];
 
-			break;
+			header('Location: .?action=showHome');
 		}
+
+		break;
 	}
 
 	default:
