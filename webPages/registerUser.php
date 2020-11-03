@@ -1,19 +1,30 @@
 #!/usr/bin/php
 <?php
-		$newUsername = filter_input(INPUT_POST, 'username');
-                $newPassword = filter_input(INPUT_POST, 'password');
-                $newPrefsArr = filter_input(INPUT_POST, 'prefs', FILTER_SNITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+require_once('webServerRabbitMQLib.php');
 
-                $newPrefString = implode(" ", $newPrefsArr);
+error_reporting(E_ALL);
+set_error_handler("handleError");
+
+
+//		$newUsername = filter_input(INPUT_POST, 'username');
+//              $newPassword = filter_input(INPUT_POST, 'password');
+//              $newPrefsArr = filter_input(INPUT_POST, 'prefs', FILTER_SNITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+
+//                $newPrefString = implode(" ", $newPrefsArr);
 
                 $registerRequest = array();
                 $registerRequest['type'] = "register";
-                $registerRequest['username'] = $newUsername;
-                $registerRequest['password'] = $newPassword;
-                $registerRequest['preferences'] = $newPrefsString;
+                $registerRequest['username'] = 'testName2';
+                $registerRequest['password'] = 'testPass2';
+                $registerRequest['preferences'] = 'health sports';
 
-                $isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
+                //$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
 
+		$isRegistered = speak($registerRequest);
+
+		print_r($isRegistered);
+
+/*
                 if ($isRegistered)
                 {
 //			$_SESSION['userID'] = $userInfo['userID'];
@@ -26,7 +37,7 @@
 
                         break;
                 }
- 
+
 		else
                 {
 //                      $_SESSION['registerProblem'] = true;
@@ -34,5 +45,7 @@
 
 //                      break;
                 }
+
+*/
 ?>
 
