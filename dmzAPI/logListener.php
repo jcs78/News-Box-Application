@@ -10,6 +10,9 @@ require_once('get_host_info.inc');
 // ...and the classes and functions that allow for connection to RabbitMQ. [-jcs78]
 require_once('dmzRabbitMQLib.php');
 
+error_reporting(E_ALL);
+set_error_handler("handleError");
+
 // Create a server using the information inside 'logRabbitMQ.ini.' [-jcs78]
 $logServer = listenLog();
 
