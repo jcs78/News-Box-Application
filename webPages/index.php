@@ -112,7 +112,7 @@ switch ($webServerAction)
 		$_SESSION['userID'] = $userInfo['userID'];
 		$_SESSION['username'] = $userInfo['username'];
 		$_SESSION['password'] = $userInfo['password'];
-		
+
 >>>>>>> 369d4c015ba2c17247ce706b3a63709d5dd45205
 
 		header('Location: .?action=showHome');
