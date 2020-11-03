@@ -28,10 +28,8 @@ function requestProcessor($request)
   	{
    		return "ERROR: unsupported message type";
   	}
-  	switch ($request['type'])
-  	{
-		case 'article':
-			$formattedArticles = separateArticles($request['articles']);
+
+			$formattedArticles = decode($request['articles']);
 
 			print_r($formattedArticles);
 
@@ -40,9 +38,6 @@ function requestProcessor($request)
 			echo "Articles Added";
 			return;
 
-		default:
-			return "Not a valid Case";
-	}
 	//return array("returnCode" => '0', 'message'=>"Server received request and processed");
 	//return "Not a valid Case";
 }

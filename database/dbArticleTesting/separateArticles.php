@@ -1,3 +1,4 @@
+#!/usr/bin/php
 <?php
 
 //this should be the array index send by rabbit
@@ -6,8 +7,52 @@
 
 //$text = file_get_contents('file.txt');
 
+
+//$out = json_decode($text);
+//$out = $out->articles;
+
+//print_r($out);
+
+
 echo "\n\n";
 //print_r($text);
+function decode($inputText){
+
+	$inputTextToArr = json_decode($inputText);
+	$articles = $inputTextToArr->articles;
+
+	$allArticles = array();
+	$articleCount = 0;
+
+	foreach ($articles as $article){
+		$singleArticle = array();
+
+		$name = $article->source->name;
+		$author = $article->author;
+		$title = $article->title;
+		$description = $article->description;
+		$url = $article->url;
+		$urlToImage = $article->urlToImage;
+		$publishedAt = $article->publishedAt;
+		$content = $article->content;
+
+		$singleArticle['name'] = $name;
+		$singleArticle['author'] = $author;
+		$singleArticle['title'] = $title;
+		$singleArticle['description'] = $description;
+		$singleArticle['url'] = $url;
+		$singleArticle['urlToImage'] = $urlToImage;
+		$singleArticle['publishedAt'] = $publishedAt;
+		$singleArticle['content'] = $content;
+
+		$allArticles[$articleCount] = $singleArticle;
+		$articleCount++;
+	}
+	return $allArticles;
+}
+
+//print_r(decode($text));
+
 
 function separateArticles($inputText){
 	//Function takes in text from the curl call and
