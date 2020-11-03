@@ -1,0 +1,14 @@
+Throwable Error Caught at 12:12:56pm on 11-03-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/webPages/logSpeaker.php on line 23.
+
+Error [E_NOTICE] detected at 12:12:56pm on 11-03-2020: Array to string conversion inside /home/jcs78/git/news-box-app/webPages/logSpeaker.php on line 36.
+
+Error [E_NOTICE] detected at 01:23:20pm on 11-03-2020: Undefined index: testServer inside /home/nolan/git/News-Box-Application/database/databaseRabbitMQLib.php on line 215.
+
+Error [E_NOTICE] detected at 01:23:43pm on 11-03-2020: Undefined index: testServer inside /home/nolan/git/News-Box-Application/database/databaseRabbitMQLib.php on line 215.
+
+Error [E_NOTICE] detected at 01:23:50pm on 11-03-2020: Undefined index: testServer inside /home/nolan/git/News-Box-Application/database/databaseRabbitMQLib.php on line 215.
+
+Error [E_NOTICE] detected at 01:25:34pm on 11-03-2020: Undefined variable: newUserName inside /home/nolan/git/News-Box-Application/database/wsMainControl.php on line 23.
+
+Error [E_NOTICE] detected at 01:34:22pm on 11-03-2020: Undefined index: userID inside /var/www/html/index.php on line 96.
+
