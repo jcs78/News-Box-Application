@@ -1,6 +1,5 @@
 create table forumPosts(
-	postID INT AUTO INCREMENT,
-	postContent MEDIUMTEXT,
-	postBy
-	postDate
+	postID		INT 		AUTO_INCREMENT	PRIMARY KEY,
+	postContent 	MEDIUMTEXT,
+	postBy		VARCHAR(255)
 )

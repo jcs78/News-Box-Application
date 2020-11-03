@@ -52,7 +52,7 @@
 
 
 
-        <form>
+        <form action="index.php" method="post">
 	  <input type="hidden" name="action" value="registerUser">	
 
           <div class="inputBox">
@@ -60,7 +60,8 @@
             <label style="color:red;">* </label>
             <input
               type="text"
-              name="userid"
+              name="username"
+	      id="username"
               required="required"
               placeholder="Enter Your Name"
             />
@@ -70,24 +71,26 @@
             <label style="color:red;">* &nbsp;</label>
             <input
               type="password"
-              name="userpw"
+              name="password"
+	      id="password"
               required="required"
               placeholder="Enter Your Password"
             />
           </div> 
                      <div class="checkBox">
           <br>
-          <br><input type="checkbox" id="ref1" name="ref1" value="Bss">
+
+          <br><input type="checkbox" id="business" name="prefs[]" value="business">
           <label for="userRef1"> Business</label><br>
-          <br> <input type="checkbox" id="ref2" name="ref2" value="Ettm">
+          <br> <input type="checkbox" id="entertainment" name="prefs[]" value="entertainment">
           <label for="userRef2"> Entertainment </label><br>
-          <br> <input type="checkbox" id="ref3" name="ref3" value="Hth">
+          <br> <input type="checkbox" id="health" name="prefs[]" value="health">
           <label for="userRef3"> Health</label><br>
-          <br><input type="checkbox" id="ref4" name="ref4" value="Sci">
+          <br><input type="checkbox" id="science" name="prefs[]" value="science">
           <label for="userRef4"> Science</label><br>
-          <br><input type="checkbox" id="ref5" name="ref5" value="Sprt">
+          <br><input type="checkbox" id="sports" name="prefs[]" value="sports">
           <label for="userRef5"> Sports </label><br>
-          <br> <input type="checkbox" id="ref6" name="ref6" value="Tech">
+          <br> <input type="checkbox" id="tech" name="prefs[]" value="tech">
           <label for="userRef6"> Technology</label><br><br>
           </div>
           <br /><input

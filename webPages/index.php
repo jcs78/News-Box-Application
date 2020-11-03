@@ -35,11 +35,11 @@ switch ($webServerAction)
 {
 	case 'showLogin':
 	{
-//		include('login.php');
-		
-		ob_start();
-		header("Location: login.php");
-		ob_end_flush();
+		include('login.php');
+
+//		ob_start();
+//		header("Location: login.php");
+//		ob_end_flush();
 
 		break;
 	}
@@ -102,11 +102,18 @@ switch ($webServerAction)
 //		Changed the rabbit call to be a function
 //		$userInfo = speak($loginRequest);
 
+<<<<<<< HEAD
 //		$_SESSION['userID'] = $userInfo['userID'];
 //		$_SESSION['username'] = $userInfo['username'];
 //		$_SESSION['password'] = $userInfo['password'];
 
 		validateLogin();
+=======
+		$_SESSION['userID'] = $userInfo['userID'];
+		$_SESSION['username'] = $userInfo['username'];
+		$_SESSION['password'] = $userInfo['password'];
+		
+>>>>>>> 369d4c015ba2c17247ce706b3a63709d5dd45205
 
 		header('Location: .?action=showHome');
 
@@ -117,11 +124,17 @@ switch ($webServerAction)
 	{
 		$newUsername = filter_input(INPUT_POST, 'username');
                 $newPassword = filter_input(INPUT_POST, 'password');
+		$newPrefsArr = filter_input(INPUT_POST, 'prefs',
+						FILTER_SNITIZE_FULL_SPECIAL_CHARS,
+						FILTER_REQUIRE_ARRAY);
+
+		$newPrefString = implode(" ", $newPrefsArr);
 
 		$registerRequest = array();
                 $registerRequest['type'] = "register";
                 $registerRequest['username'] = $newUsername;
                 $registerRequest['password'] = $newPassword;
+		$registerRequest['preferences'] = $newPrefsString;
 
 		$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
 

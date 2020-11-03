@@ -16,7 +16,7 @@ function addArticle($conn, $prefName, $sourceName, $author, $title, $description
 	$query = "INSERT INTO `articleTable`
 			(`prefName`, `sourceName`, `article`, `articleTitle`, `description`,  `url`, `urlToImage`, `publishedAt`, `content`)
 		  VALUES
-			(:prefname, :sourceName, :author, :title, :description, :url, :urlToImage, :publishedAt, :content)";
+			(:prefName, :sourceName, :author, :title, :description, :url, :urlToImage, :publishedAt, :content)";
 
 	$statement = $conn->prepare($query);
 

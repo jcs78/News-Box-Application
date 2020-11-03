@@ -1,16 +1,19 @@
 <?php
 
-function registerUser($conn, $newUsername, $newPassword){
+function registerUser($conn, $newUsername, $newPassword, $newPrefsString){
 
 	try{
-		$query = "insert into `userInfo`
-	                 	(`username`, `password`)
+
+		$query = "insert into `newsBoxUsers`
+	                 	(`username`, `password`, `preferences`,)
 	                  values
-	                      	(:username, :password)";
+	                      	(:username, :password, :preferences)";
 	        $statement = $conn->prepare($query);
 
 	        $statement->bindValue(':username', $newUsername);
 	       	$statement->bindValue(':password', $newPassword);
+		$statement->bindValue(':preferences', $newPrefsString);
+
 	        $statement->execute();
 	        $statement->closeCursor();
 
@@ -75,6 +78,10 @@ function isUsernameTaken($conn, $username){
         }else{
                 return true;
         }
+
+}
+
+function getPreferences($conn ,$username, $password){
 
 }
 
