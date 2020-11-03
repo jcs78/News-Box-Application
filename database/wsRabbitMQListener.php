@@ -40,8 +40,8 @@ function requestProcessor($request)
 			try{
 				//Shows input data
 
-				//echo "inside login case current array: \n";
-				//print_r($request);
+				echo "inside login case current array: \n";
+				print_r($request);
 
 				$account = databaseAction($request);
 
@@ -63,7 +63,7 @@ function requestProcessor($request)
 //Try Catch Function For Testing Logs
 try
 {
-	$server = new databaseServer("dbToWebRabbitMQ.ini","testServer");
+	$server = new databaseServer("dbToWebRabbitMQ.ini","dbServer");
 
 	echo "testRabbitMQServer BEGIN".PHP_EOL;
 	$server->process_requests('requestProcessor');

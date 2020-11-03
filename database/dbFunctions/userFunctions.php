@@ -34,7 +34,7 @@ function registerUser($conn, $newUsername, $newPassword, $newPrefsString){
 
 function validUserLogin($conn, $username, $password){
 
-	$query = 'select * from userInfo where
+	$query = 'select * from newsBoxUsers where
                  	username = :username and password = :password';
        	$statement = $conn->prepare($query);
         $statement->bindValue(':username', $username);
@@ -44,6 +44,10 @@ function validUserLogin($conn, $username, $password){
         $account = $statement->fetchALL();
 
 	$statement->closeCursor();
+
+	echo "inside of login Function \n \n";
+	print_r($account);
+
 
 	//Shows output array
 	//echo "inside validUserLogin, output data from query: \n";
