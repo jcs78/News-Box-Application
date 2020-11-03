@@ -18,14 +18,14 @@ function databaseAction($inputArray)
 		{
 			$newUsername = $inputArray['username'];
 			$newPassword = $inputArray['password'];
-			$newPrefsArr = $inputArray['preferences'];
+			$newPrefsString = $inputArray['preferences'];
 
 			$isUsernameTaken = isUsernameTaken($conn, $newUserName);
 
 			if (!$isUsedUsername){
 
 				//Data type of $newUser is an array
-				$responceArr = registerUser($conn, $newUsername, $newPassword, $newPrefsArr);
+				$responceArr = registerUser($conn, $newUsername, $newPassword, $newPrefsString);
 
 				return $responceArr;
 			}else{

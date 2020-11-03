@@ -88,7 +88,7 @@ switch ($webServerAction){
 		$_SESSION['userID'] = $userInfo['userID'];
 		$_SESSION['username'] = $userInfo['username'];
 		$_SESSION['password'] = $userInfo['password'];
-
+		
 
 		header('Location: .?action=showHome');
 
@@ -102,11 +102,13 @@ switch ($webServerAction){
 						FILTER_SNITIZE_FULL_SPECIAL_CHARS,
 						FILTER_REQUIRE_ARRAY);
 
+		$newPrefString = implode(" ", $newPrefsArr);
+
 		$registerRequest = array();
                 $registerRequest['type'] = "register";
                 $registerRequest['username'] = $newUsername;
                 $registerRequest['password'] = $newPassword;
-		$registerRequest['preferences'] = $newPrefsArr;
+		$registerRequest['preferences'] = $newPrefsString;
 
 		$isRegistered = $_SESSION["wpClient"]->send_request($registerRequest);
 

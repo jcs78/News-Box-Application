@@ -1,48 +1,18 @@
 <?php
 
-function registerUser($conn, $newUsername, $newPassword, $newPrefsArr){
+function registerUser($conn, $newUsername, $newPassword, $newPrefsString){
 
 	try{
-		$wantsBusiness = False;
-		$wantsEntertainment = False;
-		$wantsHealth = False;
-		$wantsScience = False;
-		$wantsSports = False;
-		$wantsTech = False;
-
-		if(in_array("business", $newsPrefsArr)){
-			$wantsBusiness = True;
-		}
-		if(in_array("entertainment", $newsPrefsArr)){
-                        $wantsEntertainment = True;
-                }
-		if(in_array("health", $newsPrefsArr)){
-                        $wantsHealth = True;
-                }
-		if(in_array("science", $newsPrefsArr)){
-                        $wantsScience = True;
-                }
-		if(in_array("sports", $newsPrefsArr)){
-                        $wantsSports = True;
-                }
-		if(in_array("tech", $newsPrefsArr)){
-                        $wantsTech = True;
-                }
 
 		$query = "insert into `newsBoxUsers`
-	                 	(`username`, `password`, `business`, `entertainment`, `health`, `science`, `sports`, `tech`,)
+	                 	(`username`, `password`, `preferences`,)
 	                  values
-	                      	(:username, :password, :business, :entertainment, :health, :science, :sports, :tech)";
+	                      	(:username, :password, :preferences)";
 	        $statement = $conn->prepare($query);
 
 	        $statement->bindValue(':username', $newUsername);
 	       	$statement->bindValue(':password', $newPassword);
-		$statement->bindValue(':business', $wantsBusiness);
-		$statement->bindValue(':entertainment', $wantsEntertainment);
-		$statement->bindValue(':health', $wantsHealth);
-		$statement->bindValue(':science', $wantsScience);
-		$statement->bindValue(':sports', $wantsSports);
-		$statement->bindValue(':tech', $wantsTech);
+		$statement->bindValue(':preferences', $newPrefsString);
 
 	        $statement->execute();
 	        $statement->closeCursor();
@@ -108,6 +78,10 @@ function isUsernameTaken($conn, $username){
         }else{
                 return true;
         }
+
+}
+
+function getPreferences($conn ,$username, $password){
 
 }
 
