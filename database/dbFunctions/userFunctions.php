@@ -53,7 +53,11 @@ function validUserLogin($conn, $username, $password){
 	//create proper return for mainControl
 
         if(count($account) === 0){
-        	return false;
+        	$rtnArr = array();
+		$rtnArr['userID'] = 'incorrect';
+
+		return $rtnArr;
+
         }else{
                 return $account;
         }
