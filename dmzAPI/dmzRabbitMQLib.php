@@ -30,11 +30,13 @@ class dmzClient
         private $USER;
         private $PASSWORD;
         private $VHOST;
-        private $exchange;
-        private $queue;
+	private $exchange;
+	private $exchange_rsp;
+	private $queue;
+	private $queue_rsp;
         private $routing_key = '*';
         private $response_queue = array();
-        private $exchange_type = "topic";
+        private $exchange_type = "direct";
 
         function __construct($machine, $server = "rabbitMQ")
         {
