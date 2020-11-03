@@ -1,5 +1,6 @@
 create table articleTable(
 	articleID	INT 		AUTO_INCREMENT,
+	prefName	VARCHAR(255),
 	sourceName 	VARCHAR(255),
 	article 	VARCHAR(255),
 	articleTitle 	VARCHAR(255),

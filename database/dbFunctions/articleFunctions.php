@@ -14,12 +14,13 @@ function getPreferences($account){
 function addArticle($conn, $prefName, $sourceName, $author, $title, $description, $url, $urlToImage, $publishedAt, $content){
 	try{
 	$query = "INSERT INTO `articleTable`
-			(`sourceName`, `article`, `articleTitle`, `description`,  `url`, `urlToImage`, `publishedAt`, `content`)
+			(`prefName`, `sourceName`, `article`, `articleTitle`, `description`,  `url`, `urlToImage`, `publishedAt`, `content`)
 		  VALUES
-			(:sourceName, :author, :title, :description, :url, :urlToImage, :publishedAt, :content)";
+			(:prefname, :sourceName, :author, :title, :description, :url, :urlToImage, :publishedAt, :content)";
 
 	$statement = $conn->prepare($query);
 
+	$statement->bindValue(':prefName', $prefName);
 	$statement->bindValue(':sourceName',$sourceName);
 	$statement->bindValue(':author',$author);
 	$statement->bindValue(':title',$title);
