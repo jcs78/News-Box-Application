@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+
 session_start();
 
 require('webServerRabbitMQLib.php');
@@ -24,23 +25,40 @@ if(isset($_SESSION['username'])){
 
 switch ($webServerAction){
 
-	case 'showLogin':{
-		include('login.php');
+	case 'showLogin':
+	{
+//		include('login.php');
+		
+		ob_start();
+		header("Location: login.php");
+		ob_end_flush();
 
 		break;
 	}
 	case 'showRegister':{
-		include('register.php');
+//		include('register.php');
+
+		ob_start();
+                header("Location: login.php");
+                ob_end_flush();
 
 		break;
 	}
 	case 'showLandingPage':{
-		include('newsbox.php');
+//		include('newsbox.php');
+
+		ob_start();
+                header("Location: newsbox.php");
+                ob_end_flush();
 
 		break;
 	}
 	case 'showHome':{
-		include('home.php');
+//		include('home.php');
+
+		ob_start();
+                header("Location: home.php");
+                ob_end_flush();
 
 		break;
 	}

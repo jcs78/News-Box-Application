@@ -8,10 +8,10 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 
 // ...and the classes and functions that allow for connection to RabbitMQ. [-jcs78]
-require_once('logRabbitMQLib.inc');
+require_once('dmzRabbitMQLib.php');
 
 // Create a server using the information inside 'logRabbitMQ.ini.' [-jcs78]
-$logServer = new rabbitMQServer("logRabbitMQ.ini", "logServer");
+$logServer = listenLog();
 
 echo "Now Listening for Logs...".PHP_EOL;
 
