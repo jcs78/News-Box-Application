@@ -22,6 +22,14 @@ if ($webServerAction == NULL)
 	}
 }
 
+//This logic should check of an active session
+//If it does not find an active sesion then it
+//should send the user to the landing page
+if(isset($_SESSION['activeSession']) && $_SESSION['activeSession'] != False){
+	
+}
+
+
 echo ($webServerAction);
 echo "<br><br>";
 
@@ -60,7 +68,7 @@ switch ($webServerAction)
 	case 'showForum':
 	{
 		include('forum.php');
-		
+
 		break;
 	}
 
@@ -70,7 +78,7 @@ switch ($webServerAction)
 		$password = filter_input(INPUT_POST, 'password');
 
 		$userInfo = validateLogin($username, $password);
-		
+
 		print_r($userInfo);
 
 		if ($userInfo["userID"] == "incorrect")
@@ -82,6 +90,8 @@ switch ($webServerAction)
 		{
 			$_SESSION['userID'] = $userInfo['userID'];
 			$_SESSION['username'] = $userInfo['username'];
+			$_SESSION['activeSesson'] = True;
+
 //			$_SESSION['password'] = $userInfo['password'];
 
 			header('Location: .?action=showHome');
