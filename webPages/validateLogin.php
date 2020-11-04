@@ -15,6 +15,7 @@ function validateLogin($un, $pw)
 	$loginRequest['password'] = $pw;
 
 //	Create Rabbit Client, Send Array To Server, & Receive Response.
+        print_r($loginRequest);
 	$userCreds = speak($loginRequest);
 
 	return $userCreds;
