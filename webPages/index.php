@@ -66,10 +66,12 @@ switch ($webServerAction)
 
 	case 'validateLogin':
 	{
+		
 		$username = filter_input(INPUT_POST, 'username');
 		$password = filter_input(INPUT_POST, 'password');
 
 		$userInfo = validateLogin($username, $password);
+		$userInfo= $userInfo[0];
 		
 		print_r($userInfo);
 
