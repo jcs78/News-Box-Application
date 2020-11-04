@@ -1,3 +1,4 @@
+
 <?php
 
 function registerUser($conn, $newUsername, $newPassword, $newPrefsString){
@@ -21,12 +22,11 @@ function registerUser($conn, $newUsername, $newPassword, $newPrefsString){
 		//This can be an array with one index of True
 		$rtnArr = array();
 		$rtnArr[0] = true;
+		return $rtnArr;
 
 	}catch(Exception $e){
 		$rtnArr = array();
-
-		$rtnArr[0] = false;
-		$rtnArr[1] = $e->getMessage();
+		$rtnArr["userID"] = "existant";
 
 		return $rtnArr;
 	}

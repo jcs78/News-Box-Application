@@ -79,12 +79,12 @@ switch ($webServerAction)
 		$password = filter_input(INPUT_POST, 'password');
 
 		$userInfo = validateLogin($username, $password);
-<<<<<<< HEAD
+
 		$userInfo= $userInfo[0];
 		
-=======
 
->>>>>>> 22cb0f48abf267e60deeb9d590453a9c05fcd943
+
+
 		print_r($userInfo);
 
 		if ($userInfo["userID"] == "incorrect")
@@ -115,18 +115,15 @@ switch ($webServerAction)
 
 		$registerCheck = registerUser($newUsername, $newPassword, $newPrefString);
 
+		$registerCheck = $registerCheck[0];
+
 		if ($registerCheck["userID"] == "existant")
 		{
 			header('Location: .?action=showRegister');
 		}
-
 		else
 		{
-			$_SESSION['userID'] = $registerCheck['userID'];
-			$_SESSION['username'] = $registerCheck['username'];
-//	           	$_SESSION['password'] = $registerCheck['password'];
-
-			header('Location: .?action=showHome');
+			header('Location: .?action=showLogin');
 		}
 
 		break;
