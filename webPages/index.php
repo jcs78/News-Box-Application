@@ -25,19 +25,21 @@ if ($webServerAction == NULL)
 //This logic should check of an active session
 //If it does not find an active sesion then it
 //should send the user to the landing page
-if(isset($_SESSION['activeSession']) && $_SESSION['activeSession'] != False){
-	
-}
+//if(isset($_SESSION['activeSession']) || $_SESSION['activeSession'] != False){
+//
+//}
 
 
 echo ($webServerAction);
 echo "<br><br>";
 
+/*
 if (isset($_SESSION['username']))
 {
 	print_r($_SESSION['username']);
 	echo "<br><br>";
 }
+*/
 
 switch ($webServerAction)
 {
@@ -74,16 +76,12 @@ switch ($webServerAction)
 
 	case 'validateLogin':
 	{
-		
 		$username = filter_input(INPUT_POST, 'username');
 		$password = filter_input(INPUT_POST, 'password');
 
 		$userInfo = validateLogin($username, $password);
 
 		$userInfo= $userInfo[0];
-		
-
-
 
 		print_r($userInfo);
 

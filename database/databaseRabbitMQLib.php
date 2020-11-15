@@ -9,21 +9,21 @@ set_error_handler("handleError");
 // Functions that establish the client and server.
 function listenToWbSvr($inputArray)
 {
-	$dbServerI = new databaseServer("dbToWebRabbitMQ.ini", "dbServer");
+	$dbServerI = new databaseServer("dbToWebLocalRabbitMQ.ini", "dbServer");
 	$requestFromWebClient = $dbServerI->send_request($inputArray);
 	return $requestFromWebClient;
 }
 
 function listenToDMZ($inputArray)
 {
-        $dbServerII = new databaseServer("dbToDMZRabbitMQ.ini", "dbServer");
+        $dbServerII = new databaseServer("dbToDMZLocalRabbitMQ.ini", "dbServer");
         $requestFromDMZClient = $dbServerII->send_request($inputArray);
         return $requestFromDMZClient;
 }
 
 function speakLog()
 {
-        $cltLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+        $cltLog = new logSpeakerClient("logLocalRabbitMQ.ini", "logServer");
         return $cltLog;
 }
 function listenLog()

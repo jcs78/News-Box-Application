@@ -9,14 +9,14 @@ set_error_handler("handleError");
 // Functions that establish the client and server.
 function speak($inputArray)
 {
-	$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
+	$wpClient = new webpageClient("webServerLocalRabbitMQ.ini", "webpageServer");
 	$responseFromServer = $wpClient->send_request($inputArray);
 	return $responseFromServer;
 }
 
 function listen($inputArray)
 {
-        $wpServer = new webpageServer("webServerRabbitMQ.ini", "webpageServer");
+        $wpServer = new webpageServer("webServerLocalRabbitMQ.ini", "webpageServer");
         $requestFromClient = $wpServer->send_request($inputArray);
         return $requestFromClient;
 }
@@ -33,12 +33,12 @@ function redirect($url)
 
 function speakLog()
 {
-        $cltLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+        $cltLog = new logSpeakerClient("logLocalRabbitMQ.ini", "logServer");
         return $cltLog;
 }
 function listenLog()
 {
-        $svrLog = new logListenerServer("logRabbitMQ.ini", "logServer");
+        $svrLog = new logListenerServer("logLocalRabbitMQ.ini", "logServer");
         return $svrLog;
 }
 
