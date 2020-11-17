@@ -12,3 +12,15 @@ Error [E_NOTICE] detected at 09:55:47pm on 11-03-2020: Array to string conversio
 
 Error [E_WARNING] detected at 09:59:20pm on 11-03-2020: Illegal string offset 'userID' inside /var/www/html/index.php on line 76.
 
+Error [E_WARNING] detected at 11:10:01pm on 11-16-2020: Use of undefined constant FILTER_SNITIZE_FULL_SPECIAL_CHARS - assumed 'FILTER_SNITIZE_FULL_SPECIAL_CHARS' (this will throw an Error in a future version of PHP) inside /var/www/html/index.php on line 111.
+
+Error [E_WARNING] detected at 11:30:05pm on 11-16-2020: implode(): Invalid arguments passed inside /var/www/html/index.php on line 112.
+
+Error [E_WARNING] detected at 11:33:39pm on 11-16-2020: sizeof(): Parameter must be an array or an object that implements Countable inside /var/www/html/index.php on line 113.
+
+Error [E_WARNING] detected at 11:33:42pm on 11-16-2020: sizeof(): Parameter must be an array or an object that implements Countable inside /var/www/html/index.php on line 113.
+
+Error [E_WARNING] detected at 11:40:05pm on 11-16-2020: sizeof(): Parameter must be an array or an object that implements Countable inside /var/www/html/index.php on line 113.
+
+Error [E_WARNING] detected at 11:41:09pm on 11-16-2020: sizeof(): Parameter must be an array or an object that implements Countable inside /var/www/html/index.php on line 113.
+

@@ -108,8 +108,13 @@ switch ($webServerAction)
 	{
 		$newUsername = filter_input(INPUT_POST, 'username');
                 $newPassword = filter_input(INPUT_POST, 'password');
-		$newPrefsArr = filter_input(INPUT_POST, 'prefs', FILTER_SNITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
-		$newPrefString = implode(" ", $newPrefsArr);
+		$newPrefsArr = filter_input(INPUT_POST, 'prefs', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
+
+		if ($newPrefsArr){
+			$newPrefString = implode(" ", $newPrefsArr);
+		}else{
+		$newPrefString = '';
+		}
 
 		$registerCheck = registerUser($newUsername, $newPassword, $newPrefString);
 
