@@ -5,7 +5,7 @@ require_once('path.inc');
 require_once('get_host_info.inc');
 require_once('databaseRabbitMQLib.php');
 
-$client = new databaseClient("testRabbitMQ.ini","testServer");
+$client = new databaseClient("dbToWebLocalRabbitMQ.ini","dbServer");
 
 if (isset($argv[1]))
 {
@@ -18,15 +18,24 @@ else
 }
 
 $request = array();
-$request['type'] = "login";
-$request['username'] = "testName1";
-$request['password'] = "testPass1";
-$request['message'] = $msg;
+$request['type'] = "register";
+$request['username'] = "testName7";
+$request['password'] = "testPass";
+$request['preferences'] = '';
 $response = $client->send_request($request);
 //$response = $client->publish($request);
 
 echo "Client received response: ".PHP_EOL;
-print_r($response);
+
+echo gettype($response);
+echo "\n\n";
+
+if ($response){
+	echo "New User Made";
+}else{
+	echo "New User Not Made";
+}
+
 echo "\n\n";
 
 echo $argv[0]." END".PHP_EOL;

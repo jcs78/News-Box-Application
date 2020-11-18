@@ -20,19 +20,29 @@ function databaseAction($inputArray)
 			$newPassword = $inputArray['password'];
 			$newPrefsString = $inputArray['preferences'];
 
-			$isUsernameTaken = isUsernameTaken($conn, $newUserName);
+			//echo "databaseAction: case=register\n";
+			//print_r($inputArray);
 
-			if (!$isUsedUsername){
+			//Current Problem to be solved
+			$isUsernameTaken = isUsernameTaken($conn, $newUsername);
+
+			echo $isUsernameTaken ? 'true' : 'false';
+
+			if (!$isUsernameTaken){
+				echo "inside databaseAction if\n";
 
 				//Data type of $newUser is an array
-				$responceArr = registerUser($conn, $newUsername, $newPassword, $newPrefsString);
+				$responseArr = registerUser($conn, $newUsername, $newPassword, $newPrefsString);
 
-				return $responceArr;
+				print_r($responseArr);
+				return $responseArr;
 			}else{
-				$responceArr = array();
-				$responceArr[0] = false;
+				echo "inside databaseAction else\n";
 
-				return $responceArr;
+				$responseArr = array();
+				$responseArr[0] = false;
+
+				return $responseArr;
 			}
 		}
 		case 'login':

@@ -26,10 +26,21 @@ function requestProcessor($request)
   	{
 		case "register":
 	        	try{
-				$isNewuser = databaseAction($request);
+				echo "inside register case";
+				print_r($request);
+				$isNewUser = databaseAction($request);
+
+				echo "\n isNewUser";
+				print_r($isNewUser);
+
 				if ($isNewUser[0]){
+					echo "inside register if \n";
+					echo "\n\n";
 					return true;
+
 				}else{
+					echo "inside register else \n";
+					echo "\n\n";
 					return false;
 				}
 			}
@@ -63,7 +74,7 @@ function requestProcessor($request)
 //Try Catch Function For Testing Logs
 try
 {
-	$server = new databaseServer("dbToWebRabbitMQ.ini","dbServer");
+	$server = new databaseServer("dbToWebLocalRabbitMQ.ini","dbServer");
 
 	echo "testRabbitMQServer BEGIN".PHP_EOL;
 	$server->process_requests('requestProcessor');

@@ -1,35 +1,36 @@
 
 <?php
 
-function registerUser($conn, $newUsername, $newPassword, $newPrefsString){
+function registerUser($conn, $username, $password, $preferences){
+	echo "inside registerUser \n";
 
 	try{
-
 		$query = "insert into `newsBoxUsers`
-	                 	(`username`, `password`, `preferences`,)
+	                 	(`username`, `password`, `preferences`)
 	                  values
 	                      	(:username, :password, :preferences)";
 	        $statement = $conn->prepare($query);
 
-	        $statement->bindValue(':username', $newUsername);
-	       	$statement->bindValue(':password', $newPassword);
-		$statement->bindValue(':preferences', $newPrefsString);
+	        $statement->bindValue(':username', $username);
+	       	$statement->bindValue(':password', $password);
+		$statement->bindValue(':preferences', $preferences);
 
 	        $statement->execute();
 	        $statement->closeCursor();
 
-		//create proper return for mainControl
-		//This can be an array with one index of True
+		echo "\nquery complete";
+
 		$rtnArr = array();
 		$rtnArr[0] = true;
 		return $rtnArr;
-
-	}catch(Exception $e){
+	}
+	catch(Exception $e){
 		$rtnArr = array();
-		$rtnArr["userID"] = "existant";
+		$rtnArr[0] = false;
 
 		return $rtnArr;
 	}
+
 }
 
 function validUserLogin($conn, $username, $password){
@@ -70,7 +71,7 @@ function validUserLogin($conn, $username, $password){
 
 function isUsernameTaken($conn, $username){
 
-	$query = 'select * from userInfo where
+	$query = 'select * from newsBoxUsers where
                         username = :username';
 
         $statement = $conn->prepare($query);

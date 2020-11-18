@@ -28,7 +28,7 @@ function speakLog()
 }
 function listenLog()
 {
-        $svrLog = new logListenerServer("logRabbitMQ.ini", "logServer");
+        $svrLog = new logListenerServer("logLocalRabbitMQ.ini", "logServer");
         return $svrLog;
 }
 

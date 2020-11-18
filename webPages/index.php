@@ -116,17 +116,15 @@ switch ($webServerAction)
 		$newPrefString = '';
 		}
 
-		$registerCheck = registerUser($newUsername, $newPassword, $newPrefString);
+		$isRegisteredBool = registerUser($newUsername, $newPassword, $newPrefString);
 
-		$registerCheck = $registerCheck[0];
-
-		if ($registerCheck["userID"] == "existant")
+		if ($isRegisteredBool)
 		{
-			header('Location: .?action=showRegister');
+			header('Location: .?action=showLogin');
 		}
 		else
 		{
-			header('Location: .?action=showLogin');
+			header('Location: .?action=showRegister');
 		}
 
 		break;
