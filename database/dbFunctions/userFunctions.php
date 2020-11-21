@@ -2,7 +2,7 @@
 <?php
 
 function registerUser($conn, $username, $password, $preferences){
-	echo "inside registerUser \n";
+	//echo "inside registerUser \n";
 
 	try{
 		$query = "insert into `newsBoxUsers`
@@ -18,7 +18,7 @@ function registerUser($conn, $username, $password, $preferences){
 	        $statement->execute();
 	        $statement->closeCursor();
 
-		echo "\nquery complete";
+		//echo "\nquery complete";
 
 		$rtnArr = array();
 		$rtnArr[0] = true;
@@ -46,8 +46,8 @@ function validUserLogin($conn, $username, $password){
 
 	$statement->closeCursor();
 
-	echo "inside of login Function \n \n";
-	print_r($account);
+	//echo "inside of login Function \n \n";
+	//print_r($account);
 
 
 	//Shows output array
@@ -90,7 +90,23 @@ function isUsernameTaken($conn, $username){
 
 }
 
-function getPreferences($conn ,$username, $password){
+function getPreferences($conn ,$userID){
+	echo "inside getPreferences\n";
+
+	$query = "SELECT prefName FROM `newsBoxUsers` WHERE
+                        userID = :userID";
+
+        $statement = $conn->prepare($query);
+        $statement->bindValue(':userID', $userID);
+        $statement->execute();
+
+        $preferences = $statement->fetchALL();
+
+	print_r($preferences);
+
+        $statement->closeCursor();
+
+	return $preferences;
 
 }
 

@@ -1,6 +1,6 @@
 <?php
 require_once("dbFunctions/userFunctions.php");
-
+require_once("dbFunctions/articleFunctions.php");
 
 function databaseAction($inputArray)
 {
@@ -23,21 +23,20 @@ function databaseAction($inputArray)
 			//echo "databaseAction: case=register\n";
 			//print_r($inputArray);
 
-			//Current Problem to be solved
 			$isUsernameTaken = isUsernameTaken($conn, $newUsername);
 
-			echo $isUsernameTaken ? 'true' : 'false';
+			//echo $isUsernameTaken ? 'true' : 'false';
 
 			if (!$isUsernameTaken){
-				echo "inside databaseAction if\n";
+				//echo "inside databaseAction if\n";
 
 				//Data type of $newUser is an array
 				$responseArr = registerUser($conn, $newUsername, $newPassword, $newPrefsString);
 
-				print_r($responseArr);
+				//print_r($responseArr);
 				return $responseArr;
 			}else{
-				echo "inside databaseAction else\n";
+				//echo "inside databaseAction else\n";
 
 				$responseArr = array();
 				$responseArr[0] = false;
@@ -59,6 +58,36 @@ function databaseAction($inputArray)
 			}catch(Exception $e){
 				return $e->getMessage();
 			}
+		}
+		case "getArticles":
+		{
+			echo "\ninside control getArticles \n";
+			$userID = $inputArray['userID'];
+
+			$userPrefs = getPreferences($conn, $userID);
+
+			$userPerfs = $userPrefs[0];
+
+			echo "userPerfs = ". $userPrefs;
+
+			if ($userPrefs == ''){
+				$userPrefs = 'general';
+			}
+
+
+			//print_r($userPrefs);
+
+			$userPrefsArr = explode(" ", $userPrefs);
+
+			$articlesArr = array();
+
+			foreach ($userPrefsArr as $userPref){
+				$articlesArr[$userPref] = getArticles($conn,$userPref);
+			}
+
+			//print_r($articlesArr);
+			return $articlesArr;
+
 		}
 	}
 }

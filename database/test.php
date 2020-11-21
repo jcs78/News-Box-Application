@@ -2,7 +2,9 @@
 <?php
 echo "Test PHP BEGIN".PHP_EOL;
 
-echo gettype(false);
+$str = 'gen';
+
+print_r(explode(" ", $str));
 
 echo "\n\n";
 

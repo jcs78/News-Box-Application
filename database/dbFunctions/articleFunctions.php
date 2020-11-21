@@ -1,9 +1,18 @@
 <?php
-function getArticles($preferencesArray){
+function getArticles($conn, $preferenceStr){
+	echo"inside articleFunctions getArticles";
 
-}
+	$query = "SELECT * FROM `articletable` where
+			`prefname` = :preferenceStr";
 
-function getPreferences($account){
+	$statement = $conn->prepare($query);
+
+	$statement->bindValue(':preferenceStr', $preferenceStr);
+	$statement->execute();
+
+	$articles = $statement->fetchALL();
+
+	return $articles;
 
 }
 

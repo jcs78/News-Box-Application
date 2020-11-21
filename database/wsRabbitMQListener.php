@@ -25,34 +25,37 @@ function requestProcessor($request)
 	switch ($request['type'])
   	{
 		case "register":
+		{
 	        	try{
-				echo "inside register case";
-				print_r($request);
+				//echo "inside register case";
+				//print_r($request);
 				$isNewUser = databaseAction($request);
 
-				echo "\n isNewUser";
-				print_r($isNewUser);
+				//echo "\n isNewUser";
+				//print_r($isNewUser);
 
 				if ($isNewUser[0]){
-					echo "inside register if \n";
-					echo "\n\n";
+					//echo "inside register if \n";
+					//echo "\n\n";
 					return true;
 
 				}else{
-					echo "inside register else \n";
-					echo "\n\n";
+					//echo "inside register else \n";
+					//echo "\n\n";
 					return false;
 				}
 			}
 			catch(Exception $e){
 				return $e->getMessage();
 			}
-	    	case "login":
+	    	}
+		case "login":
+		{
 			try{
 				//Shows input data
 
-				echo "inside login case current array: \n";
-				print_r($request);
+				//echo "inside login case current array: \n";
+				//print_r($request);
 
 				$account = databaseAction($request);
 
@@ -61,6 +64,14 @@ function requestProcessor($request)
 			catch(Exception $e){
 				return $e->getMessage();
 			}
+		}
+		case "getArticles":
+		{
+		echo "inside Listener getArticles";
+
+		$articlesArr = databaseAction($request);
+		return $articlesArr;
+		}
 	    	case "validate_session":
 	      		return doValidate($request['sessionId']);
 

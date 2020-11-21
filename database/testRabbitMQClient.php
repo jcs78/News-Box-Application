@@ -18,9 +18,12 @@ else
 }
 
 $request = array();
-$request['type'] = "register";
-$request['username'] = "testName7";
+$request['type'] = "getArticles";
+$request['username'] = "testName";
 $request['password'] = "testPass";
+
+$request['userID'] = 1;
+
 $request['preferences'] = '';
 $response = $client->send_request($request);
 //$response = $client->publish($request);
@@ -30,11 +33,7 @@ echo "Client received response: ".PHP_EOL;
 echo gettype($response);
 echo "\n\n";
 
-if ($response){
-	echo "New User Made";
-}else{
-	echo "New User Not Made";
-}
+print_r($response);
 
 echo "\n\n";
 
