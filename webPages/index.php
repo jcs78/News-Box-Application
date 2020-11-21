@@ -63,6 +63,14 @@ switch ($webServerAction)
 	}
 	case 'showHome':
 	{
+
+		$request = array();
+		$request['type'] = "getArticles";
+		$request['userID'] = $_SESSION['userID'];
+
+		//$articles = speak($request);
+		//print_r($articles);
+
 		include('home.php');
 
 		break;
