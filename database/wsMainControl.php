@@ -66,9 +66,9 @@ function databaseAction($inputArray)
 
 			$userPrefs = getPreferences($conn, $userID);
 
-			$userPerfs = $userPrefs[0];
+			$userPrefs = $userPrefs[0][0];
 
-			echo "userPerfs = ". $userPrefs;
+			//echo "userPerfs = ". $userPrefs;
 
 			if ($userPrefs == ''){
 				$userPrefs = 'general';
@@ -85,7 +85,9 @@ function databaseAction($inputArray)
 				$articlesArr[$userPref] = getArticles($conn,$userPref);
 			}
 
-			//print_r($articlesArr);
+			echo"\n\n";
+
+			print_r($articlesArr);
 			return $articlesArr;
 
 		}

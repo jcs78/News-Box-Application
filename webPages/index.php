@@ -68,8 +68,10 @@ switch ($webServerAction)
 		$request['type'] = "getArticles";
 		$request['userID'] = $_SESSION['userID'];
 
-		//$articles = speak($request);
-		//print_r($articles);
+		$articles = speak($request);
+		print_r($articles);
+
+		//$_SESSION['articles'] = $articles;
 
 		include('home.php');
 

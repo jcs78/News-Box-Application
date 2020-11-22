@@ -93,7 +93,7 @@ function isUsernameTaken($conn, $username){
 function getPreferences($conn ,$userID){
 	echo "inside getPreferences\n";
 
-	$query = "SELECT prefName FROM `newsBoxUsers` WHERE
+	$query = "SELECT preferences FROM `newsBoxUsers` WHERE
                         userID = :userID";
 
         $statement = $conn->prepare($query);
@@ -102,7 +102,7 @@ function getPreferences($conn ,$userID){
 
         $preferences = $statement->fetchALL();
 
-	print_r($preferences);
+	//print_r($preferences);
 
         $statement->closeCursor();
 

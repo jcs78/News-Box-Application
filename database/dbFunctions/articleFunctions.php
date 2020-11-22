@@ -2,8 +2,8 @@
 function getArticles($conn, $preferenceStr){
 	echo"inside articleFunctions getArticles";
 
-	$query = "SELECT * FROM `articletable` where
-			`prefname` = :preferenceStr";
+	$query = "SELECT * FROM `articleTable` where
+			`prefName` = :preferenceStr LIMIT 5";
 
 	$statement = $conn->prepare($query);
 

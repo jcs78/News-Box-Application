@@ -1,3 +1,9 @@
+#!/usr/bin/php
+<?php
+	//include("abstractViews/header.php");
+	session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
