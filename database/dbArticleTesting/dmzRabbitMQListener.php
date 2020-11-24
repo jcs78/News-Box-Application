@@ -29,14 +29,14 @@ function requestProcessor($request)
    		return "ERROR: unsupported message type";
   	}
 
-			$formattedArticles = decode($request['articles']);
+	$formattedArticles = decode($request['articles']);
 
-			print_r($formattedArticles);
+	print_r($formattedArticles);
 
-			addArticlesToDB($request['preference'], $formattedArticles);
+	addArticlesToDB($request['preference'], $formattedArticles);
 
-			echo "Articles Added";
-			return;
+	echo "Articles Added";
+	return;
 
 	//return array("returnCode" => '0', 'message'=>"Server received request and processed");
 	//return "Not a valid Case";

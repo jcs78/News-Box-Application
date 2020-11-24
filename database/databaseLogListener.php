@@ -14,7 +14,7 @@ $logServer = listenLog();
 
 echo "Now Listening for Logs...".PHP_EOL;
 
-$logServer->process_log('storeLogs');
+$logServer->process_logs('storeLogs');
 
 echo "Stopped Listening for Logs.".PHP_EOL;
 

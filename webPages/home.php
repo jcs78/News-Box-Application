@@ -1,7 +1,11 @@
 #!/usr/bin/php
 <?php
 	//include("abstractViews/header.php");
-	session_start();
+	//session_start();
+
+	$articlesByPref = $_SESSION['articles'];
+	//$articles = $articlesByPref['general'];
+	//$article = $articles[0];
 ?>
 
 <!DOCTYPE html>
@@ -87,10 +91,19 @@
   </section>
   
   <!--Display articles-->
-  <section class="article">
-      <div class="result" item="general"></div>
-      <div class="topTrends" item="top"></div>
-  
+<?php foreach($articlesByPref as $articles):?>
+	<?php foreach($articles as $article):?>
+
+	 <section class="article">
+	 	<div class="result" item="general"></div>
+			<h2><?php echo $article['articleTitle'];?></h2>
+			<p><?php echo $article['description'];?></p>
+
+		<div class="topTrends" item="top"></div>
+
+	<?php endforeach;?>
+<?php endforeach;?>
+<!--
       <div class="commentForm">
 
         <textarea type="commentDisplay" name="display"></textarea>
@@ -104,6 +117,7 @@
           
             </form>
       </div>
+-->
   </section>
 
 

@@ -69,9 +69,9 @@ switch ($webServerAction)
 		$request['userID'] = $_SESSION['userID'];
 
 		$articles = speak($request);
-		print_r($articles);
+		//print_r($articles);
 
-		//$_SESSION['articles'] = $articles;
+		$_SESSION['articles'] = $articles;
 
 		include('home.php');
 

@@ -5,7 +5,7 @@
 //the data type will also be a string so this
 //mimics the data that we will be getting
 
-$text = file_get_contents('file.txt');
+//$text = file_get_contents('file.txt');
 
 
 //$out = json_decode($text);
@@ -16,9 +16,9 @@ $text = file_get_contents('file.txt');
 
 echo "\n\n";
 //print_r($text);
-function decode($inputText){
+function decode($inputArr){
 
-	$inputTextToArr = json_decode($inputText);
+	$inputTextToArr = json_decode($inputArr);
 	$articles = $inputTextToArr->articles;
 
 	$allArticles = array();
@@ -51,7 +51,7 @@ function decode($inputText){
 	return $allArticles;
 }
 
-print_r(decode($text));
+//print_r(decode($text));
 
 
 function separateArticles($inputText){
