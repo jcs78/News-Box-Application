@@ -85,7 +85,7 @@ function requestProcessor($request)
 //Try Catch Function For Testing Logs
 try
 {
-	$server = new databaseServer("dbToWebLocalRabbitMQ.ini","dbServer");
+	$server = new databaseServer("dbToWebRabbitMQ.ini","dbServer");
 
 	echo "testRabbitMQServer BEGIN".PHP_EOL;
 	$server->process_requests('requestProcessor');
