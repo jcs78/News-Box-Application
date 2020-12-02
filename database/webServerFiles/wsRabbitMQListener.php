@@ -1,9 +1,9 @@
 #!/usr/bin/php
 <?php
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('databaseRabbitMQLib.php');
+require_once('../rabbitFiles/path.inc');
+require_once('../rabbitFiles/get_host_info.inc');
+require_once('../rabbitFiles/databaseRabbitMQLib.php');
 require_once('wsMainControl.php');
 
 error_reporting(E_ALL);

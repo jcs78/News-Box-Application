@@ -1,6 +1,6 @@
 <?php
-require_once("dbFunctions/userFunctions.php");
-require_once("dbFunctions/articleFunctions.php");
+require_once("../dbFunctions/userFunctions.php");
+require_once("../dbFunctions/articleFunctions.php");
 
 function databaseAction($inputArray)
 {

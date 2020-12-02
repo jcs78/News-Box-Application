@@ -1,8 +1,8 @@
 #!/usr/bin/php
 <?php
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('rabbitMQLib.inc');
+require_once('../rabbitFiles/path.inc');
+require_once('../rabbitFiles/get_host_info.inc');
+require_once('../rabbitFiles/databaseRabbitMQLib.inc');
 require_once('separateArticles.php');
 require_once("dmzMainControl.php");
 
@@ -80,7 +80,7 @@ catch (Throwable $e) {
 
 
 //Main Function - this can be moved into the try/catch block
-$server = new rabbitMQServer("testRabbitMQ.ini","testServer");
+$server = new rabbitMQServer("../rabbitFiles/dbToDMZRabbitMQ.ini","dbServer");
 
 echo "testRabbitMQServer BEGIN".PHP_EOL;
 $server->process_requests('requestProcessor');
