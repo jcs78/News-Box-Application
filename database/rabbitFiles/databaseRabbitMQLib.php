@@ -1,4 +1,4 @@
-#!/usr/bin/php
+#! /usr/bin/php
 <?php
 
 require_once('get_host_info.inc');
@@ -7,28 +7,18 @@ error_reporting (E_ALL);
 set_error_handler("handleError");
 
 // Functions that establish the client and server.
-function speak($inputArray)
+function listenToWbSvr($inputArray)
 {
-	$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
-	$responseFromServer = $wpClient->send_request($inputArray);
-	return $responseFromServer;
+	$dbServerI = new databaseServer("dbToWebRabbitMQ.ini", "dbServer");
+	$requestFromWebClient = $dbServerI->process_requests($inputArray);
+	return $requestFromWebClient;
 }
 
-function listen($inputArray)
+function listenToDMZ($inputArray)
 {
-        $wpServer = new webpageServer("webServerRabbitMQ.ini", "webpageServer");
-        $requestFromClient = $wpServer->send_request($inputArray);
-        return $requestFromClient;
-}
-
-// Functions for web-server-related files.
-function redirect($url)
-{
-	ob_start();
-        header('Location:'.$url);
-        ob_end_flush();
-
-	die();
+        $dbServerII = new databaseServer("dbToDMZRabbitMQ.ini", "dbServer");
+        $requestFromDMZClient = $dbServerII->process_requests($inputArray);
+        return $requestFromDMZClient;
 }
 
 function speakLog()
@@ -43,7 +33,7 @@ function listenLog()
 }
 
 // Classes for Rabbit Connection to Web Page
-class webpageClient
+class databaseClient
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -205,7 +195,7 @@ class webpageClient
 	}
 }
 
-class webpageServer
+class databaseServer
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -442,12 +432,12 @@ class logListenerServer
 		catch(Exception $e)
                 {
 // 			AMQP throws exception if get fails.
-                        echo "Error: rabbitMQServer: process_message: Exception caught: ".$e;
-			
-//			$clientLog = speakLog();
-//			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+//                      echo "Error: rabbitMQServer: process_message: Exception caught: ".$e;
+			$clientLog = speakLog();
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
-//			$clientLog->send_log($throwableError);
+			$clientLog->send_log($throwableError);
+                        die();
                 }
 		
 //		Message does not require a response, send ack immediately.
@@ -495,12 +485,12 @@ class logListenerServer
 		
 		catch (Exception $e)
                 {
-//			trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
-
+//                      trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
 			$clientLog->send_log($throwableError);
+                        die();
                 }
         }
 }
@@ -647,7 +637,7 @@ class logSpeakerClient
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line)
 {
-        $clientLog = new logSpeakerClient("logLocalRabbitMQ.ini", "logServer");
+        $clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
 	$errorType = "";
         $e_Error = "";
 

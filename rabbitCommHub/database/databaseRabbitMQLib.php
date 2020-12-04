@@ -7,43 +7,34 @@ error_reporting (E_ALL);
 set_error_handler("handleError");
 
 // Functions that establish the client and server.
-function speak($inputArray)
+function listenToWbSvr($inputArray)
 {
-	$wpClient = new webpageClient("webServerRabbitMQ.ini", "webpageServer");
-	$responseFromServer = $wpClient->send_request($inputArray);
-	return $responseFromServer;
+	$dbServerI = new databaseServer("dbToWebRabbitMQ.ini", "dbServer");
+	$requestFromWebClient = $dbServerI->send_request($inputArray);
+	return $requestFromWebClient;
 }
 
-function listen($inputArray)
+function listenToDMZ($inputArray)
 {
-        $wpServer = new webpageServer("webServerRabbitMQ.ini", "webpageServer");
-        $requestFromClient = $wpServer->send_request($inputArray);
-        return $requestFromClient;
-}
-
-// Functions for web-server-related files.
-function redirect($url)
-{
-	ob_start();
-        header('Location:'.$url);
-        ob_end_flush();
-
-	die();
+        $dbServerII = new databaseServer("dbToDMZRabbitMQ.ini", "dbServer");
+        $requestFromDMZClient = $dbServerII->process_request($inputArray);
+        return $requestFromDMZClient;
 }
 
 function speakLog()
 {
-        $cltLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+        $cltLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
         return $cltLog;
 }
+
 function listenLog()
 {
-        $svrLog = new logListenerServer("logRabbitMQ.ini", "logServer");
+        $svrLog = new logListenerServer("databaseLogRabbitMQ.ini", "logServer");
         return $svrLog;
 }
 
 // Classes for Rabbit Connection to Web Page
-class webpageClient
+class databaseClient
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -135,32 +126,44 @@ class webpageClient
                         $exchange->setName($this->exchange);
                         $exchange->setType($this->exchange_type);
 
-//			$callback_queue = new AMQPQueue($channel);
-//     			$callback_queue->setName($this->queue."_response");
-//     			$callback_queue->declare();
-//                      $callback_queue->bind($exchange->getName(),$this->routing_key.".response");
 
-//			Established a queue to callback to that is already inside the host. [-jcs78]
+/*              	Commented out because we do not want to create a new queue that is directed back at the client. [-jcs78]
+			$callback_queue = new AMQPQueue($channel);
+     			$callback_queue->setName($this->queue."_response");
+     			$callback_queue->declare();
+                        $callback_queue->bind($exchange->getName(),$this->routing_key.".response");  */
+
+/*			Established a queue to callback to that is already inside the host. [-jcs78]
 			$callback_queue = new AMQPQueue($channel);
 			$callback_queue->setName($this->queue_rsp);
-			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");
+			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");  */
+
 
                         $this->conn_queue = new AMQPQueue($channel);
                         $this->conn_queue->setName($this->queue);
-                        $this->conn_queue->bind($exchange->getName(),$this->routing_key);
+			$this->conn_queue->bind($exchange->getName(),$this->routing_key);
 
-                        $exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));
-      			$this->response_queue[$uid] = "waiting";
+
+/*              	Commented out because we do not want to create a new exchange that is directed back at the client. [-jcs78]
+			$exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));  */
+
+
+                        $exchange->publish($json_message, $this->routing_key,AMQP_NOPARAM);
+
+
+/*              	Commented out becuase there is nothing being sent by the Listener of the Logs to process. [-jcs78]
+			$this->response_queue[$uid] = "waiting";
                         $callback_queue->consume(array($this,'process_response'));
 
                         $response = $this->response_queue[$uid];
                         unset($this->response_queue[$uid]);
-                        return $response;
+			return $response;  */
                 }
 		
 		catch(Exception $e)
                 {
 //			die("Failed to send message to exchange: ". $e->getMessage()."\n");
+
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
@@ -196,6 +199,7 @@ class webpageClient
 		catch(Exception $e)
                 {
 //			die("failed to send message to exchange: ". $e->getMessage()."\n");
+
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
@@ -205,7 +209,7 @@ class webpageClient
 	}
 }
 
-class webpageServer
+class databaseServer
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -291,8 +295,10 @@ class webpageServer
 		
 		catch(Exception $e)
                 {
-//			ampq throws exception if get fails...
-//            		echo "error: rabbitMQServer: process_message: exception caught: ".$e;
+/*			ampq throws exception if get fails...
+			echo "error: rabbitMQServer: process_message: exception caught: ".$e;  */
+
+
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
@@ -310,7 +316,7 @@ class webpageServer
                 }
         }
 	
-	function process_requests($callback)
+	function process_request($callback)
         {
                 try
                 {
@@ -346,6 +352,7 @@ class webpageServer
 		catch (Exception $e)
                 {
 //                      trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
+
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
@@ -441,13 +448,18 @@ class logListenerServer
 		
 		catch(Exception $e)
                 {
-// 			AMQP throws exception if get fails.
-                        echo "Error: rabbitMQServer: process_message: Exception caught: ".$e;
-			
-//			$clientLog = speakLog();
-//			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+/* 			AMQP throws exception if get fails.
+			echo "Error: rabbitMQServer: process_message: Exception caught: ".$e;  */
 
-//			$clientLog->send_log($throwableError);
+
+			$clientLog = speakLog();
+			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+
+			$fp = fopen('log.txt', 'a');
+                        fwrite($fp, $throwableError . "\n");
+                        fclose($fp);
+
+                        die();
                 }
 		
 //		Message does not require a response, send ack immediately.
@@ -460,7 +472,7 @@ class logListenerServer
                 }
         }
 	
-	function process_logs($callback)
+	function process_log($callback)
         {
                 try
                 {
@@ -495,12 +507,16 @@ class logListenerServer
 		
 		catch (Exception $e)
                 {
-//			trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
+//                      trigger_error("Failed to start request processor: ".$e,E_USER_ERROR);
 
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
-			$clientLog->send_log($throwableError);
+                        $fp = fopen('log.txt', 'a');
+                        fwrite($fp, $throwableError . "\n");
+                        fclose($fp);
+
+                        die();
                 }
         }
 }
@@ -600,10 +616,14 @@ class logSpeakerClient
 		catch(Exception $e)
                 {
 //                      die("Failed to send message to exchange: ". $e->getMessage()."\n");
+
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
-			$clientLog->send_log($throwableError);
+                        $fp = fopen('log.txt', 'a');
+                        fwrite($fp, $throwableError . "\n");
+                        fclose($fp);
+
                         die();
                 }
         }
@@ -635,6 +655,7 @@ class logSpeakerClient
 		catch(Exception $e)
                 {
 //                      die("Failed to send message to exchange: ". $e->getMessage()."\n");
+
 			$clientLog = speakLog();
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
@@ -647,11 +668,10 @@ class logSpeakerClient
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line)
 {
-        $clientLog = new logSpeakerClient("logLocalRabbitMQ.ini", "logServer");
+        $clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
 	$errorType = "";
         $e_Error = "";
 
-// 	Switch statement simple identifies what type of error it is by using the error number produced when the error was... handled. [-jcs78]
         switch ($errNo) {
                 case 1:
                         $errorType = "E_ERROR";
@@ -708,3 +728,4 @@ function handleError($errNo, $errMsg, $error_file, $error_line)
 }
 
 ?>
+

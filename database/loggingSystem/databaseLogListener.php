@@ -3,9 +3,9 @@
 
 //  For a detailed explaination of the log listener, please see logListener.php inside the logTestingGrounds directory.
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('dmzRabbitMQLib.php');
+require_once('../rabbitFiles/path.inc');
+require_once('../rabbitFiles/get_host_info.inc');
+require_once('../rabbitFiles/databaseRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -14,7 +14,7 @@ $logServer = listenLog();
 
 echo "Now Listening for Logs...".PHP_EOL;
 
-$logServer->process_log('storeLogs');
+$logServer->process_logs('storeLogs');
 
 echo "Stopped Listening for Logs.".PHP_EOL;
 

@@ -25,19 +25,21 @@ if ($webServerAction == NULL)
 //This logic should check of an active session
 //If it does not find an active sesion then it
 //should send the user to the landing page
-if(isset($_SESSION['activeSession']) && $_SESSION['activeSession'] != False){
-	
-}
+//if(isset($_SESSION['activeSession']) || $_SESSION['activeSession'] != False){
+//
+//}
 
 
 echo ($webServerAction);
 echo "<br><br>";
 
+/*
 if (isset($_SESSION['username']))
 {
 	print_r($_SESSION['username']);
 	echo "<br><br>";
 }
+*/
 
 switch ($webServerAction)
 {
@@ -61,6 +63,16 @@ switch ($webServerAction)
 	}
 	case 'showHome':
 	{
+
+		$request = array();
+		$request['type'] = "getArticles";
+		$request['userID'] = $_SESSION['userID'];
+
+		$articles = speak($request);
+		//print_r($articles);
+
+		$_SESSION['articles'] = $articles;
+
 		include('home.php');
 
 		break;
@@ -74,16 +86,12 @@ switch ($webServerAction)
 
 	case 'validateLogin':
 	{
-		
 		$username = filter_input(INPUT_POST, 'username');
 		$password = filter_input(INPUT_POST, 'password');
 
 		$userInfo = validateLogin($username, $password);
 
 		$userInfo= $userInfo[0];
-		
-
-
 
 		print_r($userInfo);
 
@@ -110,20 +118,23 @@ switch ($webServerAction)
 	{
 		$newUsername = filter_input(INPUT_POST, 'username');
                 $newPassword = filter_input(INPUT_POST, 'password');
-		$newPrefsArr = filter_input(INPUT_POST, 'prefs', FILTER_SNITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
-		$newPrefString = implode(" ", $newPrefsArr);
+		$newPrefsArr = filter_input(INPUT_POST, 'prefs', FILTER_SANITIZE_FULL_SPECIAL_CHARS, FILTER_REQUIRE_ARRAY);
 
-		$registerCheck = registerUser($newUsername, $newPassword, $newPrefString);
+		if ($newPrefsArr){
+			$newPrefString = implode(" ", $newPrefsArr);
+		}else{
+		$newPrefString = '';
+		}
 
-		$registerCheck = $registerCheck[0];
+		$isRegisteredBool = registerUser($newUsername, $newPassword, $newPrefString);
 
-		if ($registerCheck["userID"] == "existant")
+		if ($isRegisteredBool)
 		{
-			header('Location: .?action=showRegister');
+			header('Location: .?action=showLogin');
 		}
 		else
 		{
-			header('Location: .?action=showLogin');
+			header('Location: .?action=showRegister');
 		}
 
 		break;

@@ -1,9 +1,18 @@
 <?php
-function getArticles($preferencesArray){
+function getArticles($conn, $preferenceStr){
+	echo"inside articleFunctions getArticles";
 
-}
+	$query = "SELECT * FROM `articleTable` where
+			`prefName` = :preferenceStr LIMIT 5";
 
-function getPreferences($account){
+	$statement = $conn->prepare($query);
+
+	$statement->bindValue(':preferenceStr', $preferenceStr);
+	$statement->execute();
+
+	$articles = $statement->fetchALL();
+
+	return $articles;
 
 }
 

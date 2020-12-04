@@ -1,35 +1,36 @@
 
 <?php
 
-function registerUser($conn, $newUsername, $newPassword, $newPrefsString){
+function registerUser($conn, $username, $password, $preferences){
+	//echo "inside registerUser \n";
 
 	try{
-
 		$query = "insert into `newsBoxUsers`
-	                 	(`username`, `password`, `preferences`,)
+	                 	(`username`, `password`, `preferences`)
 	                  values
 	                      	(:username, :password, :preferences)";
 	        $statement = $conn->prepare($query);
 
-	        $statement->bindValue(':username', $newUsername);
-	       	$statement->bindValue(':password', $newPassword);
-		$statement->bindValue(':preferences', $newPrefsString);
+	        $statement->bindValue(':username', $username);
+	       	$statement->bindValue(':password', $password);
+		$statement->bindValue(':preferences', $preferences);
 
 	        $statement->execute();
 	        $statement->closeCursor();
 
-		//create proper return for mainControl
-		//This can be an array with one index of True
+		//echo "\nquery complete";
+
 		$rtnArr = array();
 		$rtnArr[0] = true;
 		return $rtnArr;
-
-	}catch(Exception $e){
+	}
+	catch(Exception $e){
 		$rtnArr = array();
-		$rtnArr["userID"] = "existant";
+		$rtnArr[0] = false;
 
 		return $rtnArr;
 	}
+
 }
 
 function validUserLogin($conn, $username, $password){
@@ -45,8 +46,8 @@ function validUserLogin($conn, $username, $password){
 
 	$statement->closeCursor();
 
-	echo "inside of login Function \n \n";
-	print_r($account);
+	//echo "inside of login Function \n \n";
+	//print_r($account);
 
 
 	//Shows output array
@@ -70,7 +71,7 @@ function validUserLogin($conn, $username, $password){
 
 function isUsernameTaken($conn, $username){
 
-	$query = 'select * from userInfo where
+	$query = 'select * from newsBoxUsers where
                         username = :username';
 
         $statement = $conn->prepare($query);
@@ -89,7 +90,23 @@ function isUsernameTaken($conn, $username){
 
 }
 
-function getPreferences($conn ,$username, $password){
+function getPreferences($conn ,$userID){
+	echo "inside getPreferences\n";
+
+	$query = "SELECT preferences FROM `newsBoxUsers` WHERE
+                        userID = :userID";
+
+        $statement = $conn->prepare($query);
+        $statement->bindValue(':userID', $userID);
+        $statement->execute();
+
+        $preferences = $statement->fetchALL();
+
+	//print_r($preferences);
+
+        $statement->closeCursor();
+
+	return $preferences;
 
 }
 
