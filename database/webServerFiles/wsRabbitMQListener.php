@@ -6,9 +6,6 @@ require_once('../rabbitFiles/get_host_info.inc');
 require_once('../rabbitFiles/databaseRabbitMQLib.php');
 require_once('wsMainControl.php');
 
-error_reporting(E_ALL);
-set_error_handler("handleError");
-
 function requestProcessor($request)
 {
   	echo "received request".PHP_EOL;
@@ -82,7 +79,14 @@ function requestProcessor($request)
 	//return "Not a valid Case";
 }
 
-//Try Catch Function For Testing Logs
+//Log Stuff
+error_reporting(E_ALL);
+set_error_handler("handleError");
+
+$clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+$throwableError = "";
+
+
 try
 {
 	$server = new databaseServer("dbToWebRabbitMQ.ini","dbServer");
