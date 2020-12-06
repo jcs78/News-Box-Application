@@ -64,6 +64,7 @@ function validUserLogin($conn, $username, $password){
 		return $rtnArr;
 
         }else{
+		$account = $account[0];
                 return $account;
         }
 
