@@ -24,10 +24,11 @@ function requestProcessor($request)
 	//echo "inside function \n";
   	//var_dump($request);
 
-  	if(!isset($request['type']))
+  	if(!isset($request['type']) && isset($request['articles']))
   	{
-   		return "ERROR: unsupported message type";
+		$request['type'] = 'article';
   	}
+
 
 	$formattedArticles = decode($request['articles']);
 
