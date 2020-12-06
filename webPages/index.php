@@ -91,9 +91,8 @@ switch ($webServerAction)
 
 		$userInfo = validateLogin($username, $password);
 
-		$userInfo= $userInfo[0];
-
-		print_r($userInfo);
+		//echo "Return from rabbit \n";
+		//print_r($userInfo);
 
 		if ($userInfo["userID"] == "incorrect")
 		{

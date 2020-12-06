@@ -16,7 +16,7 @@
 
 echo "\n\n";
 //print_r($text);
-function decode($inputArr){
+function decodeToArray($inputArr){
 
 	$inputTextToArr = json_decode($inputArr);
 	$articles = $inputTextToArr->articles;

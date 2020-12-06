@@ -30,7 +30,7 @@ function requestProcessor($request)
   	}
 
 
-	$formattedArticles = decode($request['articles']);
+	$formattedArticles = decodeToArray($request['articles']);
 
 	print_r($formattedArticles);
 

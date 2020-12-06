@@ -56,6 +56,8 @@ function requestProcessor($request)
 
 				$account = databaseAction($request);
 
+				print_r($account);
+
 				return $account;
 			}
 			catch(Exception $e){
