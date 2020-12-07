@@ -90,19 +90,26 @@
     </div>
   </section>
   
-  <!--Display articles-->
+		 
+ <!--Display articles-->
 <?php foreach($articlesByPref as $articles):?>
-	<?php foreach($articles as $article):?>
+        <?php foreach($articles as $article):?>
 
-	 <section class="article">
-	 	<div class="result" item="general"></div>
-			<h2><?php echo $article['articleTitle'];?></h2>
-			<p><?php echo $article['description'];?></p>
-
-		<div class="topTrends" item="top"></div>
-
-	<?php endforeach;?>
+         <section class="article">
+                <button id="rlt" class="result" item="general" onclick="openArticle()" >
+                        <span><?php echo $article['articleTitle'];?></span>
+                        <p><?php echo $article['description'];?></p>
+                </button>
+		 
+                <div class="topTrends" item="top"></div>
+		 
+                <script type="text/javascript">
+                     document.getElementById("rlt").onclick = function(){
+                     location.href="link to article page";}
+                </script>
+        <?php endforeach;?>
 <?php endforeach;?>
+
 <!--
       <div class="commentForm">
 
