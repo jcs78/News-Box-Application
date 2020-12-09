@@ -49,27 +49,29 @@
     </section>
 
     <section id="forum">
-        <div id="wrapper">
-        <div id="menu" >
-           <button class="home" href="#" onclick="showhide()">Home</button> -
-           <button class="create" href="#" onclick="showhide()">Create a topic</button> 
-             
-            <div id="userbar">
-            <button class="logout" style="margin-left: 100px;" href="#">Log Out</button>
-           </div>
-        <div id="content">
-            <div id="createTopic">
-                <h1>Create a Topic</h1><br><br>
-                Topic name: <input type="text" name="topic_name" /><br><br>
-                Topic description: <textarea name="topic_description"></textarea><br><br>
-                <input type="submit" value="Add topic" />
-            </div>
-        </div>
-      </div>
-      </div>
-     <br>
-     <br>
+	<form action="index.php" method="post>
 
+	        <div id="wrapper">
+	        <div id="menu" >
+	           <button class="home" href="#" onclick="showhide()">Home</button> -
+	           <button class="create" href="#" onclick="showhide()">Create a topic</button>
+
+	            <div id="userbar">
+	            <button class="logout" style="margin-left: 100px;" href="#">Log Out</button>
+	           </div>
+	        <div id="content">
+	            <div id="createTopic">
+	                <h1>Create a Topic</h1><br><br>
+	                Topic name: <input type="text" name="topic_name" /><br><br>
+	                Topic description: <textarea name="topic_description"></textarea><br><br>
+	                <input type="submit" value="submit" id="forumPostCreation" />
+	            </div>
+	        </div>
+	      </div>
+	      </div>
+	     <br>
+	     <br>
+    </form>
     </section>
     
 

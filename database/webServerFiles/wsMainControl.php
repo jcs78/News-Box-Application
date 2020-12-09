@@ -17,6 +17,9 @@ function databaseAction($inputArray)
 		case'register':
 		{
 			$newUsername = $inputArray['username'];
+
+			//password hashing
+
 			$newPassword = $inputArray['password'];
 			$newPrefsString = $inputArray['preferences'];
 
@@ -90,6 +93,10 @@ function databaseAction($inputArray)
 			print_r($articlesArr);
 			return $articlesArr;
 
+		}
+		case "getForumPosts":{
+			$forumPosts = getForumPosts($conn);
+			return $forumPosts;
 		}
 	}
 }

@@ -24,3 +24,5 @@ Error [E_WARNING] detected at 11:40:05pm on 11-16-2020: sizeof(): Parameter must
 
 Error [E_WARNING] detected at 11:41:09pm on 11-16-2020: sizeof(): Parameter must be an array or an object that implements Countable inside /var/www/html/index.php on line 113.
 
+Throwable Error Caught at 06:34:30pm on 12-09-2020: Socket error: could not connect to host. inside /home/nolan/git/News-Box-Application/webPages/rabbitFiles/webServerRabbitFiles/webServerRabbitMQLib.php on line 595.
+

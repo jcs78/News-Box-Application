@@ -3,7 +3,7 @@
 
 session_start();
 
-require('webServerRabbitMQLib.php');
+require('rabbitFiles/webServerRabbitFiles/webServerRabbitMQLib.php');
 require('validateLogin.php');
 require('registerUser.php');
 

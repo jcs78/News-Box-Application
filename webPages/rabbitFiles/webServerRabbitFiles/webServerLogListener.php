@@ -3,9 +3,9 @@
 
 //  For a detailed explaination of the log listener, please see logListener.php inside the logTestingGrounds directory.
 
-require_once('../rabbitFiles/path.inc');
-require_once('../rabbitFiles/get_host_info.inc');
-require_once('../rabbitFiles/databaseRabbitMQLib.php');
+require_once('path.inc');
+require_once('get_host_info.inc');
+require_once('webServerRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
