@@ -10,13 +10,15 @@ error_reporting(E_ALL);
 set_error_handler("handleError");
 
 $loginInput = array();
-$loginInput['type'] = 'login';
+$loginInput['type'] = 'getForumPosts';
+$loginInput['forumPostTitle'] = 'rabbitTestTitle';
+$loginInput['forumPostContent'] = 'rabbitTestContent';
 $loginInput['username'] = 'testName';
 $loginInput['password'] = 'testPass';
 
 $response = speak($loginInput);
 
-echo $response;
+print_r($response);
 
 ?>
 

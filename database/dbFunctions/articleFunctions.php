@@ -11,6 +11,7 @@ function getArticles($conn, $preferenceStr){
 	$statement->execute();
 
 	$articles = $statement->fetchALL();
+	$statement->closeCursor();
 
 	return $articles;
 

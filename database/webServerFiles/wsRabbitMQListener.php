@@ -78,6 +78,16 @@ function requestProcessor($request)
 
 			return $forumPosts;
 		}
+		case "addForumPost":{
+
+			$wasAdded = databaseAction($request);
+
+			if($wasAdded){
+				return "Added Forum Post";
+			}else{
+				return "Did not Add Forum post";
+			}
+		}
 
 	    	case "validate_session":{
 	      		return doValidate($request['sessionId']);
@@ -93,7 +103,7 @@ function requestProcessor($request)
 error_reporting(E_ALL);
 set_error_handler("handleError");
 
-$clientLog = new logSpeakerClient("../rabbitFiles/logRabbitMQ.ini", "logServer");
+$clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
 $throwableError = "";
 
 
