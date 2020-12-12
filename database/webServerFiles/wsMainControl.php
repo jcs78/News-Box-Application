@@ -1,6 +1,7 @@
 <?php
 require_once("../dbFunctions/userFunctions.php");
 require_once("../dbFunctions/articleFunctions.php");
+require_once("../dbFunctions/forumFunctions.php");
 
 function databaseAction($inputArray)
 {
@@ -17,6 +18,9 @@ function databaseAction($inputArray)
 		case'register':
 		{
 			$newUsername = $inputArray['username'];
+
+			//password hashing
+
 			$newPassword = $inputArray['password'];
 			$newPrefsString = $inputArray['preferences'];
 
@@ -90,6 +94,28 @@ function databaseAction($inputArray)
 			print_r($articlesArr);
 			return $articlesArr;
 
+		}
+		case "getForumPosts":{
+			$forumPosts = getForumPosts($conn);
+			return $forumPosts;
+		}
+		case "addForumPost":{
+
+			$postTitle = $inputArray['forumPostTitle'];
+			$postContent = $inputArray['forumPostContent'];
+			$postAuthor = $inputArray['username'];
+			$postDate = date("Y-m-d h:i:sa");
+
+			$wasForumPostAdded = addForumPost($conn, $postTitle, $postContent, $postAuthor, $postDate);
+
+			if($wasForumPostAdded){
+				return True;
+			}else{
+				return False;
+			}
+		}
+		default:{
+			return None;
 		}
 	}
 }

@@ -1,4 +1,3 @@
-
 <?php
 
 function registerUser($conn, $username, $password, $preferences){

@@ -2,9 +2,14 @@
 <?php
 echo "Test PHP BEGIN".PHP_EOL;
 
-$str = 'gen';
+$pass = 'test';
 
-print_r(explode(" ", $str));
+//$hash = password_hash($pass, sha1('a'));
+
+echo "Line 1
+	Line2";
+
+
 
 echo "\n\n";
 

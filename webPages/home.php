@@ -44,8 +44,33 @@
   </head>
   <body>
     <!-- This is NavBar -->
-
-	<?php include('abstractViews/nav.php'); ?>
+   <nav class="navbar">
+       <div class="inner-width">
+           <a href="#" class="logo"></a>
+                <button class="menu-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+                </button>
+    <!-- Where all the nav bar will list -->
+     <div class="navbar-menu">
+           <a href="index.php?action=showLandingPage">Landing</a>
+           <a href="index.php?action=showHome">Home</a>
+           <a href="index.php?action=showLogin">Login</a>
+           <a href="index.php?action=showRegister">Register</a>
+           <a href="index.php?action=showForum">Forum</a>
+       
+           <button class="dropbtn" style="margin-left:15px;border-style: none;">
+              <i class="fas fa-envelope" ></i> <span class="badge badge-danger" id="count"><b>4</b></span>
+              <i class="fa fa-caret-down" id="arrow"></i>
+          </button>
+         <div class="dropdown-content">
+               <a href="#">Action</a>
+               <a href="#">Message</a>
+       </div>
+    </div>
+  </div>
+</nav>
 
     <!-- Home -->
 

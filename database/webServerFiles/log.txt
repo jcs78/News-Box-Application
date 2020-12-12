@@ -1,0 +1,4 @@
+Throwable Error Caught at 06:26:59pm on 12-09-2020: Socket error: could not connect to host. inside /home/nolan/git/News-Box-Application/database/rabbitFiles/databaseRabbitMQLib.php on line 600.
+
+Throwable Error Caught at 06:46:55pm on 12-09-2020: Socket error: could not connect to host. inside /home/nolan/git/News-Box-Application/database/rabbitFiles/databaseRabbitMQLib.php on line 600.
+

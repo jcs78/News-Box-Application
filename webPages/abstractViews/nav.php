@@ -26,7 +26,7 @@
 
 	  <a href="index.php?action=showRegister">Register</a>
 
-          <a href="#">Forum</a>
+          <a href="index.php?action=showForum">Forum</a>
         </div>
       </div>
     </nav>
