@@ -1,7 +1,8 @@
 <?php
 
 
-$host="ipaddress";
+$host="192.168.1.107";
+
 
 exec("ping -c 4 " . $host, $output, $result);
 
@@ -16,4 +17,5 @@ else
         echo "Web Server is dead!";
 
 ?>
+
 
