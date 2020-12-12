@@ -1,7 +1,7 @@
 <?php
 
 
-$host="192.168.1.107";
+$host="1.2.3.4";
 
 
 exec("ping -c 4 " . $host, $output, $result);
@@ -14,8 +14,12 @@ if ($result == 0)
 
 else
 
-        echo "Web Server is dead!";
-
+	
+         exec(" sudo systemctl start apache2 " );
+	echo("Apache2 turned on");	
 ?>
+
+
+
 
 
