@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+        include_once("connection.php");
 	//include("abstractViews/header.php");
 	//session_start();
 
@@ -52,6 +53,12 @@
                 <span></span>
                 <span></span>
                 </button>
+   <!-- get the status of unread message from message table in the database --> 
+   <?php
+          $sql_get = mysqli_query($con, "SELECT * FROM message WHERE status=0");
+          $count = mysqli_num_rows($sql_get);
+
+    ?>
     <!-- Where all the nav bar will list -->
      <div class="navbar-menu">
            <a href="index.php?action=showLandingPage">Landing</a>
@@ -61,13 +68,13 @@
            <a href="index.php?action=showForum">Forum</a>
        
            <button class="dropbtn" style="margin-left:15px;border-style: none;">
-              <i class="fas fa-envelope" ></i> <span class="badge badge-danger" id="count"><b>4</b></span>
+              <i class="fas fa-envelope" ></i> <span class="badge badge-danger" id="count"><b><?php echo $count; ?></b></span>
               <i class="fa fa-caret-down" id="arrow"></i>
-          </button>
+           </button>
          <div class="dropdown-content">
                <a href="#">Action</a>
                <a href="#">Message</a>
-       </div>
+         </div>
     </div>
   </div>
 </nav>
