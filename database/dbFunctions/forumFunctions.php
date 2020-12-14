@@ -15,6 +15,8 @@ function getForumPosts($conn){
 
 function addForumPost($conn, $postTitle, $postContent, $postAuthor, $postDate){
 	try{
+		echo "Inside addForumPost\n";
+
 		$query = "INSERT INTO `forumPosts`
 				(`postTitle`, `postContent`, `postAuthor`, `postDate`)
 			  VALUES
@@ -34,6 +36,7 @@ function addForumPost($conn, $postTitle, $postContent, $postAuthor, $postDate){
 		return True;
 	}
 	catch(Exception $e){
+		echo $e-getMessage();
 		return False;
 	}
 

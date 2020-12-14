@@ -72,7 +72,7 @@ function databaseAction($inputArray)
 
 			$userPrefs = $userPrefs[0][0];
 
-			//echo "userPerfs = ". $userPrefs;
+			echo "userPerfs = ". $userPrefs;
 
 			if ($userPrefs == ''){
 				$userPrefs = 'general';
@@ -101,12 +101,18 @@ function databaseAction($inputArray)
 		}
 		case "addForumPost":{
 
+			echo "inside addForumPost\n";
+
 			$postTitle = $inputArray['forumPostTitle'];
 			$postContent = $inputArray['forumPostContent'];
 			$postAuthor = $inputArray['username'];
 			$postDate = date("Y-m-d h:i:sa");
 
+			echo $postDate . "\n";
+
 			$wasForumPostAdded = addForumPost($conn, $postTitle, $postContent, $postAuthor, $postDate);
+
+			echo "return from function " . $wasForumPostAdded. "\n";
 
 			if($wasForumPostAdded){
 				return True;

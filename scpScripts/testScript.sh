@@ -1,6 +1,7 @@
-#!/usr/bin/bash
+#!/bin/bash
 
-tar database folder
+tar -czvf testPackage1.gar.gz testDir
 
-scp the new package with location
+scp testPackage1.gar.gz nolandep@10.192.226.100:/home/nolandep/scpTests
+
 

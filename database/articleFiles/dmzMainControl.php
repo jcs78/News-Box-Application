@@ -13,17 +13,19 @@ function addArticlesToDB($preference, $articles){
 		{
 			foreach($articles as $article){
 
-			$sourceName = $article['name'];
-			$author = $article['author'];
-			$title = $article['title'];
-			$description = $article['description'];
-			$url = $article['url'];
-			$urlToImage = $article['urlToImage'];
-			$publishedAt = $article['publishedAt'];
-			$content = $article['content'];
+				$sourceName = $article['name'];
+				$author = $article['author'];
+				$title = $article['title'];
+				$description = $article['description'];
+				$url = $article['url'];
+				$urlToImage = $article['urlToImage'];
+				$publishedAt = $article['publishedAt'];
+				$content = $article['content'];
 
-			addArticle($conn, $preference, $sourceName, $author, $title, $description, $url, $urlToImage, $publishedAt, $content);
+				addArticle($conn, $preference, $sourceName, $author, $title, $description, $url, $urlToImage, $publishedAt, $content);
 			}
+
+			return True;
 		}
 	}
 }
