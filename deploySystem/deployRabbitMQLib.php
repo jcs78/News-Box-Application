@@ -22,6 +22,7 @@ function listen($inputArray)
         return $requestFromClient;
 }  */
 
+
 function speakLog()
 {
         $cltLog = new logSpeakerClient("rabbitCommHubRabbitMQ.ini", "commhubServer");
