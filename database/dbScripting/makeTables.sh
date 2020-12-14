@@ -9,3 +9,5 @@ sudo mysql -u root testDB < forumReplyTable.sql
 sudo mysql -u root testDB < forumTable.sql
 
 sudo mysql -u root testDB < userTable.sql
+
+sudo mysql -u root testDB < notificationsTable.sql

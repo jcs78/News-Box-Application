@@ -22,3 +22,13 @@ Error [E_WARNING] detected at 10:03:49pm on 12-06-2020: parse_ini_file(databaseL
 
 Error [E_WARNING] detected at 10:03:59pm on 12-06-2020: parse_ini_file(databaseLogRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
 
+Error [E_WARNING] detected at 06:45:45pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
+
+Error [E_WARNING] detected at 06:45:48pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
+
+Error [E_WARNING] detected at 06:45:53pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
+
+Error [E_WARNING] detected at 06:46:13pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
+
+Error [E_WARNING] detected at 06:47:44pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
+

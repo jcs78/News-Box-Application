@@ -2,6 +2,7 @@
 require_once("../dbFunctions/userFunctions.php");
 require_once("../dbFunctions/articleFunctions.php");
 require_once("../dbFunctions/forumFunctions.php");
+require_once("../dbFunctions/notificationFunctions.php");
 
 function databaseAction($inputArray)
 {
@@ -119,6 +120,13 @@ function databaseAction($inputArray)
 			}else{
 				return False;
 			}
+		}
+		case "getNotifications":{
+			$userID = $inputArray['userID'];
+
+			$userNotifications = getUserNotifications($conn, $userID);
+
+			return $userNotifications;
 		}
 		default:{
 			return None;
