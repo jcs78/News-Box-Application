@@ -30,6 +30,20 @@ function registerUser($newUN, $newPW, $newPref)
         $isRegistered = speak($registerRequest);
 
         return $isRegistered;
-
 }
+
+function getNotifications($userID){
+	$notificationRequest = array();
+
+	$notificationRequest['type'] = "getNotifications";
+	$notificationRequest['userID'] = $userID;
+	$notificationRequest['username'] = $username;
+
+	$getNotifications = speak($notificationRequest);
+
+	return $getNotifications;
+}
+
+
+
 ?>

@@ -40,6 +40,17 @@ if (isset($_SESSION['username']))
 }
 */
 
+//Update Notifications
+if (isset($_SESSION['userID'])){
+	$userID = $_SESSION['userID'];
+
+	//this is an array with arrays
+	$notifications = getNotifications($userID);
+
+	$_SESSION['notifications'] = $notifications;
+}
+
+
 switch ($webServerAction)
 {
 	case 'showLogin':

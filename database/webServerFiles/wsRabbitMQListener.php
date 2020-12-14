@@ -88,7 +88,11 @@ function requestProcessor($request)
 				return "Did not Add Forum post";
 			}
 		}
+		case "getNotifications":{
+			$userNotifications = databaseAction($request);
 
+			return $userNotifications;
+		}
 	    	case "validate_session":{
 	      		return doValidate($request['sessionId']);
 		}

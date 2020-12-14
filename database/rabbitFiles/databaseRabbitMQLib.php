@@ -668,7 +668,7 @@ class logSpeakerClient
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line)
 {
-        $clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+        $clientLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
 	$errorType = "";
         $e_Error = "";
 
