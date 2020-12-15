@@ -1,9 +1,16 @@
 #! /usr/bin/php
 <?php
 
+<<<<<<< HEAD
 //require_once('../RabbitMQFiles/path.inc');
 //require_once('../RabbitMQFiles/get_host_info.inc');
 require_once('../RabbitMQFiles/dmzRabbitMQLib.php');
+=======
+require_once('../RabbitMQFiles/path.inc');
+require_once('../RabbitMQFiles/get_host_info.inc');
+require_once('../RabbitMQFiles/dmzRabbitMQLib.php');
+
+>>>>>>> 663e38d9ddc2379b7c67a91a4f6ea2c0f6383792
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -46,5 +53,24 @@ $rtnInfo = speak($trending);
 
 print_r($rtnInfo);
 
+<<<<<<< HEAD
+=======
+
+// Try Catch Function For Testing Code
+/*
+ * try
+{
+
+}
+catch (Throwable $e)
+{
+        $throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
+
+        $clientLog->send_log($throwableError);
+	echo $throwableError;
+}
+ */
+
+>>>>>>> 663e38d9ddc2379b7c67a91a4f6ea2c0f6383792
 ?>
 

@@ -674,6 +674,7 @@ function handleError($errNo, $errMsg, $error_file, $error_line)
 	$errorType = "";
 	$e_Error = "";
 
+
         switch ($errNo) {
                 case 1:
                         $errorType = "E_ERROR";
