@@ -1,11 +1,12 @@
-<<<<<<< HEAD
-
-
-=======
 Error [E_WARNING] detected at 06:45:45pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
 
 Error [E_WARNING] detected at 06:45:48pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
 
 Error [E_WARNING] detected at 06:45:53pm on 12-14-2020: parse_ini_file(logRabbitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
->>>>>>> a8c06f7b24f34eb9f82954297f2d32943e2cf319
+
+Error [E_NOTICE] detected at 08:22:39pm on 12-14-2020: Undefined variable: clientLog inside /home/jcs78/git/news-box-app/dmzAPI/getArticles/techarticles.php on line 23.
+
+Throwable Error Caught at 08:27:17pm on 12-14-2020: Call to undefined function curl_init() inside /home/jcs78/git/news-box-app/dmzAPI/getArticles/techarticles.php on line 17.
+
+Throwable Error Caught at 08:28:54pm on 12-14-2020: Call to undefined function curl_init() inside /home/jcs78/git/news-box-app/dmzAPI/getArticles/techarticles.php on line 17.
 

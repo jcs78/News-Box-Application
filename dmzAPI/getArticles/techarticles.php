@@ -1,9 +1,9 @@
 #! /usr/bin/php
 <?php
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('dmzRabbitMQLib.php');
+//require_once('../RabbitMQFiles/path.inc');
+//require_once('../RabbitMQFiles/get_host_info.inc');
+require_once('../RabbitMQFiles/dmzRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -45,19 +45,6 @@ $trending['articles'] = $content;
 $rtnInfo = speak($trending);
 
 print_r($rtnInfo);
-
-// Try Catch Function For Testing Code
-try
-{
-
-}
-catch (Throwable $e)
-{
-        $throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
-
-        $clientLog->send_log($throwableError);
-	echo $throwableError;
-}
 
 ?>
 

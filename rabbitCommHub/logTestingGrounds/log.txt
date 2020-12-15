@@ -22,3 +22,7 @@ Throwable Error Caught at 09:44:10pm on 12-06-2020: Call to undefined function n
 
 Throwable Error Caught at 09:44:10pm on 12-06-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 596.
 
+Throwable Error Caught at 07:53:26pm on 12-14-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 485.
+
+Throwable Error Caught at 08:01:15pm on 12-14-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 485.
+
