@@ -1,2 +1,0 @@
-Throwable Error Caught at 06:45:10pm on 12-09-2020: Socket error: could not connect to host. inside /home/nolan/git/News-Box-Application/webPages/rabbitFiles/webServerRabbitFiles/webServerRabbitMQLib.php on line 595.
-

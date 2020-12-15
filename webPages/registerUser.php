@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-//require_once('webServerRabbitMQLib.php');
+//require('rabbitFiles/webServerRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
