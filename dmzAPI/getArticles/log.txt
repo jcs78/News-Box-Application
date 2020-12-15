@@ -7,3 +7,5 @@
 
 
 
+Throwable Error Caught at 07:49:26pm on 12-14-2020: Socket error: could not connect to host. inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 599.
+
