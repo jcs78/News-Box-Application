@@ -455,7 +455,7 @@ class logListenerServer
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
 		        $fp = fopen('log.txt', 'a');
-		        fwrite($fp, $request . "\n");
+		        fwrite($fp, $throwableError . "\n");
 		        fclose($fp);
 
                         die();
@@ -512,7 +512,7 @@ class logListenerServer
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
 		        $fp = fopen('log.txt', 'a');
-		        fwrite($fp, $request . "\n");
+		        fwrite($fp, $throwableError . "\n");
 		        fclose($fp);
 
                         die();
@@ -620,7 +620,7 @@ class logSpeakerClient
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
 		        $fp = fopen('log.txt', 'a');
-        		fwrite($fp, $request . "\n");
+        		fwrite($fp, $throwableError . "\n");
         		fclose($fp);
 
 			die();
@@ -659,7 +659,7 @@ class logSpeakerClient
 			$throwableError = "Throwable Error Caught at " . date("h:i:sa") . " on "  . date("m-d-Y") . ": " . $e->getMessage() . " inside " . $e->getFile()  . " on line " . $e->getLine() . ".\n";
 
 		        $fp = fopen('log.txt', 'a');
-        		fwrite($fp, $request . "\n");
+        		fwrite($fp, $throwableError . "\n");
         		fclose($fp);
 
                         die();
@@ -670,7 +670,7 @@ class logSpeakerClient
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line)
 {
-        $clientLog = new logSpeakerClient("dmzlogRabbitMQ.ini", "logServer");
+        $clientLog = new logSpeakerClient("dmzLogRabbitMQ.ini", "logServer");
 	$errorType = "";
 	$e_Error = "";
 
