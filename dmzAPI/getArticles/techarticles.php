@@ -1,9 +1,10 @@
 #! /usr/bin/php
 <?php
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('dmzRabbitMQLib.php');
+require_once('../RabbitMQFiles/path.inc');
+require_once('../RabbitMQFiles/get_host_info.inc');
+require_once('../RabbitMQFiles/dmzRabbitMQLib.php');
+
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -46,8 +47,10 @@ $rtnInfo = speak($trending);
 
 print_r($rtnInfo);
 
+
 // Try Catch Function For Testing Code
-try
+/*
+ * try
 {
 
 }
@@ -58,6 +61,7 @@ catch (Throwable $e)
         $clientLog->send_log($throwableError);
 	echo $throwableError;
 }
+ */
 
 ?>
 
