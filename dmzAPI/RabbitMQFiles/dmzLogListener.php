@@ -3,9 +3,9 @@
 
 //  For a detailed explaination of the log listener, please see logListener.php inside the logTestingGrounds directory.
 
-require_once('path.inc');
-require_once('get_host_info.inc');
-require_once('dmzRabbitMQLib.php');
+require_once('../RabbitMQFiles/path.inc');
+require_once('../RabbitMQFiles/get_host_info.inc');
+require_once('../RabbitMQFiles/dmzRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -30,4 +30,5 @@ function storeLogs($request)
 }
 
 ?>
+
 

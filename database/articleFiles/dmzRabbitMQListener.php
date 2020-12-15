@@ -24,7 +24,7 @@ function requestProcessor($request)
 	//echo "inside function \n";
   	//var_dump($request);
 
-  	if(!isset($request['type']) && isset($request['articles']))
+  	if(!isset($request['type']) || isset($request['articles']))
   	{
 		$request['type'] = 'article';
   	}
@@ -47,7 +47,7 @@ function requestProcessor($request)
 error_reporting(E_ALL);
 set_error_handler("handleError");
 
-$clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+$clientLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
 $throwableError = "";
 
 
@@ -55,7 +55,7 @@ try {
 	$server = new databaseServer("dbToDMZRabbitMQ.ini","dbServer");
 
 	echo "testRabbitMQServer BEGIN".PHP_EOL;
-	$server->process_requests('requestProcessor');
+	$server->process_request('requestProcessor');
 	echo "testRabbitMQServer END".PHP_EOL;
 
 }
