@@ -11,3 +11,5 @@ Throwable Error Caught at 08:27:17pm on 12-14-2020: Call to undefined function c
 Throwable Error Caught at 08:28:54pm on 12-14-2020: Call to undefined function curl_init() inside /home/jcs78/git/news-box-app/dmzAPI/getArticles/techarticles.php on line 17.
 
 
+Throwable Error Caught at 10:45:19pm on 12-14-2020: Socket error: could not connect to host. inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 486.
+
