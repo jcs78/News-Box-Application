@@ -124,23 +124,28 @@
   
 		 
  <!--Display articles-->
-<?php foreach($articlesByPref as $articles):?>
         <?php foreach($articles as $article):?>
 
          <section class="article">
-                <button id="rlt" class="result" item="general" onclick="openArticle()" >
-                        <span><?php echo $article['articleTitle'];?></span>
-                        <p><?php echo $article['description'];?></p>
+                <button id="rlt" class="result" item="general">
+			<form action="index.php" method="post" >
+				<input type="hidden" name="action" value="showSingleArticle">
+                        	<span><?php echo $article['articleTitle'];?></span>
+                        	<p><?php echo $article['description'];?></p>
+				<input type="hidden"  name="articleID"
+					value="<?php echo $article['articleID']; ?>"
+				>
+				<input type="submit" value="article">
+			</form>
                 </button>
 		 
                 <div class="topTrends" item="top"></div>
 		 
                 <script type="text/javascript">
                      document.getElementById("rlt").onclick = function(){
-                     location.href="link to article page";}
+                     location.href="singleArticle.php";}
                 </script>
         <?php endforeach;?>
-<?php endforeach;?>
 
 <!--
       <div class="commentForm">

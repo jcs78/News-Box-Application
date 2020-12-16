@@ -1,7 +1,7 @@
 #!/usr/bin/php
 <?php
 
-//session_start();
+session_start();
 //require('rabbitFiles/webServerRabbitMQLib.php');
 require('functions.php');
 

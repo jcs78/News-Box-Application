@@ -62,3 +62,7 @@ Error [E_NOTICE] detected at 08:31:55pm on 12-15-2020: Undefined index: EXCHANGE
 
 Error [E_NOTICE] detected at 08:35:42pm on 12-15-2020: Undefined index: EXCHANGE_RSP inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 75.
 
+Error [E_NOTICE] detected at 08:52:17pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
+
+Error [E_NOTICE] detected at 09:07:03pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
+

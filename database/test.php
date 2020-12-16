@@ -2,13 +2,15 @@
 <?php
 echo "Test PHP BEGIN".PHP_EOL;
 
-$pass = 'test';
+$a = array();
 
-//$hash = password_hash($pass, sha1('a'));
+$b = array(1,2,3);
+$c = array(4,5,6);
 
-echo "Line 1
-	Line2";
+array_push($a,$b);
+array_push($a,$c);
 
+print_r($a);
 
 
 echo "\n\n";

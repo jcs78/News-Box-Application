@@ -73,7 +73,7 @@ function databaseAction($inputArray)
 
 			$userPrefs = $userPrefs[0][0];
 
-			echo "userPerfs = ". $userPrefs;
+			echo "userPerfs = ". $userPrefs . "\n";
 
 			if ($userPrefs == ''){
 				$userPrefs = 'general';
@@ -87,10 +87,14 @@ function databaseAction($inputArray)
 			$articlesArr = array();
 
 			foreach ($userPrefsArr as $userPref){
-				$articlesArr[$userPref] = getArticles($conn,$userPref);
+				$currentPrefArr = getArticles($conn,$userPref);
+
+				foreach($currentPrefArr as $singleArticle){
+					array_push($articlesArr, $singleArticle);
+				}
 			}
 
-			echo"\n\n";
+			//echo"article array made\n";
 
 			print_r($articlesArr);
 			return $articlesArr;
@@ -122,9 +126,12 @@ function databaseAction($inputArray)
 			}
 		}
 		case "getNotifications":{
+			echo "mainControl case\n";
 			$userID = $inputArray['userID'];
 
 			$userNotifications = getUserNotifications($conn, $userID);
+
+			//print_r($userNotifications);
 
 			return $userNotifications;
 		}

@@ -66,7 +66,7 @@ function requestProcessor($request)
 		}
 		case "getArticles":
 		{
-			echo "inside Listener getArticles";
+			//echo "inside Listener getArticles";
 
 			$articlesArr = databaseAction($request);
 			return $articlesArr;
@@ -89,8 +89,10 @@ function requestProcessor($request)
 			}
 		}
 		case "getNotifications":{
+			echo "listener case\n";
 			$userNotifications = databaseAction($request);
 
+			//print_r($userNotifications);
 			return $userNotifications;
 		}
 	    	case "validate_session":{
