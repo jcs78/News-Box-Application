@@ -10,6 +10,6 @@ file="testPackage${versionNum}.gar.gz"
 
 tar -czvf $file testDir
 
-scp $file nolandep@10.192.226.100:/home/nolandep/scpTests
+scp $file nolandep@10.192.226.206:/home/nolandep/scpTests
 
-
+php deployToRabbit.php

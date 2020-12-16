@@ -24,12 +24,6 @@ function requestProcessor($request)
 	//echo "inside function \n";
   	//var_dump($request);
 
-  	if(!isset($request['type']) || isset($request['articles']))
-  	{
-		$request['type'] = 'article';
-  	}
-
-
 	$formattedArticles = decodeToArray($request['articles']);
 
 	print_r($formattedArticles);
@@ -37,7 +31,6 @@ function requestProcessor($request)
 	addArticlesToDB($request['preference'], $formattedArticles);
 
 	echo "Articles Added";
-	return;
 
 	//return array("returnCode" => '0', 'message'=>"Server received request and processed");
 	//return "Not a valid Case";

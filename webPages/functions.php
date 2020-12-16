@@ -1,9 +1,21 @@
+#!/usr/bin/php
 <?php
 
-//require('rabbitFiles/webServerRabbitMQLib.php');
+require('rabbitFiles/webServerRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
+
+function testSpeaker(){
+	$request = array();
+	$request['type'] = "getArticles";
+	$request['userID'] = 1;
+	//$request['password'] = 'testPass';
+
+	speak($request);
+}
+
+//testSpeaker();
 
 function validateLogin($un, $pw)
 {

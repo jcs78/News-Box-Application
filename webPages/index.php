@@ -1,9 +1,8 @@
 #!/usr/bin/php
 <?php
 
-session_start();
-
-require('rabbitFiles/webServerRabbitMQLib.php');
+//session_start();
+//require('rabbitFiles/webServerRabbitMQLib.php');
 require('functions.php');
 
 error_reporting(E_ALL);

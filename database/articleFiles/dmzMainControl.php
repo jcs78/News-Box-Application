@@ -19,6 +19,6 @@ function addArticlesToDB($preference, $articles){
 
 		addArticle($conn, $preference, $sourceName, $author, $title, $description, $url, $urlToImage, $publishedAt, $content);
 	}
-	return True;
+	return;
 }
 ?>

@@ -107,7 +107,7 @@ function requestProcessor($request)
 error_reporting(E_ALL);
 set_error_handler("handleError");
 
-$clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+$clientLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
 $throwableError = "";
 
 
