@@ -13,3 +13,27 @@ Throwable Error Caught at 08:28:54pm on 12-14-2020: Call to undefined function c
 
 Throwable Error Caught at 10:45:19pm on 12-14-2020: Socket error: could not connect to host. inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 486.
 
+Error [E_WARNING] detected at 07:29:02pm on 12-15-2020: parse_ini_file(databaseLogRabitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
+
+Error [E_WARNING] detected at 07:33:10pm on 12-15-2020: parse_ini_file(databaseLogRabitMQ.ini): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/rabbitFiles/get_host_info.inc on line 17.
+
+Error [E_NOTICE] detected at 07:46:24pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
+
+Error [E_NOTICE] detected at 07:53:11pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
+
+Error [E_NOTICE] detected at 07:53:23pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
+
+Error [E_NOTICE] detected at 08:02:53pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
+
+Error [E_NOTICE] detected at 08:03:20pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
+
+Error [E_NOTICE] detected at 08:19:20pm on 12-15-2020: Undefined index: EXCHANGE_RSP inside /home/nolan/git/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 75.
+
+Error [E_NOTICE] detected at 08:26:25pm on 12-15-2020: Undefined index: EXCHANGE_RSP inside /home/nolan/git/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 75.
+
+Error [E_NOTICE] detected at 08:27:02pm on 12-15-2020: Undefined index: EXCHANGE_RSP inside /home/nolan/git/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 75.
+
+Error [E_NOTICE] detected at 08:31:55pm on 12-15-2020: Undefined index: EXCHANGE_RSP inside /home/nolan/git/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 75.
+
+Error [E_NOTICE] detected at 08:35:42pm on 12-15-2020: Undefined index: EXCHANGE_RSP inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 75.
+

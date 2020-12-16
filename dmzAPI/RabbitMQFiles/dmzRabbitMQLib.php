@@ -72,12 +72,13 @@ class dmzClient
 		$this->exchange = $this->machine[$server]["EXCHANGE"];
 		
 // 		Added an exchange to receive a response. [-jcs78]
-		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];
+	
+	//	$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];
 
 		$this->queue = $this->machine[$server]["QUEUE"];
 
 //		Added a queue to receive a response. [-jcs78]
-		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];
+	//	$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];
         }
 
 	function process_response($response)
