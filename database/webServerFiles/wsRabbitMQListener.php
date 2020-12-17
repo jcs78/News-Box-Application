@@ -5,12 +5,12 @@ require_once('../rabbitFiles/path.inc');
 require_once('../rabbitFiles/get_host_info.inc');
 require_once('../rabbitFiles/databaseRabbitMQLib.php');
 require_once('wsMainControl.php');
-require('../hotStandby/checkStatus.php');
+//require('../hotStandby/checkStatus.php');
 
 function requestProcessor($request)
 {
 	//This variable is either a 1 or 0 as a string
-	$isAlive = checkStatus();
+	//$isAlive = checkStatus();
 
   	echo "received request".PHP_EOL;
 
@@ -28,7 +28,7 @@ function requestProcessor($request)
 		case "register":
 		{
 	        	try{
-				//echo "inside register case";
+				echo "inside register case";
 				//print_r($request);
 				$isNewUser = databaseAction($request);
 
