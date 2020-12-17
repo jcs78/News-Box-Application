@@ -2,6 +2,7 @@
 #
 # iptables example configuration script
 
+
 # Drop ICMP echo-request messages sent to broadcast or multicast addresses
 echo 1 > /proc/sys/net/ipv4/icmp_echo_ignore_broadcasts
 
