@@ -66,10 +66,10 @@ class deployClient
         private $USER;
         private $PASSWORD;
         private $VHOST;
-	private $exchange;
+/*	private $exchange;
 	private $exchange_rsp;
 	private $queue;
-	private $queue_rsp;
+	private $queue_rsp;  */
         private $routing_key = '*';
         private $response_queue = array();
         private $exchange_type = "direct";
@@ -95,13 +95,13 @@ class deployClient
 
 		$this->exchange = $this->machine[$server]["EXCHANGE"];
 		
-// 		Added an exchange to receive a response. [-jcs78]
-		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];
+/* 		Added an exchange to receive a response. [-jcs78]
+		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];  */
 
 		$this->queue = $this->machine[$server]["QUEUE"];
 
-//		Added a queue to receive a response. [-jcs78]
-		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];
+/*		Added a queue to receive a response. [-jcs78]
+		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];  */
         }
 
 	function process_response($response)
@@ -156,23 +156,31 @@ class deployClient
      			$callback_queue->declare();
 			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");  */
 
-
-//			Established a queue to callback to that is already inside the host. [-jcs78]
+/*			Established a queue to callback to that is already inside the host. [-jcs78]
 			$callback_queue = new AMQPQueue($channel);
 			$callback_queue->setName($this->queue_rsp);
-			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");
+			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");  */
+
 
                         $this->conn_queue = new AMQPQueue($channel);
                         $this->conn_queue->setName($this->queue);
                         $this->conn_queue->bind($exchange->getName(),$this->routing_key);
 
-                        $exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));
-      			$this->response_queue[$uid] = "waiting";
+
+/*                      Commented out because we do not want to create a new exchange that is directed back at the client. [-jcs78]
+			$exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));  */
+
+
+			$exchange->publish($json_message, $this->routing_key,AMQP_NOPARAM);
+
+
+/*			Commented out because there is nothing being sent by the server. [-jcs78]
+			$this->response_queue[$uid] = "waiting";
                         $callback_queue->consume(array($this,'process_response'));
 
                         $response = $this->response_queue[$uid];
                         unset($this->response_queue[$uid]);
-                        return $response;
+			return $response;  */
                 }
 		
 		catch(Exception $e)
@@ -186,7 +194,7 @@ class deployClient
 			die();
 		}
 	}
-	
+
 	function publish($message)
         {
                 $json_message = json_encode($message);

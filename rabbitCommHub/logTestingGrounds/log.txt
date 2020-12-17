@@ -78,3 +78,5 @@ Throwable Error Caught at 09:13:46pm on 12-15-2020: Call to undefined function g
 
 Error [E_NOTICE] detected at 09:13:46pm on 12-15-2020: Array to string conversion inside /home/nolan/git/News-Box-Application/database/webServerFiles/wsRabbitMQListener.php on line 127.
 
+Error [E_WARNING] detected at 10:57:53pm on 12-16-2020: fopen(test.txt): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/hotStandby/checkStatus.php on line 3.
+
