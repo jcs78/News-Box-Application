@@ -189,13 +189,13 @@
       
   }
 .articleTitle{
-    margin-top: 50px;
+  margin-top: 50px;
   margin-bottom: 60px; 
 }
 .articleTitle span{
-  margin-left: 350px;
+  margin-left: 200px;
   float: center;
-  font-size: 30px;
+  font-size: 25px;
   color: blue; 
 }
 img{
@@ -232,7 +232,7 @@ img{
     margin-bottom:10px;
 }
   
-  
+
   textarea[type="commentDisplay"]{
     margin-top: 10px;
     font-size: 20px;
@@ -247,8 +247,9 @@ img{
     resize: none;
     margin-left: 10px;
   } 
-  textarea{
-    margin-top: 10px;
+
+  textarea[type="textarea"]{
+    margin-top: 20px;
     font-size: 20px;
     width: 500px;
     height: 70px;
@@ -267,6 +268,12 @@ img{
     margin-top: 10px;
     text-align: left;
   }
+
+ .commentForm
+ {
+  margin-left: 80px;
+  
+ }
   .commentForm h2{
     margin-left: 10px;
     color: lightskyblue;
@@ -286,10 +293,18 @@ img{
     resize: none;
     margin-left: 10px;
   }
-  
-  article .input[type=submit]{
-      margin-top: 20px;
+
+  input[type=submit]
+  {   
+      margin-top: 30px;
+      margin-bottom: 40px;
+      margin-left: 200px;
+      padding: 10px 30px;
+      background-color: lightskyblue;
+      border-color: lightskyblue;
+      
   }
+
   footer {
     background-color: lightgrey;
     color: white;
