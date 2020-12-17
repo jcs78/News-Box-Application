@@ -1,0 +1,13 @@
+
+
+
+
+
+
+
+
+
+Throwable Error Caught at 07:49:26pm on 12-14-2020: Socket error: could not connect to host. inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 599.
+
+Throwable Error Caught at 10:22:35pm on 12-14-2020: Server connection error: 403, message: ACCESS_REFUSED - Login was refused using authentication mechanism PLAIN. For details see the broker logfile. - Potential login failure. inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 599.
+

@@ -10,3 +10,19 @@ Throwable Error Caught at 01:20:34am on 11-22-2020: Socket error: could not conn
 
 Throwable Error Caught at 01:20:34am on 11-22-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/testLogSpeaker.php on line 17.
 
+Throwable Error Caught at 09:38:47pm on 12-06-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 597.
+
+Throwable Error Caught at 09:38:47pm on 12-06-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitTestLogSpeaker.php on line 17.
+
+Throwable Error Caught at 09:39:36pm on 12-06-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 597.
+
+Throwable Error Caught at 09:39:36pm on 12-06-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitTestLogSpeaker.php on line 17.
+
+Throwable Error Caught at 09:44:10pm on 12-06-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitTestLogSpeaker.php on line 17.
+
+Throwable Error Caught at 09:44:10pm on 12-06-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 596.
+
+Throwable Error Caught at 07:53:26pm on 12-14-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 485.
+
+Throwable Error Caught at 08:01:15pm on 12-14-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 485.
+

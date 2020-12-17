@@ -24,12 +24,6 @@ function requestProcessor($request)
 	//echo "inside function \n";
   	//var_dump($request);
 
-  	if(!isset($request['type']) && isset($request['articles']))
-  	{
-		$request['type'] = 'article';
-  	}
-
-
 	$formattedArticles = decodeToArray($request['articles']);
 
 	print_r($formattedArticles);
@@ -37,7 +31,6 @@ function requestProcessor($request)
 	addArticlesToDB($request['preference'], $formattedArticles);
 
 	echo "Articles Added";
-	return;
 
 	//return array("returnCode" => '0', 'message'=>"Server received request and processed");
 	//return "Not a valid Case";
@@ -47,7 +40,7 @@ function requestProcessor($request)
 error_reporting(E_ALL);
 set_error_handler("handleError");
 
-$clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+$clientLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
 $throwableError = "";
 
 
@@ -55,7 +48,7 @@ try {
 	$server = new databaseServer("dbToDMZRabbitMQ.ini","dbServer");
 
 	echo "testRabbitMQServer BEGIN".PHP_EOL;
-	$server->process_requests('requestProcessor');
+	$server->process_request('requestProcessor');
 	echo "testRabbitMQServer END".PHP_EOL;
 
 }

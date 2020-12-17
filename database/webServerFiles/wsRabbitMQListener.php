@@ -66,14 +66,38 @@ function requestProcessor($request)
 		}
 		case "getArticles":
 		{
-		echo "inside Listener getArticles";
+			//echo "inside Listener getArticles";
 
-		$articlesArr = databaseAction($request);
-		return $articlesArr;
+			$articlesArr = databaseAction($request);
+			return $articlesArr;
 		}
-	    	case "validate_session":
-	      		return doValidate($request['sessionId']);
 
+		case "getForumPosts":{
+
+			$forumPosts = databaseAction($request);
+
+			return $forumPosts;
+		}
+		case "addForumPost":{
+
+			$wasAdded = databaseAction($request);
+
+			if($wasAdded){
+				return "Added Forum Post";
+			}else{
+				return "Did not Add Forum post";
+			}
+		}
+		case "getNotifications":{
+			echo "listener case\n";
+			$userNotifications = databaseAction($request);
+
+			//print_r($userNotifications);
+			return $userNotifications;
+		}
+	    	case "validate_session":{
+	      		return doValidate($request['sessionId']);
+		}
 		default:
 			return "Not a valid Case";
 	}
@@ -85,7 +109,7 @@ function requestProcessor($request)
 error_reporting(E_ALL);
 set_error_handler("handleError");
 
-$clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+$clientLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
 $throwableError = "";
 
 
@@ -94,7 +118,7 @@ try
 	$server = new databaseServer("dbToWebRabbitMQ.ini","dbServer");
 
 	echo "testRabbitMQServer BEGIN".PHP_EOL;
-	$server->process_requests('requestProcessor');
+	$server->process_request('requestProcessor');
 	echo "testRabbitMQServer END".PHP_EOL;
 }
 catch (Throwable $e)

@@ -2,9 +2,14 @@
 <?php
 echo "Test PHP BEGIN".PHP_EOL;
 
-$str = 'gen';
 
-print_r(explode(" ", $str));
+$hashed1 = hash('sha512', 'abc');
+
+$hashed2 = hash('sha512', 'abc');
+
+if ($hashed1 == $hashed2){
+	echo "yes";
+}
 
 echo "\n\n";
 

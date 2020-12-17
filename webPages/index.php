@@ -2,10 +2,8 @@
 <?php
 
 session_start();
-
-require('webServerRabbitMQLib.php');
-require('validateLogin.php');
-require('registerUser.php');
+//require('rabbitFiles/webServerRabbitMQLib.php');
+require('functions.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -40,6 +38,17 @@ if (isset($_SESSION['username']))
 	echo "<br><br>";
 }
 */
+
+//Update Notifications
+if (isset($_SESSION['userID'])){
+	$userID = $_SESSION['userID'];
+
+	//this is an array with arrays
+	$notifications = getNotifications($userID);
+
+	$_SESSION['notifications'] = $notifications;
+}
+
 
 switch ($webServerAction)
 {

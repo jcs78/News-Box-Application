@@ -90,7 +90,7 @@
           <label for="userRef4"> Science</label><br>
           <br><input type="checkbox" id="sports" name="prefs[]" value="sports">
           <label for="userRef5"> Sports </label><br>
-          <br> <input type="checkbox" id="tech" name="prefs[]" value="tech">
+          <br> <input type="checkbox" id="tech" name="prefs[]" value="technology">
           <label for="userRef6"> Technology</label><br><br>
           </div>
           <br /><input

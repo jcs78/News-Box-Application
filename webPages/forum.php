@@ -51,43 +51,67 @@
     <section id="forum">
         <div id="wrapper">
         <div id="menu" >
-           <button class="home" href="#" onclick="showhide()">Home</button> -
-           <button class="create" href="#" onclick="showhide()">Create a topic</button> 
-             
-            <div id="userbar">
-            <button class="logout" style="margin-left: 100px;" href="#">Log Out</button>
-           </div>
-        <div id="content">
-            <div id="createTopic">
-                <h1>Create a Topic</h1><br><br>
-                Topic name: <input type="text" name="topic_name" /><br><br>
-                Topic description: <textarea name="topic_description"></textarea><br><br>
-                <input type="submit" value="Add topic" />
-            </div>
-        </div>
-      </div>
-      </div>
-     <br>
-     <br>
-
-    </section>
-    
-
-    <script>
-          function showhide()
-          {
-            var div = document.getElementById("createTopic");
-            if (div.style.display == "none") {  
-                div.style.display = "block";  
-            }  
-            else {  
-                div.style.display = "none";  
-            }  
-        }  
- 
+           <button class="btn" href="#" >Home</button>  
+         
+    <!--show all the created topic here-->
+          <?php foreach($articlesByPref as $articles):?>
+            <?php foreach($articles as $article):?>
+             <section class="topics">
+                <button id="rlt" class="result" item="general" onclick="openTopics()" >
+                        <span><?php echo $article['articleTitle'];?></span>
+                        <p><?php echo $article['description'];?></p>
+                </button>
+		 
+                <div class="topTrends" item="top"></div>
+		 
+                <script type="text/javascript">
+                     document.getElementById("rlt").onclick = function(){
+                     location.href="link to topic page";}
+                </script>
+            </section>
+           <?php endforeach;?>
+          <?php endforeach;?>
 
           
-    </script>
+          <button class="btn" href="#" >Create a topic</button> 
+          	  <div id="content">
+	                <div id="createTopic">
+	                <h1>Create a Topic</h1><br><br>
+	                Topic name: <input type="text" name="topic_name" /><br><br>
+	                Topic description: <textarea name="topic_description"></textarea><br><br>
+	                <input type="submit" value="submit" id="forumPostCreation" />
+	               </div>
+	            </div>
+          
+             
+         
+           <button class="logout" style="margin-left: 100px;" href="#">Log Out</button>
+      </div>
+      </div>
+     <br>
+     <br>
+      
+
+    
+<script>
+// Javascript is used here to show the opening and closing functionality of the tab
+ var acc = document.getElementsByClassName("btn");
+ var i;
+
+// this for loop will check all the tabs with className "accordion" and provide them the same functionality
+for (i = 0; i < acc.length; i++) {
+      acc[i].addEventListener("click", function () {
+        this.classList.toggle("active");
+        var panel = this.nextElementSibling;
+        if (panel.style.display === "block") {
+          panel.style.display = "none";
+        } else {
+          panel.style.display = "block";
+        }
+      });
+    }
+</script>
+ 
 
 
 

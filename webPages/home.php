@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+        //include_once("connection.php");
 	//include("abstractViews/header.php");
 	//session_start();
 
@@ -44,8 +45,39 @@
   </head>
   <body>
     <!-- This is NavBar -->
+   <nav class="navbar">
+       <div class="inner-width">
+           <a href="#" class="logo"></a>
+                <button class="menu-toggler">
+                <span></span>
+                <span></span>
+                <span></span>
+                </button>
+   <!-- get the status of unread message from message table in the database --> 
+   <?php
+          //$sql_get = mysqli_query($con, "SELECT * FROM message WHERE status=0");
+          //$count = mysqli_num_rows($sql_get);
 
-	<?php include('abstractViews/nav.php'); ?>
+    ?>
+    <!-- Where all the nav bar will list -->
+     <div class="navbar-menu">
+           <a href="index.php?action=showLandingPage">Landing</a>
+           <a href="index.php?action=showHome">Home</a>
+           <a href="index.php?action=showLogin">Login</a>
+           <a href="index.php?action=showRegister">Register</a>
+           <a href="index.php?action=showForum">Forum</a>
+       
+           <button class="dropbtn" style="margin-left:15px;border-style: none;">
+              <i class="fas fa-envelope" ></i> <span class="badge badge-danger" id="count"><b><?php //echo $count; ?></b></span>
+              <i class="fa fa-caret-down" id="arrow"></i>
+           </button>
+         <div class="dropdown-content">
+               <a href="#">Action</a>
+               <a href="#">Message</a>
+         </div>
+    </div>
+  </div>
+</nav>
 
     <!-- Home -->
 
@@ -92,23 +124,28 @@
   
 		 
  <!--Display articles-->
-<?php foreach($articlesByPref as $articles):?>
         <?php foreach($articles as $article):?>
 
          <section class="article">
-                <button id="rlt" class="result" item="general" onclick="openArticle()" >
-                        <span><?php echo $article['articleTitle'];?></span>
-                        <p><?php echo $article['description'];?></p>
+                <button id="rlt" class="result" item="general">
+			<form action="index.php" method="post" >
+				<input type="hidden" name="action" value="showSingleArticle">
+                        	<span><?php echo $article['articleTitle'];?></span>
+                        	<p><?php echo $article['description'];?></p>
+				<input type="hidden"  name="articleID"
+					value="<?php echo $article['articleID']; ?>"
+				>
+				<input type="submit" value="article">
+			</form>
                 </button>
 		 
                 <div class="topTrends" item="top"></div>
 		 
                 <script type="text/javascript">
                      document.getElementById("rlt").onclick = function(){
-                     location.href="link to article page";}
+                     location.href="singleArticle.php";}
                 </script>
         <?php endforeach;?>
-<?php endforeach;?>
 
 <!--
       <div class="commentForm">

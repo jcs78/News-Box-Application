@@ -1,6 +1,8 @@
 <?php
 require_once("../dbFunctions/userFunctions.php");
 require_once("../dbFunctions/articleFunctions.php");
+require_once("../dbFunctions/forumFunctions.php");
+require_once("../dbFunctions/notificationFunctions.php");
 
 function databaseAction($inputArray)
 {
@@ -17,7 +19,10 @@ function databaseAction($inputArray)
 		case'register':
 		{
 			$newUsername = $inputArray['username'];
-			$newPassword = $inputArray['password'];
+
+			//password hashing
+
+			$newPassword = hash('sha512',$inputArray['password']);
 			$newPrefsString = $inputArray['preferences'];
 
 			//echo "databaseAction: case=register\n";
@@ -49,7 +54,7 @@ function databaseAction($inputArray)
 			try{
 				$loginUsername = $inputArray['username'];
 
-				$loginPassword = $inputArray['password'];
+				$loginPassword = hash('sha512', $inputArray['password']);
 
 				$validUser = validUserLogin($conn, $loginUsername, $loginPassword);
 
@@ -68,7 +73,7 @@ function databaseAction($inputArray)
 
 			$userPrefs = $userPrefs[0][0];
 
-			//echo "userPerfs = ". $userPrefs;
+			echo "userPerfs = ". $userPrefs . "\n";
 
 			if ($userPrefs == ''){
 				$userPrefs = 'general';
@@ -82,14 +87,56 @@ function databaseAction($inputArray)
 			$articlesArr = array();
 
 			foreach ($userPrefsArr as $userPref){
-				$articlesArr[$userPref] = getArticles($conn,$userPref);
+				$currentPrefArr = getArticles($conn,$userPref);
+
+				foreach($currentPrefArr as $singleArticle){
+					array_push($articlesArr, $singleArticle);
+				}
 			}
 
-			echo"\n\n";
+			//echo"article array made\n";
 
 			print_r($articlesArr);
 			return $articlesArr;
 
+		}
+		case "getForumPosts":{
+			$forumPosts = getForumPosts($conn);
+			return $forumPosts;
+		}
+		case "addForumPost":{
+
+			echo "inside addForumPost\n";
+
+			$postTitle = $inputArray['forumPostTitle'];
+			$postContent = $inputArray['forumPostContent'];
+			$postAuthor = $inputArray['username'];
+			$postDate = date("Y-m-d h:i:sa");
+
+			echo $postDate . "\n";
+
+			$wasForumPostAdded = addForumPost($conn, $postTitle, $postContent, $postAuthor, $postDate);
+
+			echo "return from function " . $wasForumPostAdded. "\n";
+
+			if($wasForumPostAdded){
+				return True;
+			}else{
+				return False;
+			}
+		}
+		case "getNotifications":{
+			echo "mainControl case\n";
+			$userID = $inputArray['userID'];
+
+			$userNotifications = getUserNotifications($conn, $userID);
+
+			//print_r($userNotifications);
+
+			return $userNotifications;
+		}
+		default:{
+			return None;
 		}
 	}
 }
