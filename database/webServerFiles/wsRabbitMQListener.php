@@ -5,9 +5,13 @@ require_once('../rabbitFiles/path.inc');
 require_once('../rabbitFiles/get_host_info.inc');
 require_once('../rabbitFiles/databaseRabbitMQLib.php');
 require_once('wsMainControl.php');
+//require('../hotStandby/checkStatus.php');
 
 function requestProcessor($request)
 {
+	//This variable is either a 1 or 0 as a string
+	//$isAlive = checkStatus();
+
   	echo "received request".PHP_EOL;
 
   	//Shows input data
@@ -24,7 +28,7 @@ function requestProcessor($request)
 		case "register":
 		{
 	        	try{
-				//echo "inside register case";
+				echo "inside register case";
 				//print_r($request);
 				$isNewUser = databaseAction($request);
 
@@ -66,7 +70,7 @@ function requestProcessor($request)
 		}
 		case "getArticles":
 		{
-			echo "inside Listener getArticles";
+			//echo "inside Listener getArticles";
 
 			$articlesArr = databaseAction($request);
 			return $articlesArr;
@@ -89,8 +93,10 @@ function requestProcessor($request)
 			}
 		}
 		case "getNotifications":{
+			echo "listener case\n";
 			$userNotifications = databaseAction($request);
 
+			//print_r($userNotifications);
 			return $userNotifications;
 		}
 	    	case "validate_session":{

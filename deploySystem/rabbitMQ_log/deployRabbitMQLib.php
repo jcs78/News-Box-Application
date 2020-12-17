@@ -6,47 +6,59 @@ require_once('get_host_info.inc');
 error_reporting (E_ALL);
 set_error_handler("handleError");
 
-// Functions that establish the client and server.
-/*
-function speak($inputArray)
-{
-	$wpClient = new webpageClient("rabbitCommHubRabbitMQ.ini", "commhubServer");
-	$responseFromServer = $wpClient->send_request($inputArray);
-	return $responseFromServer;
-}
-
-function listen($inputArray)
-{
-        $wpServer = new webpageServer("rabbitCommHubRabbitMQ.ini", "commhubServer");
-        $requestFromClient = $wpServer->process_request($inputArray);
-        return $requestFromClient;
-}  */
-
-
+// Functions that establish the log speaker's and listener's connection to RabbitMQ.
 function speakLog()
 {
-        $cltLog = new logSpeakerClient("rabbitCommHubRabbitMQ.ini", "commhubServer");
+        $cltLog = new logSpeakerClient("../rabbitMQ_ini/deploySysLogRabbitMQ.ini", "deployLog");
         return $cltLog;
 }
 
 function listenLog()
 {
-        $svrLog = new logListenerServer("rabbitCommHubRabbitMQ.ini", "commhubServer");
+        $svrLog = new logListenerServer("../rabbitMQ_ini/deploySysLogRabbitMQ.ini", "deployLog");
         return $svrLog;
 }
 
-// Functions for web-server-related files.
-function redirect($url)
-{
-        ob_start();
-        header('Location:'.$url);
-        ob_end_flush();
 
-        die();
+// Functions that establish the deployment system and other VM's connection to RabbitMQ.
+function speakWS($inputArray)
+{
+        $wpClient = new deployClient("../rabbitMQ_ini/wsRabbitMQ_Send", "deployWS");
+        $responseFromServer = $wpClient->send_request($inputArray);
+        return $responseFromServer;
 }
 
+function speakDB($inputArray)
+{
+        $wpClient = new deployClient("../rabbitMQ_ini/dbRabbitMQ_Send", "deployDB");
+        $responseFromServer = $wpClient->send_request($inputArray);
+        return $responseFromServer;
+}
+
+function speakDMZ($inputArray)
+{
+        $wpClient = new deployClient("../rabbitMQ_ini/dmzRabbitMQ_Send", "deployDMZ");
+        $responseFromServer = $wpClient->send_request($inputArray);
+        return $responseFromServer;
+}
+
+function speakRCH($inputArray)
+{
+        $wpClient = new deployClient("../rabbitMQ_ini/rchRabbitMQ_Send", "deployRCH");
+        $responseFromServer = $wpClient->send_request($inputArray);
+        return $responseFromServer;
+}
+
+function listenDepSys($inputArray)
+{
+        $wpServer = new deployServer("../rabbitMQ_ini/depsysRabbitMQ_Receive", "deployDepSys");
+        $requestFromClient = $wpServer->process_request($inputArray);
+        return $requestFromClient;
+}
+
+
 // Classes for Rabbit Connection to Web Page
-class webpageClient
+class deployClient
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -54,10 +66,10 @@ class webpageClient
         private $USER;
         private $PASSWORD;
         private $VHOST;
-	private $exchange;
+/*	private $exchange;
 	private $exchange_rsp;
 	private $queue;
-	private $queue_rsp;
+	private $queue_rsp;  */
         private $routing_key = '*';
         private $response_queue = array();
         private $exchange_type = "direct";
@@ -83,13 +95,13 @@ class webpageClient
 
 		$this->exchange = $this->machine[$server]["EXCHANGE"];
 		
-// 		Added an exchange to receive a response. [-jcs78]
-		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];
+/* 		Added an exchange to receive a response. [-jcs78]
+		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];  */
 
 		$this->queue = $this->machine[$server]["QUEUE"];
 
-//		Added a queue to receive a response. [-jcs78]
-		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];
+/*		Added a queue to receive a response. [-jcs78]
+		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];  */
         }
 
 	function process_response($response)
@@ -144,23 +156,31 @@ class webpageClient
      			$callback_queue->declare();
 			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");  */
 
-
-//			Established a queue to callback to that is already inside the host. [-jcs78]
+/*			Established a queue to callback to that is already inside the host. [-jcs78]
 			$callback_queue = new AMQPQueue($channel);
 			$callback_queue->setName($this->queue_rsp);
-			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");
+			$callback_queue->bind($exchange->getName(),$this->routing_key.".response");  */
+
 
                         $this->conn_queue = new AMQPQueue($channel);
                         $this->conn_queue->setName($this->queue);
                         $this->conn_queue->bind($exchange->getName(),$this->routing_key);
 
-                        $exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));
-      			$this->response_queue[$uid] = "waiting";
+
+/*                      Commented out because we do not want to create a new exchange that is directed back at the client. [-jcs78]
+			$exchange->publish($json_message,$this->routing_key,AMQP_NOPARAM,array('reply_to'=>$callback_queue->getName(),'correlation_id'=>$uid));  */
+
+
+			$exchange->publish($json_message, $this->routing_key,AMQP_NOPARAM);
+
+
+/*			Commented out because there is nothing being sent by the server. [-jcs78]
+			$this->response_queue[$uid] = "waiting";
                         $callback_queue->consume(array($this,'process_response'));
 
                         $response = $this->response_queue[$uid];
                         unset($this->response_queue[$uid]);
-                        return $response;
+			return $response;  */
                 }
 		
 		catch(Exception $e)
@@ -174,7 +194,7 @@ class webpageClient
 			die();
 		}
 	}
-	
+
 	function publish($message)
         {
                 $json_message = json_encode($message);
@@ -212,7 +232,7 @@ class webpageClient
 	}
 }
 
-class webpageServer
+class deployServer
 {
         private $machine = "";
         public  $BROKER_HOST;
@@ -668,7 +688,7 @@ class logSpeakerClient
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line)
 {
-        $clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+        $clientLog = new logSpeakerClient("../rabbitMQ_ini/deploySysLogRabbitMQ.ini", "deployLog");
 	$errorType = "";
         $e_Error = "";
 

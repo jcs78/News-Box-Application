@@ -124,23 +124,39 @@
   
 		 
  <!--Display articles-->
-<?php foreach($articlesByPref as $articles):?>
         <?php foreach($articles as $article):?>
 
          <section class="article">
-                <button id="rlt" class="result" item="general" onclick="openArticle()" >
-                        <span><?php echo $article['articleTitle'];?></span>
-                        <p><?php echo $article['description'];?></p>
+		<div>
+			<form action="index.php" method="post">
+				<button type ="submit">
+					<input type="hidden" name="action" value="showSingleArticle">
+					<input type="hidden" name="articleID" value="<?php echo $article['articleID']; ?>">
+					<div>
+		                                <span><?php echo $article['articleTitle'];?></span>
+		                                <p><?php echo $article['description'];?></p>
+					</div>
+				</button>
+			</form
+		</div>
+
+		<!--
+                <button id="rlt" class="result" item="general">
+			<form action="index.php" method="post" >
+				<input type="hidden" name="action" value="showSingleArticle">
+                        	<span><?php echo $article['articleTitle'];?></span>
+                        	<p><?php echo $article['description'];?></p>
+				<input type="hidden"  name="articleID"
+					value="<?php echo $article['articleID']; ?>"
+				>
+				<input type="submit" value="article">
+			</form>
                 </button>
-		 
+		-->
+
                 <div class="topTrends" item="top"></div>
-		 
-                <script type="text/javascript">
-                     document.getElementById("rlt").onclick = function(){
-                     location.href="link to article page";}
-                </script>
+
         <?php endforeach;?>
-<?php endforeach;?>
 
 <!--
       <div class="commentForm">

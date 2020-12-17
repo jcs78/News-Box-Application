@@ -9,13 +9,13 @@ set_error_handler("handleError");
 function testSpeaker(){
 	$request = array();
 	$request['type'] = "getArticles";
-	$request['userID'] = 1;
+	$request['userID'] = 4;
 	//$request['password'] = 'testPass';
 
-	speak($request);
+	return speak($request);
 }
 
-//testSpeaker();
+//print_r(testSpeaker());
 
 function validateLogin($un, $pw)
 {
@@ -52,7 +52,6 @@ function getNotifications($userID){
 
 	$notificationRequest['type'] = "getNotifications";
 	$notificationRequest['userID'] = $userID;
-	$notificationRequest['username'] = $username;
 
 	$getNotifications = speak($notificationRequest);
 

@@ -43,9 +43,9 @@ class dmzClient
         private $PASSWORD;
         private $VHOST;
 	private $exchange;
-	private $exchange_rsp;
+//	private $exchange_rsp;
 	private $queue;
-	private $queue_rsp;
+//	private $queue_rsp;
         private $routing_key = '*';
         private $response_queue = array();
         private $exchange_type = "direct";
@@ -71,14 +71,13 @@ class dmzClient
 
 		$this->exchange = $this->machine[$server]["EXCHANGE"];
 		
-// 		Added an exchange to receive a response. [-jcs78]
-	
-	//	$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];
+/* 		Added an exchange to receive a response. [-jcs78]
+		$this->exchange_rsp = $this->machine[$server]["EXCHANGE_RSP"];  */
 
 		$this->queue = $this->machine[$server]["QUEUE"];
 
-//		Added a queue to receive a response. [-jcs78]
-	//	$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];
+/*		Added a queue to receive a response. [-jcs78]
+		$this->queue_rsp = $this->machine[$server]["QUEUE_RSP"];  */
         }
 
 	function process_response($response)

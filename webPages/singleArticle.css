@@ -1,3 +1,4 @@
+
 * {
     margin: 0;
     padding: 0;
@@ -156,14 +157,14 @@
   }
   
   #home .content h1 {
-    font-size: 40px;
+    font-size: 35px;
     margin-bottom: 10px;
     margin-top: 90px;
   }
   
   #home .content h1::after {
     font-family: "David Libre", serif;
-    content: "Welcome to your home page!";
+    content: "News Box";
     animation: textanim 10s linear infinite;
     color: lightskyblue; 
   }
@@ -187,25 +188,48 @@
       border-color: lightskyblue;
       
   }
-
-#article .result{
-     background-color: #eee;
-     color: #444;
-     cursor: pointer;
-     padding: 18px;
-     width: 100%;
-     border: none;
-     text-align: left;
-     outline: none;
-     font-size: 18px;
-     transition: 0.4s;
-     margin: 10px 0;
-     max-width:700px;
+.articleTitle{
+    margin-top: 50px;
+  margin-bottom: 60px; 
+}
+.articleTitle span{
+  margin-left: 350px;
+  float: center;
+  font-size: 30px;
+  color: blue; 
+}
+img{
+    width: 600px;
+    height: 370px;
+    float:center; 
+    margin-left: 100px;
+    margin-top: 40px;
+    margin-right:40px;
+  }
+.articleTitle .description p{
+  margin-top: 50px;
+  margin-bottom: 60px; 
+  margin-left: 100px;
+  font-size: 18px;
+  
 }
 
-#article{
-    margin-top:20px;
-    margin-bottom:20px;
+#article .result{
+    background-color: #eee;
+    color: #444;
+    cursor: pointer;
+    padding: 18px;
+    width: 100%;
+    border: none; 
+    text-align: left;
+    outline: none;
+    font-size: 18px;
+    transition: 0.4s;
+    margin: 10px 0;
+    width: 1000px;
+    height: 200px;
+    margin-top: 10px;
+    margin-bottom:10px;
 }
   
   
@@ -399,3 +423,4 @@
   }
   
   
+

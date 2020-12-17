@@ -2,14 +2,11 @@
 <?php
 echo "Test PHP BEGIN".PHP_EOL;
 
-$pass = 'test';
+$a = '1';
 
-//$hash = password_hash($pass, sha1('a'));
-
-echo "Line 1
-	Line2";
-
-
+if($a){
+	echo "nice";
+}
 
 echo "\n\n";
 
