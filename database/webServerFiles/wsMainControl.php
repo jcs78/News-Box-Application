@@ -22,7 +22,7 @@ function databaseAction($inputArray)
 
 			//password hashing
 
-			$newPassword = $inputArray['password'];
+			$newPassword = hash('sha512',$inputArray['password']);
 			$newPrefsString = $inputArray['preferences'];
 
 			//echo "databaseAction: case=register\n";
@@ -54,7 +54,7 @@ function databaseAction($inputArray)
 			try{
 				$loginUsername = $inputArray['username'];
 
-				$loginPassword = $inputArray['password'];
+				$loginPassword = hash('sha512', $inputArray['password']);
 
 				$validUser = validUserLogin($conn, $loginUsername, $loginPassword);
 
