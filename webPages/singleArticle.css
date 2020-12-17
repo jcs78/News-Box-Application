@@ -236,8 +236,8 @@ img{
   textarea[type="commentDisplay"]{
     margin-top: 10px;
     font-size: 20px;
-    width: 500px;
-    height: 200px;
+    width: 800px;
+    height: 350px;
     padding: 8px 0px;
     margin: 5px 0;
     display: inline-block;
@@ -246,13 +246,14 @@ img{
     box-sizing: border-box;
     resize: none;
     margin-left: 10px;
+    margin-bottom:20px;
   } 
 
   textarea[type="textarea"]{
-    margin-top: 20px;
+    margin-top: 30px;
     font-size: 20px;
-    width: 500px;
-    height: 70px;
+    width: 800px;
+    height: 100px;
     padding: 8px 0px;
     margin: 5px 0;
     display: inline-block;
@@ -276,6 +277,7 @@ img{
  }
   .commentForm h2{
     margin-left: 10px;
+    margin-bottom: 10px; 
     color: lightskyblue;
   }
   
@@ -293,12 +295,11 @@ img{
     resize: none;
     margin-left: 10px;
   }
-
   input[type=submit]
   {   
       margin-top: 30px;
       margin-bottom: 40px;
-      margin-left: 200px;
+      margin-left: 350px;
       padding: 10px 30px;
       background-color: lightskyblue;
       border-color: lightskyblue;
