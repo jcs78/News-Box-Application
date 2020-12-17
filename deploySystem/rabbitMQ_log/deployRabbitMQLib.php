@@ -20,7 +20,7 @@ function listenLog()
 }
 
 
-// Functions that establish the deployment system's and webpage's connection to RabbitMQ.
+// Functions that establish the deployment system and other VM's connection to RabbitMQ.
 function speakWS($inputArray)
 {
         $wpClient = new deployClient("../rabbitMQ_ini/wsRabbitMQ_Send", "deployWS");
@@ -28,15 +28,6 @@ function speakWS($inputArray)
         return $responseFromServer;
 }
 
-function listenWS($inputArray)
-{
-        $wpServer = new deployServer("../rabbitMQ_ini/wsRabbitMQ_Send", "deployWS");
-        $requestFromClient = $wpServer->process_request($inputArray);
-        return $requestFromClient;
-}
-
-
-// Functions that establish the deployment system's and database's connection to RabbitMQ.
 function speakDB($inputArray)
 {
         $wpClient = new deployClient("../rabbitMQ_ini/dbRabbitMQ_Send", "deployDB");
@@ -44,15 +35,6 @@ function speakDB($inputArray)
         return $responseFromServer;
 }
 
-function listenDB($inputArray)
-{
-        $wpServer = new deployServer("../rabbitMQ_ini/dbRabbitMQ_Send", "deployDB");
-        $requestFromClient = $wpServer->process_request($inputArray);
-        return $requestFromClient;
-}
-
-
-// Functions that establish the deployment system's and DMZ's connection to RabbitMQ.
 function speakDMZ($inputArray)
 {
         $wpClient = new deployClient("../rabbitMQ_ini/dmzRabbitMQ_Send", "deployDMZ");
@@ -60,25 +42,16 @@ function speakDMZ($inputArray)
         return $responseFromServer;
 }
 
-function listenDMZ($inputArray)
-{
-        $wpServer = new deployServer("../rabbitMQ_ini/dmzRabbitMQ_Send", "deployDMZ");
-        $requestFromClient = $wpServer->process_request($inputArray);
-        return $requestFromClient;
-}
-
-
-// Functions that establish the deployment system's and Rabbit comm. hub's connection to RabbitMQ.
 function speakRCH($inputArray)
 {
-        $wpClient = new deployClient("../rabbitMQ_ini/dmzRabbitMQ_Send", "deployDMZ");
+        $wpClient = new deployClient("../rabbitMQ_ini/rchRabbitMQ_Send", "deployRCH");
         $responseFromServer = $wpClient->send_request($inputArray);
         return $responseFromServer;
 }
 
-function listenRCH($inputArray)
+function listenDepSys($inputArray)
 {
-        $wpServer = new deployServer("../rabbitMQ_ini/dmzRabbitMQ_Send", "deployDMZ");
+        $wpServer = new deployServer("../rabbitMQ_ini/depsysRabbitMQ_Receive", "deployDepSys");
         $requestFromClient = $wpServer->process_request($inputArray);
         return $requestFromClient;
 }
