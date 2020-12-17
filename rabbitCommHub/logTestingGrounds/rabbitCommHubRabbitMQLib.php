@@ -7,34 +7,34 @@ error_reporting (E_ALL);
 set_error_handler("handleError");
 
 // Functions that establish the client and server.
-/*
 function speak($inputArray)
 {
-	$wpClient = new webpageClient("rabbitCommHubRabbitMQ.ini", "commhubServer");
+	$wpClient = new webpageClient("rabbitCommHubLogRabbitMQ.ini", "commhubServer");
 	$responseFromServer = $wpClient->send_request($inputArray);
 	return $responseFromServer;
 }
 
 function listen($inputArray)
 {
-        $wpServer = new webpageServer("rabbitCommHubRabbitMQ.ini", "commhubServer");
+        $wpServer = new webpageServer("rabbitCommHubLogRabbitMQ.ini", "commhubServer");
         $requestFromClient = $wpServer->process_request($inputArray);
         return $requestFromClient;
-}  */
+}
 
 function speakLog()
 {
-        $cltLog = new logSpeakerClient("rabbitCommHubRabbitMQ.ini", "commhubServer");
+        $cltLog = new logSpeakerClient("rabbitCommHubLogRabbitMQ.ini", "commhubServer");
         return $cltLog;
 }
 
 function listenLog()
 {
-        $svrLog = new logListenerServer("rabbitCommHubRabbitMQ.ini", "commhubServer");
+        $svrLog = new logListenerServer("rabbitCommHubLogRabbitMQ.ini", "commhubServer");
         return $svrLog;
 }
 
 // Functions for web-server-related files.
+/*
 function redirect($url)
 {
         ob_start();
@@ -42,7 +42,7 @@ function redirect($url)
         ob_end_flush();
 
         die();
-}
+}  */
 
 // Classes for Rabbit Connection to Web Page
 class webpageClient
@@ -667,7 +667,7 @@ class logSpeakerClient
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line)
 {
-        $clientLog = new logSpeakerClient("logRabbitMQ.ini", "logServer");
+        $clientLog = new logSpeakerClient("rabbitCommHubLogRabbitMQ.ini", "commhubServer");
 	$errorType = "";
         $e_Error = "";
 
