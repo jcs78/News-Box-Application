@@ -5,6 +5,13 @@
 	//session_start();
 
 	$articlesByPref = $_SESSION['articles'];
+
+	foreach($articlesByPref as $singleArticle){
+		if($singleArticle['articleID'] == $_SESSION['currentArticleID']){
+			$article = $singleArticle;
+		}
+	}
+
 	//$articles = $articlesByPref['general'];
 	//$article = $articles[0];
 ?>
@@ -62,14 +69,15 @@
  <!--Display articles-->
  
 <div class="articleTitle">
-  <span>Article Title Here<?php echo $article['articleTitle'];?></span>
+  <a href="<?php echo $article['url'];?>"> <span><?php echo $article['articleTitle'];?></span></a>
   
   <br><img 
-      src="Image here" >
+      src="<?php echo $article['urlToImage'];?>" >
   <div class="description">
-     <p>Description Here<?php echo $article['description'];?></p>
+     <p><?php echo $article['description'];?></p>
     
   </div>
+
 </div>
 
     <!-- Footer--->

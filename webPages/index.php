@@ -31,13 +31,13 @@ if ($webServerAction == NULL)
 echo ($webServerAction);
 echo "<br><br>";
 
-/*
+
 if (isset($_SESSION['username']))
 {
 	print_r($_SESSION['username']);
 	echo "<br><br>";
 }
-*/
+
 
 //Update Notifications
 if (isset($_SESSION['userID'])){
@@ -89,6 +89,14 @@ switch ($webServerAction)
 	case 'showForum':
 	{
 		include('forum.php');
+
+		break;
+	}
+	case 'showSingleArticle':{
+		$articleID = filter_input(INPUT_POST, 'articleID');
+		$_SESSION['currentArticleID'] = $articleID;
+
+		include('singleArticle.php');
 
 		break;
 	}
