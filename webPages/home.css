@@ -193,14 +193,14 @@
      color: #444;
      cursor: pointer;
      padding: 18px;
-     width: 100%;
      border: none;
      text-align: left;
      outline: none;
      font-size: 18px;
      transition: 0.4s;
      margin: 10px 0;
-     max-width:700px;
+     width:700px;
+     height: 250px;
 }
 
 #article{
