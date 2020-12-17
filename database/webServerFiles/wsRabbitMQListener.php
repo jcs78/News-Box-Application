@@ -5,9 +5,13 @@ require_once('../rabbitFiles/path.inc');
 require_once('../rabbitFiles/get_host_info.inc');
 require_once('../rabbitFiles/databaseRabbitMQLib.php');
 require_once('wsMainControl.php');
+require('../hotStandby/checkStatus.php');
 
 function requestProcessor($request)
 {
+	//This variable is either a 1 or 0 as a string
+	$isAlive = checkStatus();
+
   	echo "received request".PHP_EOL;
 
   	//Shows input data

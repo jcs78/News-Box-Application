@@ -1,7 +1,8 @@
 <?php
 
 
-$host="1.2.3.4";
+
+$host="10.192.225.99";
 
 
 exec("ping -c 4 " . $host, $output, $result);
