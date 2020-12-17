@@ -1,0 +1,14 @@
+Throwable Error Caught at 09:31:57pm on 12-16-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployRabbitMQLib.php on line 636.
+
+Throwable Error Caught at 09:33:08pm on 12-16-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployRabbitMQLib.php on line 636.
+
+Error [E_WARNING] detected at 09:34:13pm on 12-16-2020: parse_ini_file(../deploySystem/rabbitMQ_ini/deploySysLogRabbitMQ.ini): failed to open stream: No such file or directory inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/get_host_info.inc on line 17.
+
+Throwable Error Caught at 09:35:58pm on 12-16-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployTestLogSpeaker.php on line 17.
+
+Error [E_NOTICE] detected at 09:35:58pm on 12-16-2020: Array to string conversion inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployTestLogSpeaker.php on line 27.
+
+Throwable Error Caught at 09:36:46pm on 12-16-2020: Call to undefined function nonExistent() inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployTestLogSpeaker.php on line 17.
+
+Error [E_NOTICE] detected at 09:36:46pm on 12-16-2020: Array to string conversion inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployTestLogSpeaker.php on line 27.
+
