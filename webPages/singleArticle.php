@@ -80,7 +80,17 @@
 
 </div>
 
-    <!-- Footer--->
+<!--Comment-->
+  <div class="commentForm">
+     <h2>Leave a comment</h2>
+     <textarea type="commentDisplay" name="display"> Show all the comment here</textarea>
+     <form>
+         <textarea type="textarea" name="comments" required="required" placeholder="Type your comment here!" text-align="left" ></textarea>
+         <br><input type="submit" id ="postCm" name="POST" value="COMMENT">
+     </form>
+  </div>
+  
+<!-- Footer--->
 
     <footer>
       <div class="inner-width">
