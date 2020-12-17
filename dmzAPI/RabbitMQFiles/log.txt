@@ -37,3 +37,5 @@ Error [E_NOTICE] detected at 08:31:55pm on 12-15-2020: Undefined index: EXCHANGE
 
 Error [E_NOTICE] detected at 08:35:42pm on 12-15-2020: Undefined index: EXCHANGE_RSP inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 75.
 
+Throwable Error Caught at 04:52:06pm on 12-17-2020: Socket error: could not connect to host. inside /home/nmaster/git_one/News-Box-Application/dmzAPI/RabbitMQFiles/dmzRabbitMQLib.php on line 486.
+

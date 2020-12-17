@@ -1,6 +1,7 @@
 #!/bin/bash
-#/etc/firewallsetup/firewall-down
-#/etc/firewallsetup/firewall
+#/home/nmaster/git_one/News-Box-Application/dmzAPI/firewallsetup/firewall-down
+#/home/nmaster/git_one/News-Box-Application/dmzAPI/firewallsetup/firewall
+
 
 sudo ./firewall-down
 sudo ./firewall
