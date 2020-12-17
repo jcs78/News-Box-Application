@@ -2,13 +2,10 @@
 <?php
 echo "Test PHP BEGIN".PHP_EOL;
 
+$a = '1';
 
-$hashed1 = hash('sha512', 'abc');
-
-$hashed2 = hash('sha512', 'abc');
-
-if ($hashed1 == $hashed2){
-	echo "yes";
+if($a){
+	echo "nice";
 }
 
 echo "\n\n";
