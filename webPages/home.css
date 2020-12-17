@@ -189,21 +189,23 @@
   }
 
 #article .result{
-    background-color: #eee;
-    color: #444;
-    cursor: pointer;
-    padding: 18px;
-    width: 100%;
-    border: none; 
-    text-align: left;
-    outline: none;
-    font-size: 18px;
-    transition: 0.4s;
-    margin: 10px 0;
-    width: 1000px;
-    height: 200px;
-    margin-top: 10px;
-    margin-bottom:10px;
+     background-color: #eee;
+     color: #444;
+     cursor: pointer;
+     padding: 18px;
+     width: 100%;
+     border: none;
+     text-align: left;
+     outline: none;
+     font-size: 18px;
+     transition: 0.4s;
+     margin: 10px 0;
+	 width:700px;
+}
+
+#article{
+    margin-top:20px;
+    margin-bottom:20px;
 }
   
   
