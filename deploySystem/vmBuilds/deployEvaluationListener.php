@@ -61,7 +61,7 @@ function getEval($answer)
 			break;  }
 
 		case "DMZ":
-		{	if ($answer['answer'] =! "Fail")
+		{	if ($answer['answer'] == "Success")
                         {
                                 shell_exec('sh successDMZDirect.sh');
                         }
