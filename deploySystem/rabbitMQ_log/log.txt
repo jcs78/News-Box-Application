@@ -12,3 +12,5 @@ Throwable Error Caught at 09:36:46pm on 12-16-2020: Call to undefined function n
 
 Error [E_NOTICE] detected at 09:36:46pm on 12-16-2020: Array to string conversion inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployTestLogSpeaker.php on line 27.
 
+Error [E_WARNING] detected at 04:46:48am on 12-18-2020: parse_ini_file(../rabbitMQ_ini/wsRabbitMQ_Send.ini): failed to open stream: No such file or directory inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/get_host_info.inc on line 17.
+

@@ -9,51 +9,46 @@ set_error_handler("handleError");
 // Functions that establish the log speaker's and listener's connection to RabbitMQ.
 function speakLog()
 {
-        $cltLog = new logSpeakerClient("../rabbitMQ_ini/deploySysLogRabbitMQ.ini", "deployLog");
+        $cltLog = new logSpeakerClient("deploySysLogRabbitMQ.ini", "deployLog");
         return $cltLog;
 }
 
 function listenLog()
 {
-        $svrLog = new logListenerServer("../rabbitMQ_ini/deploySysLogRabbitMQ.ini", "deployLog");
+        $svrLog = new logListenerServer("deploySysLogRabbitMQ.ini", "deployLog");
         return $svrLog;
 }
 
 
 // Functions that establish the deployment system and other VM's connection to RabbitMQ.
-function speakWS($inputArray)
+function speakWS()
 {
-        $wpClient = new deployClient("../rabbitMQ_ini/wsRabbitMQ_Send", "deployWS");
-        $responseFromServer = $wpClient->send_request($inputArray);
-        return $responseFromServer;
+        $wpClient = new deployClient("wsRabbitMQ_Send.ini", "deployWS");
+        return $wpClient;
 }
 
-function speakDB($inputArray)
+function speakDB()
 {
-        $wpClient = new deployClient("../rabbitMQ_ini/dbRabbitMQ_Send", "deployDB");
-        $responseFromServer = $wpClient->send_request($inputArray);
-        return $responseFromServer;
+        $wpClient = new deployClient("dbRabbitMQ_Send.ini", "deployDB");
+        return $wpClient;
 }
 
-function speakDMZ($inputArray)
+function speakDMZ()
 {
-        $wpClient = new deployClient("../rabbitMQ_ini/dmzRabbitMQ_Send", "deployDMZ");
-        $responseFromServer = $wpClient->send_request($inputArray);
-        return $responseFromServer;
+        $wpClient = new deployClient("dmzRabbitMQ_Send.ini", "deployDMZ");
+        return $wpClient;
 }
 
-function speakRCH($inputArray)
+function speakRCH()
 {
-        $wpClient = new deployClient("../rabbitMQ_ini/rchRabbitMQ_Send", "deployRCH");
-        $responseFromServer = $wpClient->send_request($inputArray);
-        return $responseFromServer;
+        $wpClient = new deployClient("rchRabbitMQ_Send.ini", "deployRCH");
+        return $wpClient;
 }
 
-function listenDepSys($inputArray)
+function listenDepSys()
 {
-        $wpServer = new deployServer("../rabbitMQ_ini/depsysRabbitMQ_Receive", "deployDepSys");
-        $requestFromClient = $wpServer->process_request($inputArray);
-        return $requestFromClient;
+        $wpServer = new deployServer("depsysRabbitMQ_Receive.ini", "deployDepSys");
+        return $wpServer;
 }
 
 
@@ -688,7 +683,7 @@ class logSpeakerClient
 // Function that is desined to handle all types of errors reported.
 function handleError($errNo, $errMsg, $error_file, $error_line)
 {
-        $clientLog = new logSpeakerClient("../rabbitMQ_ini/deploySysLogRabbitMQ.ini", "deployLog");
+        $clientLog = speakLog();
 	$errorType = "";
         $e_Error = "";
 
