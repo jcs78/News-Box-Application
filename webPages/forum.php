@@ -1,3 +1,8 @@
+<?php
+	$forumPosts = $_SESSION['forumPosts'];
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -52,25 +57,28 @@
         <div id="wrapper">
         <div id="menu" >
            <button class="btn" href="#" >Home</button>  
-         
+    </secion>
     <!--show all the created topic here-->
-          <?php foreach($articlesByPref as $articles):?>
-            <?php foreach($articles as $article):?>
-             <section class="topics">
-                <button id="rlt" class="result" item="general" onclick="openTopics()" >
-                        <span><?php echo $article['articleTitle'];?></span>
-                        <p><?php echo $article['description'];?></p>
-                </button>
-		 
-                <div class="topTrends" item="top"></div>
-		 
-                <script type="text/javascript">
-                     document.getElementById("rlt").onclick = function(){
-                     location.href="link to topic page";}
-                </script>
-            </section>
-           <?php endforeach;?>
-          <?php endforeach;?>
+	<?php foreach($forumPosts as $forumPost):?>
+
+         <section class="article">
+                <div>
+                        <form action="index.php" method="post">
+                                <button type ="submit">
+                                        <input type="hidden" name="action" value="showSingleForumPost">
+                                        <input type="hidden" name="forumPostID" value="<?php echo $forumPost['postID']; ?>">
+                                        <div>
+                                                <span><?php echo $forumPost['postTitle'];?></span>
+                                                <p><?php echo $forumPost['postContent'];?></p>
+                                        </div>
+                                </button>
+                        </form
+                </div>
+
+               <div class="topTrends" item="top"></div>
+
+        <?php endforeach;?>
+
 
           
           <button class="btn" href="#" >Create a topic</button> 

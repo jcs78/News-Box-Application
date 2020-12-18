@@ -7,6 +7,20 @@ require_once("../dbFunctions/notificationFunctions.php");
 function databaseAction($inputArray)
 {
 	$dbUser = "testUser";
+<<<<<<< HEAD
+=======
+	$dbPassword = "12345";
+	$conn = new PDO("mysql:host=localhost;dbname=testDB", $dbUser, $dbPassword);
+
+
+	try{
+		$remoteDbUser = "testUser";
+		$remoteDbPassword = "12345";
+		$remoteConn = new PDO("mysql:host=10.192.228.15;port=3306;dbname=testDB", $dbUser, $dbPassword);
+		$remoteExists = true;
+	}catch (Exception $e){
+		$remoteExists = false;
+>>>>>>> 805e81863461c6dc937721bb472f5625d2da52aa
 
 	$dbPassword = "12345";
 
@@ -101,6 +115,7 @@ function databaseAction($inputArray)
 
 		}
 		case "getForumPosts":{
+			//echo "inside control";
 			$forumPosts = getForumPosts($conn);
 			return $forumPosts;
 		}

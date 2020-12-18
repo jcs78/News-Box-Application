@@ -10,6 +10,8 @@ function getForumPosts($conn){
 	$forumPosts = $statement->fetchALL();
 	$statement->closeCursor();
 
+	print_r($forumPosts);
+
 	return $forumPosts;
 }
 
