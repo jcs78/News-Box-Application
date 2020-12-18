@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 
 session_start();
@@ -28,14 +27,14 @@ if ($webServerAction == NULL)
 //}
 
 
-echo ($webServerAction);
-echo "<br><br>";
+//echo ($webServerAction);
+//echo "<br><br>";
 
 
 if (isset($_SESSION['username']))
 {
-	print_r($_SESSION['username']);
-	echo "<br><br>";
+	//print_r($_SESSION['username']);
+	//echo "<br><br>";
 }
 
 
@@ -85,6 +84,9 @@ switch ($webServerAction)
 	}
 	case 'showForum':
 	{
+
+		$_SESSION['forumPosts'] = getForumPosts();
+
 		include('forum.php');
 
 		break;

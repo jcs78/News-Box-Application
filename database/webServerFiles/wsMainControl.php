@@ -14,7 +14,7 @@ function databaseAction($inputArray)
 	try{
 		$remoteDbUser = "testUser";
 		$remoteDbPassword = "12345";
-		$remoteConn = new PDO("mysql:host=;port=3306;dbname=testDB", $dbUser, $dbPassword);
+		$remoteConn = new PDO("mysql:host=10.192.228.15;port=3306;dbname=testDB", $dbUser, $dbPassword);
 		$remoteExists = true;
 	}catch (Exception $e){
 		$remoteExists = false;
@@ -119,6 +119,7 @@ function databaseAction($inputArray)
 
 		}
 		case "getForumPosts":{
+			//echo "inside control";
 			$forumPosts = getForumPosts($conn);
 			return $forumPosts;
 		}

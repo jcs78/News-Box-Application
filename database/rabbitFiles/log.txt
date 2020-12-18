@@ -72,3 +72,15 @@ Error [E_NOTICE] detected at 02:01:19am on 12-18-2020: Undefined variable: clien
 
 Error [E_NOTICE] detected at 02:02:06am on 12-18-2020: Undefined variable: client inside /home/nolan/git/News-Box-Application/webPages/hotStandby/isserveraliveU.php on line 36.
 
+Error [E_NOTICE] detected at 06:12:01am on 12-18-2020: Undefined index: userID inside /var/www/html/index.php on line 75.
+
+Error [E_NOTICE] detected at 06:17:38am on 12-18-2020: Undefined variable: articlesByPref inside /var/www/html/forum.php on line 57.
+
+Error [E_NOTICE] detected at 06:24:11am on 12-18-2020: Undefined variable: articlesByPref inside /var/www/html/forum.php on line 57.
+
+Error [E_NOTICE] detected at 06:59:06am on 12-18-2020: Undefined index: forumPosts inside /var/www/html/forum.php on line 2.
+
+Error [E_NOTICE] detected at 07:07:29am on 12-18-2020: Undefined index: forumPosts inside /var/www/html/forum.php on line 2.
+
+Error [E_NOTICE] detected at 07:07:46am on 12-18-2020: Undefined index: forumPosts inside /var/www/html/forum.php on line 2.
+

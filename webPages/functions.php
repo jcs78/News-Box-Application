@@ -1,4 +1,3 @@
-#!/usr/bin/php
 <?php
 /*
 $dbFile = fopen('../hotStandby/isDatabaseAlive.txt','r');
@@ -21,6 +20,7 @@ if($is_primary_alive){
 	require('rabbitFiles2/webServerRabbitMQLib.php');
 }
 */
+require('rabbitFiles/webServerRabbitMQLib.php');
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -87,6 +87,13 @@ function getNotifications($userID){
 	return $getNotifications;
 }
 
+function getForumPosts(){
+	$forumPostRequest = array();
+	$forumPostRequest['type'] = "getForumPosts";
 
+	$forumPosts = speak($forumPostRequest);
+
+	return $forumPosts;
+}
 
 ?>
