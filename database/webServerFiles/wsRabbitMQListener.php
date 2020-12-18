@@ -1,11 +1,15 @@
 #!/usr/bin/php
 <?php
 
+$dbFile = fopen('../hotStandby/isDatabaseAlive.txt','r');
+$is_db_alive = fread($dbFile,1);
+fclose($dbFile);
+
 require_once('../rabbitFiles/path.inc');
 require_once('../rabbitFiles/get_host_info.inc');
 require_once('../rabbitFiles/databaseRabbitMQLib.php');
 require_once('wsMainControl.php');
-//require('../hotStandby/checkStatus.php');
+
 
 function requestProcessor($request)
 {
