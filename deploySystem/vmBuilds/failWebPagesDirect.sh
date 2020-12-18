@@ -1,4 +1,4 @@
 #!/bin/bash
 
-mv buildsWebPages/buildLimbo/webPagesZip_Deploy.tar.gz buildsWebPages/buildSuccess/
+mv buildsWebPages/buildLimbo/webPagesZip_Deploy.tar.gz buildsWebPages/buildFail/
 

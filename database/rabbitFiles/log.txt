@@ -66,9 +66,3 @@ Error [E_NOTICE] detected at 08:52:17pm on 12-15-2020: Undefined variable: _SESS
 
 Error [E_NOTICE] detected at 09:07:03pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
 
-Error [E_NOTICE] detected at 01:55:11am on 12-18-2020: Undefined variable: client inside /home/nolan/git/News-Box-Application/webPages/hotStandby/isserveraliveU.php on line 35.
-
-Error [E_NOTICE] detected at 02:01:19am on 12-18-2020: Undefined variable: client inside /home/nolan/git/News-Box-Application/webPages/hotStandby/isserveraliveU.php on line 35.
-
-Error [E_NOTICE] detected at 02:02:06am on 12-18-2020: Undefined variable: client inside /home/nolan/git/News-Box-Application/webPages/hotStandby/isserveraliveU.php on line 36.
-

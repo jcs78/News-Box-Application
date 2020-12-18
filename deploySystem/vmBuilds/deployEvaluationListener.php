@@ -28,7 +28,7 @@ function getEval($answer)
   	switch ($answer['vm'])
   	{
     		case "WebServer":
-		{	if ($answer['answer'] =! "Fail")
+		{	if ($answer['answer'] == "Success")
 			{
 				shell_exec('sh successWebPagesDirect.sh');
 			}
@@ -39,7 +39,7 @@ function getEval($answer)
 			break;  }
 
 		case "Database":
-		{	if ($answer['answer'] =! "Fail")
+		{	if ($answer['answer'] == "Success")
                         {
                                 shell_exec('sh successDatabaseDirect.sh');
                         }
@@ -50,7 +50,7 @@ function getEval($answer)
 			break;  }
 
 		case "RabbitCommHub":
-		{	if ($answer['answer'] =! "Fail")
+		{	if ($answer['answer'] == "Success")
                         {
                                 shell_exec('sh successRabbitCommHubDirect.sh');
                         }

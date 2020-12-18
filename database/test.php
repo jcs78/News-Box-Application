@@ -2,7 +2,16 @@
 <?php
 echo "Test PHP BEGIN".PHP_EOL;
 
-echo false == '0';
+
+
+if(1){
+	require_once('hotStandby/checkStatus.php');
+}else{
+	echo "no";
+}
+
+echo checkStatus();
+
 
 echo "\n\n";
 
