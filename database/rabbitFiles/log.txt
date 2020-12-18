@@ -66,8 +66,6 @@ Error [E_NOTICE] detected at 08:52:17pm on 12-15-2020: Undefined variable: _SESS
 
 Error [E_NOTICE] detected at 09:07:03pm on 12-15-2020: Undefined variable: _SESSION inside /var/www/html/index.php on line 78.
 
-<<<<<<< HEAD
-=======
 Error [E_NOTICE] detected at 01:55:11am on 12-18-2020: Undefined variable: client inside /home/nolan/git/News-Box-Application/webPages/hotStandby/isserveraliveU.php on line 35.
 
 Error [E_NOTICE] detected at 02:01:19am on 12-18-2020: Undefined variable: client inside /home/nolan/git/News-Box-Application/webPages/hotStandby/isserveraliveU.php on line 35.
@@ -86,4 +84,3 @@ Error [E_NOTICE] detected at 07:07:29am on 12-18-2020: Undefined index: forumPos
 
 Error [E_NOTICE] detected at 07:07:46am on 12-18-2020: Undefined index: forumPosts inside /var/www/html/forum.php on line 2.
 
->>>>>>> 805e81863461c6dc937721bb472f5625d2da52aa

@@ -7,8 +7,6 @@ require_once("../dbFunctions/notificationFunctions.php");
 function databaseAction($inputArray)
 {
 	$dbUser = "testUser";
-<<<<<<< HEAD
-=======
 	$dbPassword = "12345";
 	$conn = new PDO("mysql:host=localhost;dbname=testDB", $dbUser, $dbPassword);
 
@@ -20,7 +18,6 @@ function databaseAction($inputArray)
 		$remoteExists = true;
 	}catch (Exception $e){
 		$remoteExists = false;
->>>>>>> 805e81863461c6dc937721bb472f5625d2da52aa
 
 	$dbPassword = "12345";
 
