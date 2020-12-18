@@ -180,7 +180,25 @@
 h1{
   font-size: 25px;
 }
+#article .showForum{
+     background-color: #eee;
+     color: #444;
+     cursor: pointer;
+     padding: 18px;
+     border: none;
+     text-align: left;
+     outline: none;
+     font-size: 18px;
+     transition: 0.4s;
+     margin: 10px 0;
+     width:700px;
+     height: 250px;
+}
 
+#article{
+    margin-top:20px;
+    margin-bottom:20px;
+}
 
 button{
     background-color: skyblue;
