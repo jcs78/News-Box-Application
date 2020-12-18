@@ -1,10 +1,10 @@
 <?php
 require_once('../rabbitFiles/path.inc');
 require_once('../rabbitFiles/get_host_info.inc');
-require_once('../rabbitFiles/databaseRabbitMQLib.php');
+require_once('../rabbitFiles/webServerRabbitMQLib.php');
 
 
-$host="10.192.226.124";
+$host="10.192.0.0";
 
 
 exec("ping -c 4 " . $host, $output, $result);
@@ -18,7 +18,7 @@ if ($result == 0)
 	fwrite($myfile,$txt);
 	fclose($myfile);
 
-	$clientLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
+	$clientLog = new logSpeakerClient("webServerLogRabbitMQ.ini", "logServer");
 	$client->send_log('1');
 }
 
@@ -29,9 +29,9 @@ else
 	fwrite($myfile, $txt);
 	fclose($myfile);
 
-	//exec(" sudo systemctl start apache2 " );
+	exec("sudo systemctl start apache2");
 
-	$clientLog = new logSpeakerClient("databaseLogRabbitMQ.ini", "logServer");
+	$clientLog = new logSpeakerClient("webServerLogRabbitMQ.ini", "logServer");
 	$client->send_log('0');
 
 }

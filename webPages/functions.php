@@ -1,5 +1,6 @@
 #!/usr/bin/php
 <?php
+/*
 $dbFile = fopen('../hotStandby/isDatabaseAlive.txt','r');
 $is_db_primary_alive = fread($dbFile,1);
 fclose($dbFile);
@@ -9,6 +10,17 @@ if($is_db_primary_alive){
 }else{
 	require('rabbitFiles2/webServerRabbitMQLib.php');
 }
+
+$dbFile = fopen('../hotStandby/amialive.txt','r');
+$is_primary_alive = fread($dbFile,1);
+fclose($dbFile);
+
+if($is_primary_alive){
+	require('rabbitFiles/webServerRabbitMQLib.php');
+}else{
+	require('rabbitFiles2/webServerRabbitMQLib.php');
+}
+*/
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
