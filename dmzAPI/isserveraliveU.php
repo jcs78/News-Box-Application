@@ -2,7 +2,9 @@
 
 
 
-$host="1.2.3.4";
+
+
+$host="10.192.0.0"; 
 
 
 exec("ping -c 4 " . $host, $output, $result);
@@ -25,10 +27,17 @@ else
 	fclose($myfile);
 	
 	
-	exec(" sudo systemctl start apache2 " );
+	//shell_exec('/home/nmaster/git_one/News-Box-Application/dmzAPI/getArticles/sudo./techarticles.php'  );
+
+       //	exec("/home/nmaster/git_one/News-Box-Application/dmzAPI/getArticles/techarticles.php");
+
+
+
 }
 
+
 ?>
+
 
 
 
