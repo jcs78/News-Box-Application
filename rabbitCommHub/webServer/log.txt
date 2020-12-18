@@ -1,0 +1,4 @@
+Throwable Error Caught at 05:58:11pm on 12-14-2020: Socket error: could not connect to host. inside /home/hanhle/git/News-Box-Application/rabbitCommHub/webServer/webServerRabbitMQLib.php on line 595.
+
+Throwable Error Caught at 06:00:00pm on 12-14-2020: Socket error: could not connect to host. inside /home/hanhle/git/News-Box-Application/rabbitCommHub/webServer/webServerRabbitMQLib.php on line 595.
+
