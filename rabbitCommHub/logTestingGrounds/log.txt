@@ -80,3 +80,5 @@ Error [E_NOTICE] detected at 09:13:46pm on 12-15-2020: Array to string conversio
 
 Error [E_WARNING] detected at 10:57:53pm on 12-16-2020: fopen(test.txt): failed to open stream: No such file or directory inside /home/nolan/git/News-Box-Application/database/hotStandby/checkStatus.php on line 3.
 
+Throwable Error Caught at 08:18:21pm on 12-17-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/rabbitCommHub/logTestingGrounds/rabbitCommHubRabbitMQLib.php on line 485.
+
