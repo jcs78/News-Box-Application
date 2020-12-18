@@ -2,7 +2,7 @@
 
 tar -czvf databaseZip_Deploy.tar.gz database
 
-mv ~/git/news-box-app/databaseZip_Deploy.tar.gz ~/git/news-box-app/localZipStorage
+mv ./databaseZip_Deploy.tar.gz ./localZipStorage
 
-scp ~/git/news-box-app/localZipStorage/databaseZip_Deploy.tar.gz jcs78@127.0.0.1:/home/jcs78/git/news-box-app/deploySystem/vmBuilds/buildsDatabase/buildLimbo
+scp ./localZipStorage/databaseZip_Deploy.tar.gz jcs78@10.192.224.108:/home/jcs78/git/news-box-app/deploySystem/vmBuilds/buildsDatabase/buildLimbo
 

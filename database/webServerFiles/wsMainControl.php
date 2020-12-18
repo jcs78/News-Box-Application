@@ -18,6 +18,7 @@ function databaseAction($inputArray)
 		$remoteExists = true;
 	}catch (Exception $e){
 		$remoteExists = false;
+	}
 
 	$dbPassword = "12345";
 
@@ -152,6 +153,4 @@ function databaseAction($inputArray)
 		}
 	}
 }
-
-
 ?>
