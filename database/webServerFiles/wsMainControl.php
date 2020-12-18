@@ -7,13 +7,22 @@ require_once("../dbFunctions/notificationFunctions.php");
 function databaseAction($inputArray)
 {
 	$dbUser = "testUser";
-
 	$dbPassword = "12345";
-
 	$conn = new PDO("mysql:host=localhost;dbname=testDB", $dbUser, $dbPassword);
 
-	$action = $inputArray['type'];
 
+	try{
+		$remoteDbUser = "testUser";
+		$remoteDbPassword = "12345";
+		$remoteConn = new PDO("mysql:host=;port=3306;dbname=testDB", $dbUser, $dbPassword);
+		$remoteExists = true;
+	}catch (Exception $e){
+		$remoteExists = false;
+
+	}
+
+
+	$action = $inputArray['type'];
 	switch($action)
 	{
 		case'register':
@@ -38,6 +47,11 @@ function databaseAction($inputArray)
 				//Data type of $newUser is an array
 				$responseArr = registerUser($conn, $newUsername, $newPassword, $newPrefsString);
 
+				if($remoteExists){
+					$responseArr = registerUser($remoteConn, $newUsername, $newPassword, $newPrefsString);
+
+				}
+
 				//print_r($responseArr);
 				return $responseArr;
 			}else{
@@ -57,6 +71,10 @@ function databaseAction($inputArray)
 				$loginPassword = hash('sha512', $inputArray['password']);
 
 				$validUser = validUserLogin($conn, $loginUsername, $loginPassword);
+
+				if($remoteExists){
+					$responseArr = validUserLogin($remoteConn, $loginUsername, $loginPassword);
+				}
 
 				return $validUser;
 
