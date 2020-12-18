@@ -62,7 +62,7 @@
 	<?php foreach($forumPosts as $forumPost):?>
 
          <section class="article">
-                <div>
+                <div class="showforum">
                         <form action="index.php" method="post">
                                 <button type ="submit">
                                         <input type="hidden" name="action" value="showSingleForumPost">
