@@ -22,9 +22,24 @@ exit();
 
 function storeLogs($request)
 {
-	$fp = fopen('log.txt', 'a');
-	fwrite($fp, $request . "\n");
-	fclose($fp);
+	if ($request == '0'){
+
+		$dbStatusFile = fopen('../hotStandby/isDatabaseAlive.txt','w');
+
+		fwrite($dbStatusFile, '0');
+		fclose($dbStatusFile);
+
+	}else if($request == '1'){
+		$dbStatusFile = fopen('../hotStandby/isDatabaseAlive.txt','w');
+
+		fwrite($dbStatusFile, '1');
+		fclose($dbStatusFile);
+
+	}else{
+		$fp = fopen('log.txt', 'a');
+		fwrite($fp, $request . "\n");
+		fclose($fp);
+	}
 
 //	echo $request;
 }

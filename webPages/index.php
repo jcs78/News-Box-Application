@@ -72,12 +72,9 @@ switch ($webServerAction)
 	}
 	case 'showHome':
 	{
+		$userID = $_SESSION['userID'];
 
-		$request = array();
-		$request['type'] = "getArticles";
-		$request['userID'] = $_SESSION['userID'];
-
-		$articles = speak($request);
+		$articles = getArticles($userID);
 		//print_r($articles);
 
 		$_SESSION['articles'] = $articles;

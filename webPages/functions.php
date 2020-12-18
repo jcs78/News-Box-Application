@@ -1,8 +1,14 @@
 #!/usr/bin/php
 <?php
+$dbFile = fopen('../hotStandby/isDatabaseAlive.txt','r');
+$is_db_primary_alive = fread($dbFile,1);
+fclose($dbFile);
 
-require('rabbitFiles/webServerRabbitMQLib.php');
-require('rabbitFiles2/webServerRabbitMQLib.php');
+if($is_db_primary_alive){
+	require('rabbitFiles/webServerRabbitMQLib.php');
+}else{
+	require('rabbitFiles2/webServerRabbitMQLib.php');
+}
 
 error_reporting(E_ALL);
 set_error_handler("handleError");
@@ -17,6 +23,16 @@ function testSpeaker(){
 }
 
 //print_r(testSpeaker());
+
+function getArticles($userID){
+	$request = array();
+        $request['type'] = "getArticles";
+        $request['userID'] = $userID;
+
+        $articles = speak($request);
+
+	return $articles;
+}
 
 function validateLogin($un, $pw)
 {
