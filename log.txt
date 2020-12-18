@@ -1,0 +1,4 @@
+Throwable Error Caught at 04:37:50am on 12-18-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployRabbitMQLib.php on line 612.
+
+Throwable Error Caught at 04:42:00am on 12-18-2020: Socket error: could not connect to host. inside /home/jcs78/git/news-box-app/deploySystem/rabbitMQ_log/deployRabbitMQLib.php on line 612.
+
